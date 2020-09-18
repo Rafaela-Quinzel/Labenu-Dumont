@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabecalho{
+  text-align: center;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(226, 224, 222);
+  background-color: teal;
+  text-shadow: black 0px 0px 4px;
+  padding: 40px;
+  margin: 0;
+}
+
+.fotoperfil{
+    width: 100px;
+    border-radius: 100px;
+ 
+}
+
+.projeto{
+    text-decoration: none;
+
+}
+
+a{
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+a:hover{
+    color: teal;
+}
+
+
+h2{
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+  text-align: center;
+  padding: 40px;
+}
+
+
+.imagemprojeto{
+    width: 200px;
+    padding: 30px;
+}
+
+.informacoes{
+    background-color: rgba(88, 92, 92, 0.5);
+}
+
+.galeria{
+   background-color: rgb(55, 56, 56);
+}
+
+.formulario{
+    background-color: rgba(88, 92, 92, 0.5);
+    padding: 20px;
+
+}
+
+.caixademensagens{
+   padding: 60px;;
+   display: flex;
+   flex: 500px;
+
+}
+
+.rodape{
+    background-color: teal;
+    color: rgb(245, 245, 245);
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: black 0px 0px 2px;
+}
+
+.whatsapp{
+    width: 50px;
+    padding-right: 10px;
+}
+
+.instagram{
+    width: 50px;
+    padding-right: 10px;
+}
+
+.github{
+    width: 50px;
+    padding-right: 10px;
+}
+
+.linkedin{
+    width: 50px;
+}
+
