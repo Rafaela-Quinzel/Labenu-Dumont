@@ -120,6 +120,11 @@ td button {
     color: black;
 }
 
+img {
+    width: 40px;
+    /*Acrescentei o seletor img com a propriedade width: 40px*/
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
