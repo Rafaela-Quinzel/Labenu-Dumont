@@ -44,6 +44,12 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+     /*Acrescentei as propriedadese valores a baixo */
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translateX(-50%) translateY(-50%);
+   
 }
 
 .botao-amarelo:hover {
@@ -83,6 +89,7 @@ div img {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
+
 }
 
 
