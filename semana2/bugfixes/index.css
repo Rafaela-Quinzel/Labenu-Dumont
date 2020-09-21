@@ -6,7 +6,6 @@
 
 * {
     font-family: "roboto";
-    padding: 0;
     margin: 0;
 }
 
@@ -45,8 +44,8 @@ div img {
      /*Acrescentei as propriedadese valores a baixo */
     position: absolute;
     left: 50%;
-    top: 90%;
-    transform: translateX(-50%) translateY(-50%); 
+    top: 120%;
+    transform: translateX(-50%) translateY(130%);
 }
 
 .botao-amarelo:hover {
@@ -88,11 +87,13 @@ div img {
 #container-de-descricao>ol {
     padding: 55px 0px;
     text-align: center;
-    list-style-type: disc;
+    list-style-position: inside;
 }
 
 #container-para-comprar {
     background-color: #e7eb90;
+    padding-top: 8%;
+    
 }
 
 #container-para-comprar>p {
@@ -157,8 +158,7 @@ td button {
     width: 20px;
     height: 20px;
     background: white;
-}
-/*Acrescentei a classe e as propriedades a cima*/
+} /*Acrescentei a classe e as propriedades a cima*/
 
 
 #back-button {
@@ -169,6 +169,7 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    /*Acrescentei a classe e as propriedades a abaixo*/
     position: absolute;
     left: 50%;
     top: 70%;
