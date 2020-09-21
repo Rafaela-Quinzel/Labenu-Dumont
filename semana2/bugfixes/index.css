@@ -107,7 +107,9 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+    width: 100%;
+    text-align: center;
+    /*Alterei a width de 60% para 100% e coloquei o text-align: center*/
 }
 
 td button {
