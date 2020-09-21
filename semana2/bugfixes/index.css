@@ -141,12 +141,22 @@ td button {
     height: 100px;
 }
 
+/*Acrescentei a classe e as propriedades a baixo*/ 
+.search{
+    border-style: solid;
+    border-bottom-width: 2px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+
+}
+
 .icone {
     width: 20px;
     height: 20px;
     background: white;
 }
-/*Acrescentei a classe e as propriedade a cima*/
+/*Acrescentei a classe e as propriedades a cima*/
 
 
 #back-button {
