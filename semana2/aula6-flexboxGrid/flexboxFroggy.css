@@ -1,0 +1,136 @@
+#nivel-1 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#nivel-2 {
+    display: flex;
+    justify-content:center;
+}
+
+#nivel-3 {
+    display: flex;
+    justify-content:space-around;
+}
+
+#nivel-4 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#nivel-5 {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+#nivel-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nivel-7 {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+#nivel-8 {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#nivel-9 {
+    display: flex;
+    flex-direction: column;
+}
+
+#nivel-10 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:flex-end;
+}
+
+#nivel-11 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#nivel-12 {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+#nivel-13 {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+}
+
+#nivel-14 {
+    display: flex;
+    order: 1; /* .amarelo {order: 1;} */  
+}
+
+#nivel-15 {
+    display: flex;
+    order: -1; /* .red {order: -1;} */
+}
+
+#nivel-16 {
+    display: flex;
+    align-self: flex-end;
+}
+
+#nivel-17 {
+    display: flex;
+    order: 3; /* .amarelo {order: 3; align-self: flex-end;} */
+    align-self: flex-end; /* .amarelo {order: 3; align-self: flex-end;} */
+}
+
+#nivel-18 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#nivel-19 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#nivel-20 {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#nivel-21 {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+}
+
+#nivel-22 {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+#nivel-23 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    align-content: center;
+}
+
+#nivel-24 {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+    align-content: space-between;
+    justify-content: center;
+}
