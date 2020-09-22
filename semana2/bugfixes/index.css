@@ -45,8 +45,8 @@ div img {
      /*Acrescentei as propriedadese valores a baixo */
     position: absolute;
     left: 50%;
-    top: 120%;
-    transform: translateX(-50%) translateY(130%);
+    top: auto;
+    transform: translateX(-50%) translateY(250%);
 }
 
 .botao-amarelo:hover {
@@ -66,10 +66,18 @@ div img {
     text-align: center;
 }
 
+/*Acrescentei as classes e propriedades a baixo*/
 .icone {
     height: 15px;
 }
-/*Acrescentei a classe e propriedade a cima*/
+
+.icone:active {
+    opacity: 1;
+}
+
+.icone:hover {
+    opacity: 0.5;
+}
 
 
 /** 
