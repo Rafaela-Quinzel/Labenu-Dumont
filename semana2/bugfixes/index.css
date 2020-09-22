@@ -1,0 +1,195 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+
+* {
+    font-family: "roboto";
+    margin: 0;
+    outline: none;
+}
+
+h2 {
+    background-color: #fe7e02;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    text-align: center;
+}
+
+input {
+    height: 20px;
+    width: 500px;
+}
+
+button:focus {
+    color: white;
+}
+
+
+div>p:first-child {
+    display: inline;
+}
+
+div img {
+    background: white;
+}
+
+.botao-amarelo {
+    background-color: #ffaf43;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+     /*Acrescentei as propriedadese valores a baixo */
+    position: absolute;
+    left: 50%;
+    top: auto;
+    transform: translateX(-50%) translateY(250%);
+}
+
+.botao-amarelo:hover {
+    background-color: #c44f00;
+}
+
+.botao-amarelo:active {
+    color: white;
+}
+
+.botao-comprar:hover{
+    background-color: #8b7d3c;
+}
+
+.container {
+    height: 500px;
+    text-align: center;
+}
+
+/*Acrescentei as classes e propriedades a baixo*/
+.icone {
+    height: 15px;
+}
+
+.icone:active {
+    opacity: 1;
+}
+
+.icone:hover {
+    opacity: 0.5;
+}
+
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+
+#container-de-descricao {
+    background-color: #2274a5;
+    color: white;
+    padding-top: 10%;
+      /*Acrecentei a proriedade padding*/
+}
+
+#container-de-descricao>ol {
+    padding: 55px 0px;
+    text-align: center;
+    list-style-position: inside;
+}
+
+#container-para-comprar {
+    background-color: #e7eb90;
+    padding-top: 8%;
+    
+}
+
+#container-para-comprar>p {
+    color: #c44f00;
+    padding: 100px 0;
+    font-size: 60px;
+}
+
+
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+div:nth-child(2),
+div:last-child {
+    text-align: center;
+}
+
+#tabela{
+    width: 65%;
+    margin: auto;
+    text-align: center;
+    transform: translate(5%);
+    /*Alterei as propriedades a cima*/
+}
+
+
+
+td button {
+    background-color: #fadf63;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+}
+
+
+.img-produto {
+    width: 40px;
+    height: 40px;
+    /*Acrescentei img-produto com a propriedade width e height */
+}
+
+.container-do-search {
+    margin-top: 20px;
+    height: 100px;
+}
+
+/*Acrescentei a classe e as propriedades a baixo*/ 
+.search{
+    border-style: solid;
+    border-bottom-width: 2px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+
+}
+
+.icone {
+    width: 20px;
+    height: 20px;
+    background: white;
+} /*Acrescentei a classe e as propriedades a cima*/
+
+
+#back-button {
+    background-color: white;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 10px;
+    color: black;
+    /*Acrescentei a classe e as propriedades a abaixo*/
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#back-button:hover {
+    background-color: #635a3d
+}
+
+#back-button:active {
+    color: white;
+}
+/*Acrescentei o :active e propriedade a cima*/
