@@ -1,0 +1,57 @@
+ /* Nível-1 */
+  #água {
+    grid-column-start: 3;
+ }
+
+ /* Nível-2 */
+  #Poção {
+    grid-column-start: 5;
+  }
+
+ /* Nível-3 */
+  #água {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+ /* Nível-4 */
+  #água {
+    grid-column-start: 5;
+    grid-column-end: -5;
+  }
+    
+ /* Nível-5 */
+  #água {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+
+ /* Nível-6 */
+  #Poção {
+    grid-column-start: -3;
+  }
+
+ /* Nível-7 */
+  #water {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+  }
+
+ /* Nível-8 */
+  #water {
+    grid-column-start: 1;
+    grid-column-end: span 5;
+  }
+
+  /* Nível-9 */
+  #water {
+    grid-column-start: span 3;
+    grid-column-end: 6;
+  }
+
+  /* Nível-10 */
+  #water {
+    grid-column: 4 / 6;
+  }
+
+ 
