@@ -1,0 +1,158 @@
+ /* Nível-1 */
+  #água {
+    grid-column-start: 3;
+ }
+
+ /* Nível-2 */
+  #Poção {
+    grid-column-start: 5;
+  }
+
+ /* Nível-3 */
+  #água {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+ /* Nível-4 */
+  #água {
+    grid-column-start: 5;
+    grid-column-end: -5;
+  }
+    
+ /* Nível-5 */
+  #água {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+
+ /* Nível-6 */
+  #Poção {
+    grid-column-start: -3;
+  }
+
+ /* Nível-7 */
+  #water {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+  }
+
+ /* Nível-8 */
+  #water {
+    grid-column-start: 1;
+    grid-column-end: span 5;
+  }
+
+ /* Nível-9 */
+  #water {
+    grid-column-start: span 3;
+    grid-column-end: 6;
+  }
+
+ /* Nível-10 */
+  #water {
+    grid-column: 4 / 6;
+  }
+
+ /* Nível-11 */
+  #water {
+    grid-column: 2/span 3; 
+  }
+
+ /* Nível-12 */
+  #water {
+    grid-row-start: 3;
+  }
+
+ /* Nível-13 */
+  #water {
+    grid-row: 3/span 3;
+  }
+
+ /* Nível-14 */
+  #poison {
+    grid-column: 2;
+    grid-row: 5;
+  }
+
+ /* Nível-15 */
+  #water {
+    grid-column: 2/span 5;
+    grid-row: 1/span 5;
+  }
+
+ /* Nível-16 */
+  #water {
+    grid-area: 1 / 2 / 4 / 6;
+  }
+
+ /* Nível-17 */
+  #water-2 {
+    grid-area: 2 / 3 / 5 / 6;
+  }
+
+ /* Nível-18 */
+  #poison {
+    order: 4;
+  }
+
+ /* Nível-19 */
+  .poison {
+    order: -1;
+  }
+
+ /* Nível-20 */
+  #garden {
+    display: grid;
+    grid-template-columns: 50%
+  }
+
+ /* Nível-21 */
+  #garden {
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%); 
+  }
+
+ /* Nível-22 */
+  #garden {
+    display: grid;
+    grid-template-columns: 100px 3em 40%;
+  }
+
+ /* Nível-23 */
+  #garden {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+  }
+
+ /* Nível-24 */
+  #garden {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 1fr 50px;
+  }
+
+ /* Nível-25 */
+  #garden {
+    display: grid;
+    grid-template-columns: 75px 3fr 2fr;
+  }
+
+ /* Nível-26 */
+  #garden {
+    display: grid;
+    grid-template-rows: 50px 0fr 0fr 0fr 1fr;
+  }
+
+ /* Nível-27 */
+  #garden {
+    display: grid;
+    grid-template: 60% 50% / 200px;
+  }
+
+ /* Nível-28 */
+  #garden {
+    display: grid;
+    grid-template: 1fr 50px / 20% 80%;
+  }
+
+ 
