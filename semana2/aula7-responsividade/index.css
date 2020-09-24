@@ -34,14 +34,6 @@ div {
     border: none;
 }
 
-
-#black-block{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border: none;
-}
-
-
 #first-block {
     background-color: red;
     height: 10vh;
@@ -55,7 +47,6 @@ div {
     background-color: blue;
     height: 15vh;
     margin: 10px;
-    margin: 1em;
     gap: 1em;
     display: grid;
     justify-items: center;
@@ -66,6 +57,7 @@ div {
     background-color: yellow;
     height: 15vh;
     margin: 10px;
+    gap: 1em;
     display: grid;
     justify-items: center;
     align-items: center; 
@@ -75,6 +67,7 @@ div {
     background-color: green;
     height: 15vh;
     margin: 10px;
+    gap: 1em;
     display: grid;
     justify-items: center;
     align-items: center; 
@@ -94,25 +87,18 @@ div {
     background-color: white;
     height: 15vh;
     margin: 10px;
+    gap: 1em;
     display: grid;
     justify-items: center;
     align-items: center; 
 }
 
-@media screen and (min-width: 200px) and (max-width: 600px) {
-    #third-block {
-    grid-template-columns: 1fr;
-    }
-
-    #black-block {
-        grid-template-columns: 1fr;
-    }
-
-    #white-block {
-        grid-template-columns: 1fr;
-    }
-
-    #black-block{
-        grid-template-columns: 1fr;
-    }
+.white-block11 {
+    background-color: white;
+    height: 15vh;
+    margin: 10px;
+    gap: 1em;
+    display: grid;
+    justify-items: center;
+    align-items: center; 
 }
