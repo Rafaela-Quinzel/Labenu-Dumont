@@ -1,0 +1,66 @@
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-shadow: 3px 3px 2px black;
+}
+
+header{
+    background-color: rgb(192, 139, 24);
+    height: 10%;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+
+b {
+    font-size: 28px;
+    padding-right: 70%;
+    color: ghostwhite;
+}
+
+p{
+    text-align: center;
+    color: ghostwhite;
+    border: 1px solid rgba(105, 105, 105, 0.5);
+    padding: 10px;
+    margin-right: 20px;
+}
+
+
+
+#search {
+    width: 40px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+#video{
+   width: 350px;
+}
+
+
+ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row: 1/4;
+}
+ 
+footer{
+    background-color:  rgb(180, 110, 30);
+    text-align: center;
+    position: sticky;
+    margin: 0;
+
+}
+
+.logosocial{
+    width: 40px;
+    padding: 40px 30px;
+    margin: 0;
+    
+}
