@@ -1,10 +1,10 @@
-body{
+body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(248, 245, 245, 0.137);
 }
 
-
-#home{
+#home {
     background-color: rgb(19,34,53);
     height: 15vh;
     display: flex;
@@ -12,29 +12,26 @@ body{
     align-items: center;
 }
 
-#linkmenu{
-    color: rgb(109,218,211);
-    border: 1px solid azure;
-    background-color: rgba(0, 0, 0, 0.171);
-    text-align: right;
-    padding: 1vh;
-    margin-right: 1%;
-    font-size: 12px;
-}
-
-
-#logo2{
-    width: 10%;
-    border-radius: 10px;
-    margin-top: 5%;
-}
-
-#logo{
+#logo {
     width: 16%;
     margin-right: 35%;
 }
 
-#login{
+a {
+    text-decoration: none;
+}
+
+#linkhome {
+    color: rgb(109,218,211);
+    border: 1px solid azure;
+    background-color: rgba(0, 0, 0, 0.171);
+    text-align: right;
+    padding: 2vh;
+    margin-right: 1%;
+    font-size: 2vh;
+}
+
+#login {
     color: rgb(220, 236, 235);
     border: 1px solid azure;
     background-color: rgba(38, 226, 226, 0.274);
@@ -43,61 +40,178 @@ body{
     margin-right: 1%;
 }
 
-#cadastro{
+#cadastro {
     color: rgb(220, 236, 235);
     border: 1px solid azure;
     background-color: rgba(38, 226, 226, 0.274);
     text-align: right;
     padding: 2vh;
-    margin-bottom: 0;
+    margin-right: 1%;
 }
 
-#about{
-    text-align: center;  
+#search {
+    padding: 40px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
 }
 
-li{
+#search1 {
+    width: 65vw;
+    margin-left: 10vw;
+    margin-top: 20vh;
+    padding: 40px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+
+#search2 {
+    padding: 40px 10px;
+    margin-left: 10vw;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+
+#loupe {
+    width: 3%;
+    margin-left: 1%;
+    padding-top: 2%;
+    position: absolute;
+}
+
+#about {
+    text-align: center;
+    color:  rgb(41, 75, 119);  
+}
+
+#infortation {
+    color:  rgb(41, 75, 119);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    line-height: 25px;
+}
+
+h3 {
+    text-align: center;
+    color:  rgb(41, 75, 119);
+}
+
+h2 {
+    text-align: center;
+    color:  rgb(41, 75, 119);
+}
+
+#aluga {
+    font-size: 14px;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: grid;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-right: 2px solid #11055786;
+}
+
+#anuncia {
+    font-size: 14px;
+    margin-left: 2%;
+    display: grid;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+li {
     list-style: none;
 }
 
-#adverts{
+
+ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: 1/4;
+    color: rgb(41, 75, 119);
+    justify-items: center;
+    text-align: center; 
+}
+
+#locations {
     text-align: center;
+    color: rgb(41, 75, 119);
 }
 
-#states{
-    text-align: center;
+#fotodestaque {
+    width: 50vh;
 }
 
-#loupe{
-    width: 4%;
+#fotolocal {
+    height: 15vw;
+    padding: 2vw;
 }
 
-footer{
+#footerhome {
     background-color: rgb(19,34,53);
     width: 100%;
-    height: 50vh;
+    height: 25vh;
+    position: fixed;
+    bottom: 0;
 }
 
-#social{
-
-}
-
-
-#menu{
+#footer {
     background-color: rgb(19,34,53);
-    font-size: 12px;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center; 
+    width: 100%;
+    height: 27vh;
+    bottom: 0;
 }
 
-
-#logofacebook{
-    width: 5vh;
-    margin: 10px;
+#logo2 {
+    width: 10%;
+    border-radius: 10px;
+    margin-left:2%;
 }
 
-#logoinstagram{
-    width: 5vh;
-    margin: 10px;
+#logofacebook {
+    width: 4vh;
+    margin-left: 2%;
+    padding-bottom: 2%;
+}
+
+#logoinstagram {
+    width: 4vh;
+    margin-left: 1%;
+    padding-bottom: 2%;
+}
+
+#logotwitter {
+    width: 4vh;
+    margin-left: 1%;
+    padding-bottom: 2%;
+}
+
+#menu {
+    color: blanchedalmond;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#contato {
+    padding: 2% 5%;
+    color: rgb(41, 75, 119);
+    margin: 0;
+}
+
+#dados {
+    padding: 10px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+
+#caixademensagens {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 40px 85px;
+}
+
+#botaoenviar{
+    padding: 0.5% 10%;
+    color: rgb(209, 221, 236);
+    border: 2px solid rgba(0, 0, 0, 0.137);
+    background-color: rgba(20, 37, 59, 0.993);
 }
