@@ -1,0 +1,290 @@
+/***** Gerais *****/
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(248, 245, 245, 0.137);
+}
+
+#logo {
+    width: 40%; 
+}
+
+a {
+    text-decoration: none;
+}
+
+h3 {
+    text-align: center;
+    color:  rgb(41, 75, 119);
+}
+
+h2 {
+    text-align: center;
+    color:  rgb(41, 75, 119);
+}
+
+ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: 1/4;
+    color: rgb(41, 75, 119);
+    justify-items: center;
+    text-align: center; 
+}
+
+li {
+    list-style-type: none;    
+}
+
+#botaovoltar {
+    display: none;
+}
+
+/***** Página inicial *****/
+#home {
+    background-color: rgb(19,34,53);
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+}
+
+#linkhome {
+    color: rgb(109,218,211);
+    border: 1px solid azure;
+    background-color: rgba(0, 0, 0, 0.171);
+    text-align: right;
+    padding: 1vh;
+    margin-right: 1%;
+    font-size: 2vh;
+}
+
+#login {
+    color: rgb(220, 236, 235);
+    border: 1px solid azure;
+    background-color: rgba(38, 226, 226, 0.274);
+    text-align: right;
+    padding: 2vh;
+    margin-right: 1%;
+}
+
+#cadastro {
+    color: rgb(220, 236, 235);
+    border: 1px solid azure;
+    background-color: rgba(38, 226, 226, 0.274);
+    text-align: right;
+    padding: 2vh;
+}
+
+#iconinfo{
+    display: none;
+    width: 5vh;
+    margin: 5% 80%;
+    text-align: right;
+}
+
+
+#search {
+    padding: 40px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+
+#search1 {
+    width: 65vw;
+    margin-left: 15vw;
+    margin-top: 10vh;
+    padding: 40px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+
+#search2 {
+    padding: 40px 10px;
+    margin-left: 15vw;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+
+#loupe {
+    width: 3%;
+    margin-left: 1%;
+    padding-top: 2%;
+    position: absolute;
+}
+
+/***** Quem somos *****/
+#about {
+    text-align: center;
+    line-height: 40px;
+    color:  rgb(41, 75, 119);  
+}
+
+#infortation {
+    color:  rgb(41, 75, 119);
+    display: grid;
+    justify-items: center;
+    margin: 2%;
+}
+
+#aluga {
+    font-size: 14px;
+    line-height: 25px;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: grid;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-right: 2px solid #11055241;
+}
+
+#anuncia {
+    font-size: 14px;
+    line-height: 25px;
+    margin-left: 10%;
+    display: grid;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+#descrição {
+    list-style: none;
+    background-color: rgba(71, 203, 207, 0.13);
+    border: 1px solid #11055241;
+    padding: 4%;
+}
+
+#locations {
+    text-align: center;
+    color: rgb(41, 75, 119);
+}
+
+#fotodestaque {
+    width: 50vh;
+}
+
+#fotolocal {
+    height: 15vw;
+    padding: 2vw;
+}
+
+/***** Fale conosco *****/
+#contato {
+    padding-left: 5%;
+    color: rgb(41, 75, 119);
+    margin-top: 4%;
+}
+
+#dados {
+    padding: 10px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+
+#caixademensagens {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 100px 100px;
+}
+
+#botaoenviar {
+    padding: 0.5% 10.5%;
+    color: rgb(209, 221, 236);
+    border: 2px solid rgba(0, 0, 0, 0.137);
+    background-color: rgba(20, 37, 59, 0.993);
+}
+
+/***** Login *****/
+#loginpage {
+    padding: 4% 5%;
+    color: rgb(41, 75, 119);
+    margin: 1% 10%;
+    display: flex;
+    justify-content: center;
+}
+
+#email {
+    padding: 3% 7%;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+}
+
+#senha {
+    padding: 3% 7%;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    text-align: left;
+}
+
+#botaologar {
+    padding: 2% 49%;
+    color: rgb(209, 221, 236);
+    border: 2px solid rgba(0, 0, 0, 0.137);
+    background-color: rgba(20, 37, 59, 0.993);
+}
+
+/***** Cadastro *****/
+
+#botaocadastrar {
+    padding: 2% 49%;
+    color: rgb(209, 221, 236);
+    border: 2px solid rgba(0, 0, 0, 0.137);
+    background-color: rgba(20, 37, 59, 0.993);
+}
+
+/***** Footer *****/
+#menu {
+    background-color: rgba(19, 34, 53, 0.616);
+    color: blanchedalmond;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around; 
+    margin-top: 10%;
+    padding: 1% 10%;
+}
+
+#firstfooter {
+    background-color: rgb(19, 34, 53);
+    text-align: center;
+    width: 100%;
+    height: 34vh;
+    position: fixed;
+    padding: 0
+}
+
+#secondfooter {
+    background-color: rgb(19, 34, 53);
+    text-align: center;
+    width: 100%;
+    height: 25vh;
+    padding: 0;      
+}
+
+#logo2 {
+    width: 10%;
+    margin-left:2%;
+    padding-bottom: 1%;
+}
+
+#socialicons {
+    text-align: center;
+}
+
+#logofacebook {
+    width: 4vh;
+    margin-right: 2%;
+    margin-left: 3%;
+    padding-bottom: 2%;
+}
+
+#logoinstagram {
+    width: 4vh;
+    margin-right: 2%;
+    padding-bottom: 2%;
+}
+
+#logotwitter {
+    width: 4vh;
+    padding-bottom: 2%;
+}
+ 
+
+
+

@@ -1,0 +1,200 @@
+/***** Responsividade geral *****/
+@media screen and (min-width: 200px) and (max-width: 600px) {
+    #logo {
+        width: 40%;
+        margin-left: 5%;
+    }
+
+    #linkhome {
+        display: none;
+    }
+
+    #login {
+        padding: 1vh;
+        font-size: 10px;
+        margin-right: 2%;
+    }
+
+    #cadastro {
+        padding: 1vh;
+        font-size: 10px;
+        margin-right: 2%;
+    }
+
+    #botaovoltar {
+        display: flex;
+        justify-content: center;
+        padding: 1% 10%;
+        margin: 10% 35%;
+        color: rgb(209, 221, 236);
+        border: 2px solid rgba(0, 0, 0, 0.137);
+        background-color: rgba(20, 37, 59, 0.993);
+    }
+
+    #menu {
+        font-size: 9px;
+        margin-top: 30%;
+        padding: 2% 10%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+
+    #logo2 {
+        width: 30%;
+        padding: 2%;
+    }
+
+    #secondfooter {
+        width: 100%;
+        height: 20vh;
+        position: absolute;
+        padding: 0;
+    }
+
+    /***** Responsividade home *****/
+    #iconinfo {
+        display: grid;
+        width: 5vh;
+        margin: 3% 75%;
+        text-align: right;
+    }
+
+    #menuinfo {
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        margin: 28% 5%;
+    }
+
+    #linkinfo {
+        font-size: 12px;
+        margin-left: 4%;
+        padding: 2% 2%;
+        color: rgb(228, 227, 240);
+        border: 1px solid rgba(8, 9, 87, 0.562);
+        background-color: rgba(11, 94, 105, 0.774);
+    }
+
+    #search {
+        display: none;
+    }
+
+    #search1 {
+        width: 66vw;
+        margin-left: 15vw;
+        margin-top: 10vh;
+        padding: 20px 10px;
+        text-align: left;
+    }
+
+    #search2 {
+        padding: 20px 10px;
+        width: 50vw;
+        margin-left: 15vw;
+    }
+
+    #loupe {
+        width: 8%;
+        margin-left: 2%;
+        padding-top: 4%;
+        position: absolute;
+    }
+
+    /***** Responsividade quemsomos *****/
+    #about {
+        font-size: 12px;
+        line-height: 20px;
+        margin: 2% 5%;
+    }
+
+    #infortation {
+        font-size: 12px;
+        line-height: 20px;
+        margin: 2% 5% 0%;
+    }
+
+    #aluga {
+        font-size: 11px;
+        line-height: 20px;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    #anuncia {
+        font-size: 11px;
+        line-height: 20px;
+        margin-left: 1%;
+    }
+
+    /***** Responsividade anúncios *****/
+    #fotodestaque {
+        width: 85vw;
+    }
+
+    #descrição {
+        margin-right: 12%;
+        font-size: 12px;
+    }
+
+    ol {
+        grid-template-columns: 1fr;
+    }
+
+    li {
+        padding-right: 20%;
+    }
+
+    #locations {
+        font-size: 11px;
+    }
+
+    #fotolocal {
+        height: 20vw;
+        padding: 2vw;
+    }
+
+    h2 {
+        font-size: 12px;
+    }
+
+    /***** Responsividade contato *****/
+    #contato {
+        font-size: 12px;
+    }
+
+    #dados {
+        font-size: 11px;
+    }
+
+    #caixademensagens {
+        padding: 100px 80px;
+    }
+
+    #botaoenviar {
+        padding: 0.5% 15%;
+        width: 79%;
+    }
+
+    /***** Responsividade login *****/
+    #loginpage {
+        font-size: 12px;
+    }
+
+    #botaologar {
+        padding: 2% 42%;
+    }
+
+    /***** Responsividade cadastro *****/
+    #loginpage {
+        font-size: 12px;
+    }
+
+    #botaocadastrar {
+        padding: 2% 38%;
+    }
+
+
+
+
+}
