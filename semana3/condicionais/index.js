@@ -34,96 +34,93 @@
 
 
 // Exercício 3 - Interpretação de código //
-// const numero = Number(prompt("Digite o primeiro número.")) //---> Resposta a.: Está pedindo ao usuário que digite o primeiro número.
+const numero = Number(prompt("Digite o primeiro número.")) //---> Resposta a.: Está pedindo ao usuário que digite o primeiro número.
 
-// if(numero > 0) {
-//   console.log("Esse número passou no teste")    //---> Resposta b.: mensagem impressa no console digitando o número 10: "Esse número passou no teste"
-// 	let mensagem = "Essa mensagem é secreta!!!"  //---> Resposta b.: mensagem impressa no console digitando o número -10: "Uncaught ReferenceError: mensagem is not defined"
-// }        //---> Resposta c.: está faltando o "else" para imprimir uma mensagem ao usuário, caso digite um número que não seja dentro da condição inicial.
+if(numero > 0) {
+  console.log("Esse número passou no teste")    //---> Resposta b.: mensagem impressa no console digitando o número 10: "Esse número passou no teste"
+	let mensagem = "Essa mensagem é secreta!!!"  //---> Resposta b.: mensagem impressa no console digitando o número -10: "Uncaught ReferenceError: mensagem is not defined"
+}        //---> Resposta c.: está faltando o "else" para imprimir uma mensagem ao usuário, caso digite um número que não seja dentro da condição inicial.
 
-// console.log(mensagem)
+console.log(mensagem)
 
 
 
 // Exercício 4 - Escrita de código //
-// let idade
-// idade = Number(prompt("Qual é a sua idade?"))
+let idade
+idade = Number(prompt("Qual é a sua idade?"))
 
-// if(idade >= 18) {
-//     console.log("Você pode dirigir!")
-// } else {
-//     console.log("Você não pode dirigir!")
-// }
+if(idade >= 18) {
+    console.log("Você pode dirigir!")
+} else {
+    console.log("Você não pode dirigir!")
+}
 
 
 // Exercício 5 - Escrita de código //
-// let turno
-// turno = prompt("Em qual turno você estuda? \n Responda - M (matutino) ou V (vespertino) ou N (noturno)").toLocaleLowerCase()
+let turno
+turno = prompt("Em qual turno você estuda? \n Responda - M (matutino) ou V (vespertino) ou N (noturno)").toLocaleLowerCase()
 
-// if(turno === "m"){
-//     console.log("Bom dia!")
-// } else if(turno === "v"){
-//     console.log("Boa tarde!")
-// } else if(turno === "n"){
-//     console.log("Boa noite!")
-// } else {
-//     console.log("Resposta inválida! Por gentileza digite conforme solicitado.")
-// }
+if(turno === "m"){
+    console.log("Bom dia!")
+} else if(turno === "v"){
+    console.log("Boa tarde!")
+} else if(turno === "n"){
+    console.log("Boa noite!")
+} else {
+    console.log("Resposta inválida! Por gentileza digite conforme solicitado.")
+}
 
 
 // Exercício 6 - Escrita de código //
-// let turno
-// turno = prompt("Em qual turno você estuda? \n Responda - M (matutino) ou V (vespertino) ou N (noturno)").toLocaleLowerCase()
+let turno
+turno = prompt("Em qual turno você estuda? \n Responda - M (matutino) ou V (vespertino) ou N (noturno)").toLocaleLowerCase()
 
-// switch(turno){
-//   case "m":
-//     console.log("Bom dia!")
-//     break;
-//   case "v":
-//     console.log("Boa tarde!")
-//     break;
-//   case "n":
-//     console.log("Boa noite!")
-//     break;
-//   default:
-//     console.log("Resposta inválida! Por gentileza digite conforme solicitado.")
-//     break;
-// }
+switch(turno){
+  case "m":
+    console.log("Bom dia!")
+    break;
+  case "v":
+    console.log("Boa tarde!")
+    break;
+  case "n":
+    console.log("Boa noite!")
+    break;
+  default:
+    console.log("Resposta inválida! Por gentileza digite conforme solicitado.")
+    break;
+}
 
 
 // Exercício 7 - Escrita de código //
-// let genero
-// let preco
+let genero
+let preco
 
-// genero = prompt("Qual genero de filme vocês vão assistir?").toLocaleLowerCase()
-// preco = Number(prompt("Qual é o preço do ingresso?"))
+genero = prompt("Qual genero de filme vocês vão assistir?").toLocaleLowerCase()
+preco = Number(prompt("Qual é o preço do ingresso?"))
 
-// if(genero === "fantasia" && preco <= 15){
-//     console.log("Bom filme!")
-// } else {
-//     console.log("Escolha outro filme :(")
-// }
+if(genero === "fantasia" && preco <= 15){
+    console.log("Bom filme!")
+} else {
+    console.log("Escolha outro filme :(")
+}
 
 
 
 // DESAFIOS //
 
 //Desafio 1
-// let genero
-// let preco
-// let snack
+let genero
+let preco
+let snack
 
-// genero = prompt("Qual genero de filme vocês vão assistir?").toLocaleLowerCase()
-// preco = Number(prompt("Qual é o preço do ingresso?"))
-// snack = prompt("Que snack você vai comprar?").toLocaleLowerCase()
+genero = prompt("Qual genero de filme vocês vão assistir?").toLocaleLowerCase()
+preco = Number(prompt("Qual é o preço do ingresso?"))
+snack = prompt("Que snack você vai comprar?").toLocaleLowerCase()
 
-// if(genero === "fantasia" && preco <= 15 && snack){
-//     console.log(`Bom filme! e com: ${snack}`)
-// } else {
-//     console.log("Escolha outro filme :(")
-// }
+if(genero === "fantasia" && preco <= 15 && snack){
+    console.log(`Bom filme! e com: ${snack}`)
+} else {
+    console.log("Escolha outro filme :(")
+}
 
 
-//Desafio 2
-let nomeUsuario
-let 
