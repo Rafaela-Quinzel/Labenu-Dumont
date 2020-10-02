@@ -57,7 +57,7 @@ let novoArray = []
 
 for(let numero of arrayOriginal){
     if(numero % 2 === 0){
-        novoArray.push(numero)     //---> Resposta c.: 
+        novoArray.push(numero)     //---> Resposta c.: imprimiu os números [10, 30, 50, 56]
     }
 }
 console.log(novoArray)
@@ -67,7 +67,79 @@ let arrayOriginal = [10, 21, 30, 45, 50, 56]
 let i = 0
 let arrayStrings = []      
 
-for(let numero of arrayOriginal) {                 //---> Resposta d.: 
+for(let numero of arrayOriginal) {                 //---> Resposta d.: Imprimiu no console o índice de cada valor do array.
      console.log("O elemento do índex: " + i + " é " + numero)
      i ++
 }
+
+
+let arrayOriginal = [10, 21, 30, 45, 50, 56]
+let valorMaximo = arrayOriginal[0]
+let valorMinimo = arrayOriginal[0]
+
+for(let numero of arrayOriginal){
+    if(numero > valorMaximo){               
+        valorMaximo = numero                 //---> Resposta e.: "O maior número é 56 e o menor é 10"
+    }
+    if(numero < valorMinimo){
+        valorMinimo = numero
+    }
+}
+console.log(`O maior número é ${valorMaximo} e o menor é ${valorMinimo}`)
+
+
+
+// DESAFIO 2 - Escrita de Código //
+let numeroPensado = Number(prompt("Escolha um número! \n De 1 a 10"))
+console.log("Vamos jogar!")
+
+let numeroChutado = Number(prompt("Chute um número de 1 a 10 e te digo se acertou!"))
+console.log(`Q número chutado foi: ${numeroChutado}`)
+
+let tentativas = 1
+
+while (numeroPensado !== numeroChutado){
+    if (numeroPensado > numeroChutado){
+        alert("Errrrrrrrou, é maior!")
+        console.log("Errrrrrrrou, é maior!")
+    } 
+    else if(numeroPensado < numeroChutado){
+        alert("Errrrrrrrou, é menor!")
+        console.log("Errrrrrrrou, é menor!")
+    }
+
+    tentativas++
+    numeroChutado = Number(prompt("Chute um número de 1 a 10 e te digo se acertou!"))
+    console.log(`Q número chutado foi: ${numeroChutado}`)
+}
+alert("Acertou!!!")
+console.log("Acertou!!!")
+console.log(`O número de tentativas foi: ${tentativas}`)
+
+
+// DESAFIO 3 - Escrita de Código //
+let numeroPensado = Math.floor(Math.random()*100) //---> Foi tranquilo fazer a alteração, pois alterei somente a primeira linha do código.
+console.log("Vamos jogar!")
+
+let numeroChutado = Number(prompt("Chute um número de 1 a 100 e te digo se acertou!"))
+console.log(`Q número chutado foi: ${numeroChutado}`)
+
+let tentativas = 1
+
+while (numeroPensado !== numeroChutado){
+    if (numeroPensado > numeroChutado){
+        alert("Errrrrrrrou, é maior!")
+        console.log("Errrrrrrrou, é maior!")   
+    } 
+    else if(numeroPensado < numeroChutado){
+        alert("Errrrrrrrou, é menor!")
+        console.log("Errrrrrrrou, é menor!")
+    }
+
+    tentativas++
+    numeroChutado = Number(prompt("Chute um número de 1 a 100 e te digo se acertou!"))
+    console.log(`Q número chutado foi: ${numeroChutado}`)
+}
+alert("Acertou!!!")
+console.log("Acertou!!!")
+console.log(`O número de tentativas foi: ${tentativas}`)
