@@ -11,69 +11,57 @@
  * 
  */
 
-//DESAFIO 8
-
 alert("Bem vindo(a) ao jogo de BLACKJACK!")
-const iniciarJogo = confirm("Quer iniciar uma nova rodada?")
 
-   let cartasUsuario = []
-   let pontosUsuario = []
-   let revelarCartasUsuario = ""
-   let revelarPontosUsuario = 0
+if(confirm("Quer iniciar uma nova rodada?")){
+    //Usuário
+    const carta1 = comprarCarta()
+    const cartaUsuario1 = carta1.texto
+    const valorCartaUsuario1 = carta1.valor
 
-   let cartasComputador = []
-   let pontosComputador = []
-   let revelarCartasComputador = ""
-   let revelarPontosComputador = 0
+    const carta2 = comprarCarta()
+    const cartaUsuario2 = carta2.texto
+    const valorCartaUsuario2 = carta2.valor
 
+    const carta3 = comprarCarta()
+    const cartaUsuario3 = carta3.texto
+    const valorCartaUsuario3 = carta3.valor
 
-   if(iniciarJogo){
-      for(let i = 0; i < 2;){
-         let carta = comprarCarta()
-         cartasUsuario.push(carta.texto)
-         pontosUsuario.push(carta.valor)
-         if((cartasUsuario[0] === "A") && (cartasUsuario[1] === "A")){
-            i = i
-         } else {
-            i++
-         }
-      }
-   for(let carta of cartasUsuario){
-      revelarCartasUsuario += (carta + " ")
-   }
-   for(let valor of pontosUsuario){
-      revelarPontosUsuario += valor
-   }
+    const pontosUsuario2 = Number(valorCartaUsuario1) + Number(valorCartaUsuario2)
+    const pontosUsuario3 = Number(valorCartaUsuario1) + Number(valorCartaUsuario2) + Number(valorCartaUsuario3)
 
-   for(let i = 0; i < 2;){
-      let carta = comprarCarta()
-      cartasComputador.push(carta.texto)
-      pontosComputador.push(carta.valor)
-      if((cartasComputador[0] === "A") && (cartasComputador[1] === "A")){
-         i = i
-      } else {
-         i++
-      }
-   }
-   for(let carta of cartasComputador){
-      revelarCartasComputador += (carta + " ")
-   }
-   for(let valor of pontosComputador){
-      revelarPontosComputador += valor
-   }
+    //Computador
+    const cartaComp1 = comprarCarta()
+    const cartaComputador1 = cartaComp1.texto
+    const valorCartaComputador1 = cartaComp1.valor
+
+    const cartaComp2 = comprarCarta()
+    const cartaComputador2 = cartaComp2.texto
+    const valorCartaComputador2 = cartaComp2.valor
+
+    const cartaComp3 = comprarCarta()
+    const cartaComputador3 = cartaComp3.texto
+    const valorCartaComputador3 = cartaComp3.valor
+
+    const pontosComputador2 = Number(valorCartaComputador1) + Number(valorCartaComputador2)
+    const pontosComputador3 = Number(valorCartaComputador1) + Number(valorCartaComputador2) + Number(valorCartaComputador3)
+
+if(confirm(`Suas cartas são ${cartaUsuario1} ${cartaUsuario2}. A carta revelada do computador é  ${cartaComputador1}. Deseja comprar outra carta?`)){
+   alert(`Suas cartas são ${cartaUsuario1} ${cartaUsuario2} ${cartaUsuario3}. Sua pontuação é ${pontosUsuario3}. As cartas do computador são ${cartaComputador1} ${cartaComputador2}. A pontuação do computador é ${pontosComputador2}.`)
    
-   console.log(`Usuário - ${revelarCartasUsuario} - pontuação ${revelarPontosUsuario}`)
-   console.log(`Conputador - ${revelarCartasComputador} - pontuação ${revelarPontosComputador}`)
-
-   if(pontosUsuario === pontosComputador){
-         console.log("Empate!")
-      } else if(pontosUsuario > pontosComputador){
-         console.log("O usuário ganhou!")
-      } else{
-         console.log("O computador ganhou!")
-      }
-
-} else {
-   console.log("O jogo acabou!")
+} else{
+   alert(`Suas cartas são ${cartaUsuario1} ${cartaUsuario2}. Sua pontuação é ${pontosUsuario2}. As cartas do computador são ${cartaComputador1} ${cartaComputador2} ${cartaComputador3}. A pontuação do computador é ${pontosComputador3}.`)
+}
+    
+/***Resultado do jogo***/
+if((pontosUsuario3 === pontosComputador2) || (pontosUsuario2 === pontosComputador3)){
+   alert("Empate!")
+} else if((pontosUsuario3 > pontosComputador2) || (pontosUsuario2 > pontosComputador3)){
+   alert("O usuário ganhou!")
+} else{
+   alert("O computador ganhou!")
 }
 
+} else {
+   alert("O jogo acabou!")
+}
