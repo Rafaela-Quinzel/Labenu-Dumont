@@ -1,0 +1,36 @@
+@media (max-width: 800px){
+    header {
+        margin: 8vh;
+        padding: 10vw 20vw;
+    }
+
+    label {
+       font-size: 12px;
+       margin: 5%;
+    }
+
+    input {
+        padding: 1vw 2vw;
+    }
+
+    h3{
+        font-size: 6px; 
+    }
+
+    .semana {
+        width: 14%;
+        padding-left: 0.3%;
+        background-color: rgba(137, 43, 226, 0.253);
+    }
+
+    #botaoCriar {
+        padding: 1vw 4vw;
+        margin: 4%;
+    }
+
+    #botaoApagar {
+        padding: 1vw 4vw;
+        margin: 4%;
+    }
+
+}
