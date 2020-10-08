@@ -1,0 +1,22 @@
+/* DESAFIO 2 */
+@media screen and (min-width: 200px) and (max-width: 600px) {
+
+    #form-post {
+    padding: 50px;
+    height: 150vw;
+    margin: 20%;
+    justify-content: space-evenly;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    height: 5%;
+    text-align: center;
+}
+
+button {
+    width: 200px;
+    padding: 50px;
+}
+
+}
