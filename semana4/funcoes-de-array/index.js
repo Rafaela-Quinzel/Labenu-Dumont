@@ -13,9 +13,9 @@ function imprimirDespesas(despesas){
         despesas = [{valor: Number(document.getElementById(`valorCadastro`)),
         tipo: document.getElementById(tipoCadastro),
         descricao: document.getElementById(`descricaoCadastro`)}
-         ]
+        ]
 
-         divDespesas.innerHTML += `<li> Valor: R$ ${Number(despesa.valor)} | Tipo: ${despesa.tipo} | Descrição: ${despesa.descricao}</li>`
+        divDespesas.innerHTML += `<li> Valor: R$ ${Number(despesa.valor)} | Tipo: ${despesa.tipo} | Descrição: ${despesa.descricao}</li>`
     })
     
 }
@@ -31,6 +31,20 @@ function imprimirExtrato(){
 
 
     // AQUI VEM A IMPLEMENTAÇÃO
+ arrDespesas.forEach((despesa) => {
+    gastoTotal += despesa.valor
+    switch (despesa.tipo){
+        case 'alimentação':
+            gastoAlimentacao += despesa.valor
+            break
+        case 'utilidades':
+            gastoUtilidades += despesa.valor
+            break
+        case 'viagem':
+            gastoViagem += despesa.valor
+            break
+    }
+})
 
     divExtrato.innerHTML = `<p>Extrato: Gasto Total: R$${gastoTotal} | Alimentação: R$${gastoAlimentacao} | 
                                         Utilidades: R$${gastoUtilidades} | Viagem: R$${gastoViagem}</p>`
@@ -40,7 +54,8 @@ function imprimirExtrato(){
 function limparFiltros() {
     document.getElementById('tipoFiltro').value = ""
     document.getElementById('valorFiltroMin').value = ""
-    document.getElementById('valorFiltroMax').value = ""
+    document.getElementById('valorFiltroMax').value = "" 
+    document.getElementById('despesas').value = "" //---> acrecentei o id='despesas' para limpar quando apertar o botão "limpar".
 }
 
 
@@ -81,15 +96,15 @@ function filtrarDespesas(){
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
 
-    let despesasFiltradas // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
+// AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
+    let despesasFiltradas = arrDespesas.filter((despesa) => {
+        if(tipoFiltro === despesa.tipo || tipoFiltro === 'todos'){
+           return true
+        }      
+    })
 
     imprimirDespesas(despesasFiltradas)
-}
-
-
-
-
-
+} 
 
 
 // FunÇoes que fazem validaÇoes dos inputs de criaÇao de despesas 
@@ -116,3 +131,4 @@ function validarDescricao(texto){
     }
     return false
 }
+
