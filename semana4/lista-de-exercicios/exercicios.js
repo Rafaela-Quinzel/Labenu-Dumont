@@ -1,8 +1,8 @@
 //------------------------------------LISTA DE EXERCÍCIOS------------------------------------//
 
-//Exercícios de interpretação de código:
+/****** Exercícios de interpretação de código: ******/
 
-// Exercício 01 //
+// Exercício 01 
 /*function conversorDeMoeda(valorEmDolar){
     const cotacao = Number(prompt("Informe o valor da cotação do Dólar")) //---> Está variável está solicitando ao usuário que digite um número e vai guardar esse valor.
 
@@ -12,7 +12,7 @@
   console.log(meuDinheiro) //---> Está imprimindo a variável meuDinheiro que, está pegando a função que traz o valor digitado * o valor que seu parâmetro tem dentro desta variável.
   */
 
-// Exercício 02 //
+// Exercício 02 
 /* -> Na primeira linha foi criada uma função, a investeDinheiro tem dois parâmetros: tipoDeInvestimento e valor.
    -> Na segunda linha foi criada uma variavél valorAposInvestimento e sem nenhum valor atribuído.
    -> Na quarta linha foi criado um switch com uma condição que traz o parâmetro tipoDeInvestimento que será comprada.
@@ -27,7 +27,7 @@
       No caso irá executar o default com a mensagem:"TIPO DE INVESTIMENTO INFORMADO INCORRETO". Pois foi informado um parâmetro que não está declarado no switch como válido.
 */
 
-// Exercício 03 //
+// Exercício 03 
 /*const numeros = [25, 12, 55, 64, 121, 44, 11, 84, 51, 48, 14, 73, 111, 283] //---> Foi declarado um array de números.
 const array1 = []  //---> Foi declarado um array vazio para receber um elemento ou mais.
 const array2 = [] //---> Foi declarado um array vazio para receber um elemento ou mais.
@@ -44,7 +44,7 @@ console.log(array1.length) //---> Vai ser impresso no console a quantidade de el
 console.log(array2.length) //---> Vai ser impresso no console a quantidade de elementos no array2. Ex: 8
 */
 
-// Exercício 04 //
+// Exercício 04 
 /*const numeros = [25, 12, 55, 64, 121, 44, 11, 84, 51, 48, 14, 73, 111, 283, 1, 99, 13, 31, 83, 131, 1, 1.1, -10, 25, 1590] //---> Foi declarado um array de números.
 let numero1 = Infinity // Está variável recebeu um valor infinito e sempre vai ser maior que qualquer número.
 let numero2 = 0 // Está variável recebeu o valor 0.
@@ -61,8 +61,34 @@ for(let numero of numeros){ //---> Está declarando a variável numero que vai p
 console.log(numero1) // Vai ser impresso no console o valor da variável numero1.
 console.log(numero2) // Vai ser impresso no console o valor da variável numero2.
 */
-                            
+ 
 
+
+/****** Exercícios de Lógica de Programação: ******/
+
+// Exercício 01 
+const arrayListaDeNumeros = [10, 30, 50, 70, 100, 150, 180]
+
+// let i = 0
+// let maiorNumero = 
+// while(i < )
+
+//---> EX 2: Utilizando o for para percorrer o array começando do índice 0 e trazendo o maior número do array.
+let maiorNumero = 0 
+
+for(let i = 0; i < arrayListaDeNumeros.length; i = i + 1){ // A variável i = 0 é o índice por onde vai começar a percorrer o array. Enquanto o índice for menor que o tamanho do array ele continua executando.
+    let elemento = arrayListaDeNumeros[i] 
+
+    if(maiorNumero < elemento){
+        maiorNumero = elemento
+    }
+}
+console.log(maiorNumero) //---> Está sendo impresso os elementos do array um em baixo do outro.
+
+//---> EX 3: Utilizando o for of para percorrer o array e trazer seus elementos no console.
+for(let i of arrayListaDeNumeros){ // Está declarando a variável índice do arrayDeNumeros.
+        console.log(i) //---> Está sendo impresso os elementos do array um em baixo do outro.
+    }
 
 
 
