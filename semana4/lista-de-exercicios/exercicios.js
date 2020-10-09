@@ -66,32 +66,56 @@ console.log(numero2) // Vai ser impresso no console o valor da variável numero2
 
 /****** Exercícios de Lógica de Programação: ******/
 
-// Exercício 01 
-const arrayListaDeNumeros = [10, 30, 50, 70, 100, 150, 180]
+// Exercício 01
 
-// let i = 0
-// let maiorNumero = 
-// while(i < )
+// const arrayListaDeNumeros = [10, 30, 50, 70, 100, 150, 180]
 
 //---> EX 2: Utilizando o for para percorrer o array começando do índice 0 e trazendo o maior número do array.
-let maiorNumero = 0 
+// let soma = 0
+// let numero 
+// while(){
+//     numero = 
+// }
 
-for(let i = 0; i < arrayListaDeNumeros.length; i = i + 1){ // A variável i = 0 é o índice por onde vai começar a percorrer o array. Enquanto o índice for menor que o tamanho do array ele continua executando.
-    let elemento = arrayListaDeNumeros[i] 
+// //---> EX 2: Utilizando o for para percorrer o array começando do índice 0 e trazendo o maior número do array.
+// let maiorNumero = 0 
 
-    if(maiorNumero < elemento){
-        maiorNumero = elemento
-    }
-}
-console.log(maiorNumero) //---> Está sendo impresso os elementos do array um em baixo do outro.
+// for(let i = 0; i < arrayListaDeNumeros.length; i = i + 1){ // A variável i = 0 é o índice por onde vai começar a percorrer o array. Enquanto o índice for menor que o tamanho do array ele continua executando.
+//     let elemento = arrayListaDeNumeros[i] 
 
-//---> EX 3: Utilizando o for of para percorrer o array e trazer seus elementos no console.
-for(let i of arrayListaDeNumeros){ // Está declarando a variável índice do arrayDeNumeros.
-        console.log(i) //---> Está sendo impresso os elementos do array um em baixo do outro.
-    }
+//     if(maiorNumero < elemento){
+//         maiorNumero = elemento
+//     }
+// }
+// console.log(maiorNumero) //---> Está sendo impresso os elementos do array um em baixo do outro.
+
+// //---> EX 3: Utilizando o for of para percorrer o array e trazer seus elementos no console.
+// for(let i of arrayListaDeNumeros){ // Está declarando a variável índice do arrayDeNumeros.
+//         console.log(i) //---> Está sendo impresso os elementos do array um em baixo do outro.
+//     }
 
 
+// Exercício 02
+//    const booleano1 = true
+//    const booleano2 = false
+//    const booleano3 = !booleano2
+//    const booleano4 = !booleano3 
 
+/* a) booleano1 && booleano2 && !booleano4
+     -> true && false && true
 
+   b) (booleano1 && booleano2) || !booleano3
+     -> (true && false) || true
+   
+   c) (booleano2 || booleano3) && (booleano4 || booleano1)
+     -> (false || true) && (false || true)
+
+   d) !(booleano2 && booleano3) || !(booleano1 && booleano3)
+     -> !(true && false) || !(false && false)
+
+   e) !(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
+     -> !(false) && !(false) || (!true && true && true)
+
+*/
 
 
