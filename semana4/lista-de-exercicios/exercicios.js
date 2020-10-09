@@ -133,15 +133,18 @@ console.log(numero2) // Vai ser impresso no console o valor da variável numero2
 // quantidadeDeNumerosPares(5)
 
 
-// // Exercício 04
-// const verficarTriangulo = (a, b, c) => {
-//     if(a === b && b === c){
-//         console.log("É um triângulo Equilátero!")
-//     } else if (a === c || b === c || a === b){
-//         console.log("É um triângulo Isósceles!")
-//     } else{
-//         console.log("É um triângulo Escaleno!")
-//     }
+// Exercício 04
+const verficarTriangulo = (a, b, c) => {
+    if(a === b && b === c){
+        console.log("É um triângulo Equilátero!")
+    } else if (a === c || b === c || a === b){
+        console.log("É um triângulo Isósceles!")
+    } else{
+        console.log("É um triângulo Escaleno!")
+    }
 
-// }
-// verficarTriangulo(20, 20, 20)
+}
+verficarTriangulo(20, 20, 20)
+
+
+// Exercício 05
