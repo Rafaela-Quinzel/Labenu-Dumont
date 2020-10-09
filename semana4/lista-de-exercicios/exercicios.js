@@ -43,6 +43,24 @@ console.log("Quantidade total de números", numeros.length) //---> Aqui vai ser 
 console.log(array1.length) //---> Vai ser impresso no console a quantidade de elementos no array1. Ex: 6
 console.log(array2.length) //---> Vai ser impresso no console a quantidade de elementos no array2. Ex: 8
 */
+
+// Exercício 04 //
+/*const numeros = [25, 12, 55, 64, 121, 44, 11, 84, 51, 48, 14, 73, 111, 283, 1, 99, 13, 31, 83, 131, 1, 1.1, -10, 25, 1590] //---> Foi declarado um array de números.
+let numero1 = Infinity // Está variável recebeu um valor infinito e sempre vai ser maior que qualquer número.
+let numero2 = 0 // Está variável recebeu o valor 0.
+
+for(let numero of numeros){ //---> Está declarando a variável numero que vai percorrer os elementos do array numeros.
+    if(numero < numero1){  //---> Foi criada essa condição para verificar se o(os) valor(es) da variável numero é menor que da variável numero1. Sem sim, vai executar o código a baixo.
+        numero1 = numero  //---> Se a condição for verdadeira, vai executar que a variável numero1 vai ser igual a variável numero.
+    }
+
+    if(numero > numero2){ //---> Foi criada essa condição para verificar se o(os) valor(es) da variável numero é maior que da variável numero2. Sem sim, vai executar o código a baixo.
+        numero2 = numero //---> Se a condição for verdadeira, vai executar que a variável numero2 vai ser igual a variável numero.
+    }
+}
+console.log(numero1) // Vai ser impresso no console o valor da variável numero1.
+console.log(numero2) // Vai ser impresso no console o valor da variável numero2.
+*/
                             
 
 
