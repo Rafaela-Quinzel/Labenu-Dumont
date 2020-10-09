@@ -70,12 +70,16 @@ console.log(numero2) // Vai ser impresso no console o valor da variável numero2
 
 // const arrayListaDeNumeros = [10, 30, 50, 70, 100, 150, 180]
 
-//---> EX 2: Utilizando o for para percorrer o array começando do índice 0 e trazendo o maior número do array.
-// let soma = 0
-// let numero 
-// while(){
-//     numero = 
+//---> EX 1: Utilizando o while para percorrer o array começando do índice 0 e trazendo os índices dos números iguais ou maiores que 100 do array. 
+// let i = 0
+// let novoArray = []
+// while(i < arrayListaDeNumeros.length){
+//     if(arrayListaDeNumeros[i] >= 100){
+//         novoArray.push(i)
+//     }
+//     i++
 // }
+// console.log(novoArray)
 
 // //---> EX 2: Utilizando o for para percorrer o array começando do índice 0 e trazendo o maior número do array.
 // let maiorNumero = 0 
@@ -115,7 +119,29 @@ console.log(numero2) // Vai ser impresso no console o valor da variável numero2
 
    e) !(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
      -> !(false) && !(false) || (!true && true && true)
-
 */
 
 
+// Exercício 03
+// const quantidadeDeNumerosPares = (numero) => {
+// let i = 0
+// while(i <= numero) {
+//   console.log(i*2)
+//   i++
+// }
+// }
+// quantidadeDeNumerosPares(5)
+
+
+// // Exercício 04
+// const verficarTriangulo = (a, b, c) => {
+//     if(a === b && b === c){
+//         console.log("É um triângulo Equilátero!")
+//     } else if (a === c || b === c || a === b){
+//         console.log("É um triângulo Isósceles!")
+//     } else{
+//         console.log("É um triângulo Escaleno!")
+//     }
+
+// }
+// verficarTriangulo(20, 20, 20)
