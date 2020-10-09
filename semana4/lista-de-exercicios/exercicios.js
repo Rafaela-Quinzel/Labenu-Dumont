@@ -27,7 +27,24 @@
       No caso irá executar o default com a mensagem:"TIPO DE INVESTIMENTO INFORMADO INCORRETO". Pois foi informado um parâmetro que não está declarado no switch como válido.
 */
 
+// Exercício 03 //
+/*const numeros = [25, 12, 55, 64, 121, 44, 11, 84, 51, 48, 14, 73, 111, 283] //---> Foi declarado um array de números.
+const array1 = []  //---> Foi declarado um array vazio para receber um elemento ou mais.
+const array2 = [] //---> Foi declarado um array vazio para receber um elemento ou mais.
+
+for(let numero of numeros){  //---> Está declarando a variável numero que vai percorrer os elementos do array numeros.
+    if(numero % 2 === 0){  //---> Foi criada essa condição para verificar se o resto da divisão da variável numero é igual a 0, ou seja, se é par. Sem sim vai executar o código a baixo.
+        array1.push(numero) // O push está adicionando no array1, que está vazio, o resultado da variável numero.
+    } else{
+        array2.push(numero) //---> Se a condição não for verdadeira, vai retornar com push no array2 a variável numero.
+    }
+}
+console.log("Quantidade total de números", numeros.length) //---> Aqui vai ser impresso a frase e o número de elementos dentro do array numeros. Ex: 'Quantidade total de números 14'
+console.log(array1.length) //---> Vai ser impresso no console a quantidade de elementos no array1. Ex: 6
+console.log(array2.length) //---> Vai ser impresso no console a quantidade de elementos no array2. Ex: 8
+*/
                             
+
 
 
 
