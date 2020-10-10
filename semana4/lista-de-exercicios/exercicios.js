@@ -81,7 +81,7 @@ console.log(numero2) // Vai ser impresso no console o valor da variável numero2
 // }
 // console.log(novoArray)
 
-// //---> EX 2: Utilizando o for para percorrer o array começando do índice 0 e trazendo o maior número do array.
+//---> EX 2: Utilizando o for para percorrer o array começando do índice 0 e trazendo o maior número do array.
 // let maiorNumero = 0 
 
 // for(let i = 0; i < arrayListaDeNumeros.length; i = i + 1){ // A variável i = 0 é o índice por onde vai começar a percorrer o array. Enquanto o índice for menor que o tamanho do array ele continua executando.
@@ -134,17 +134,47 @@ console.log(numero2) // Vai ser impresso no console o valor da variável numero2
 
 
 // Exercício 04
-const verficarTriangulo = (a, b, c) => {
-    if(a === b && b === c){
-        console.log("É um triângulo Equilátero!")
-    } else if (a === c || b === c || a === b){
-        console.log("É um triângulo Isósceles!")
-    } else{
-        console.log("É um triângulo Escaleno!")
-    }
+// const verficarTriangulo = (a, b, c) => {
+//     if(a === b && b === c){
+//         console.log("É um triângulo Equilátero!")
+//     } else if (a === c || b === c || a === b){
+//         console.log("É um triângulo Isósceles!")
+//     } else{
+//         console.log("É um triângulo Escaleno!")
+//     }
 
-}
-verficarTriangulo(20, 20, 20)
+// }
+// verficarTriangulo(20, 20, 20)
 
 
 // Exercício 05
+
+//---> i. indique qual é o maior
+// const arrayNumeros = [15, 30]
+// let maiorNumero = 0
+
+//     for(let i = 0; i < arrayNumeros.length; i = i + 1){ 
+//         let numero = arrayNumeros[i] 
+
+//         if(maiorNumero < numero){ 
+//             maiorNumero = numero
+//         } 
+//     }
+// console.log(`O maior número é: ${maiorNumero}`)
+
+// //---> ii. determine se eles são divisíveis um pelo outro
+// const numero1 = 15
+// const numero2 = 30
+
+//     if (numero1 % numero2 === 0){
+//         console.log(`O ${numero1} é divisível por ${numero2}`)
+//     } else{
+//         console.log(`O ${numero1} não é divisível por ${numero2}`)
+//     }
+
+// //---> iii. determine a diferença entre eles
+// const diferenca = numero2 - numero1
+// console.log(`A difrença entre eles é: ${diferenca}`)
+
+
+
