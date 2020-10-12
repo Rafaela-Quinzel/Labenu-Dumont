@@ -1,4 +1,4 @@
-//------------------------------------LISTA DE EXERCÍCIOS------------------------------------//
+//----------------------------------------------LISTA DE EXERCÍCIOS----------------------------------------------//
 
 /****** Exercícios de interpretação de código: ******/
 
@@ -11,6 +11,7 @@
   const meuDinheiro = conversorDeMoeda(100) //---> Foi criado outra variável que vai armazenar a função com o novo valor de parâmetro(100). Agora valorEMDolar vale 100.
   console.log(meuDinheiro) //---> Está imprimindo a variável meuDinheiro que, está pegando a função que traz o valor digitado * o valor que seu parâmetro tem dentro desta variável.
   */
+
 
 // Exercício 02 
 /* -> Na primeira linha foi criada uma função, a investeDinheiro tem dois parâmetros: tipoDeInvestimento e valor.
@@ -26,6 +27,7 @@
    -> Na linha 28 vai ser impresso a variável segundoMontante. Vai ser verificado dentro do switch da função investeDinheiro caso seja "Tesouro Direto", o que será executado.
       No caso irá executar o default com a mensagem:"TIPO DE INVESTIMENTO INFORMADO INCORRETO". Pois foi informado um parâmetro que não está declarado no switch como válido.
 */
+
 
 // Exercício 03 
 /*const numeros = [25, 12, 55, 64, 121, 44, 11, 84, 51, 48, 14, 73, 111, 283] //---> Foi declarado um array de números.
@@ -44,23 +46,24 @@ console.log(array1.length) //---> Vai ser impresso no console a quantidade de el
 console.log(array2.length) //---> Vai ser impresso no console a quantidade de elementos no array2. Ex: 8
 */
 
+
 // Exercício 04 
-/*const numeros = [25, 12, 55, 64, 121, 44, 11, 84, 51, 48, 14, 73, 111, 283, 1, 99, 13, 31, 83, 131, 1, 1.1, -10, 25, 1590] //---> Foi declarado um array de números.
-let numero1 = Infinity // Está variável recebeu um valor infinito e sempre vai ser maior que qualquer número.
-let numero2 = 0 // Está variável recebeu o valor 0.
+// const numeros = [25, 12, 55, 64, 121, 44, 11, 84, 51, 48, 14, 73, 111, 283, 1, 99, 13, 31, 83, 131, 1, 1.1, -10, 25, 1590] //---> Foi declarado um array de números.
+// let numero1 = Infinity // Está variável recebeu um valor infinito e sempre vai ser maior que qualquer número.
+// let numero2 = 0 // Está variável recebeu o valor 0.
 
-for(let numero of numeros){ //---> Está declarando a variável numero que vai percorrer os elementos do array numeros.
-    if(numero < numero1){  //---> Foi criada essa condição para verificar se o(os) valor(es) da variável numero é menor que da variável numero1. Sem sim, vai executar o código a baixo.
-        numero1 = numero  //---> Se a condição for verdadeira, vai executar que a variável numero1 vai ser igual a variável numero.
-    }
+// for(let numero of numeros){ //---> Está declarando a variável numero que vai percorrer os elementos do array numeros.
+//     if(numero < numero1){  //---> Foi criada essa condição para verificar se o(os) valor(es) da variável numero é menor que da variável numero1. Sem sim, vai executar o código a baixo.
+//         numero1 = numero  //---> Se a condição for verdadeira, vai executar que a variável numero1 vai ser igual a variável numero.
+//     }
 
-    if(numero > numero2){ //---> Foi criada essa condição para verificar se o(os) valor(es) da variável numero é maior que da variável numero2. Sem sim, vai executar o código a baixo.
-        numero2 = numero //---> Se a condição for verdadeira, vai executar que a variável numero2 vai ser igual a variável numero.
-    }
-}
-console.log(numero1) // Vai ser impresso no console o valor da variável numero1.
-console.log(numero2) // Vai ser impresso no console o valor da variável numero2.
-*/
+//     if(numero > numero2){ //---> Foi criada essa condição para verificar se o(os) valor(es) da variável numero é maior que da variável numero2. Sem sim, vai executar o código a baixo.
+//         numero2 = numero //---> Se a condição for verdadeira, vai executar que a variável numero2 vai ser igual a variável numero.
+//     }
+// }
+// console.log(numero1) // Vai ser impresso no console o valor da variável numero1.
+// console.log(numero2) // Vai ser impresso no console o valor da variável numero2.
+
  
 
 
@@ -68,35 +71,35 @@ console.log(numero2) // Vai ser impresso no console o valor da variável numero2
 
 // Exercício 01
 
-// const arrayListaDeNumeros = [10, 30, 50, 70, 100, 150, 180]
+const arrayListaDeNumeros = [10, 30, 50, 70, 100, 150, 180]
 
 //---> EX 1: Utilizando o while para percorrer o array começando do índice 0 e trazendo os índices dos números iguais ou maiores que 100 do array. 
-// let i = 0
-// let novoArray = []
-// while(i < arrayListaDeNumeros.length){
-//     if(arrayListaDeNumeros[i] >= 100){
-//         novoArray.push(i)
-//     }
-//     i++
-// }
-// console.log(novoArray)
+let i = 0
+let novoArray = []
+while(i < arrayListaDeNumeros.length){
+    if(arrayListaDeNumeros[i] >= 100){
+        novoArray.push(i)
+    }
+    i++
+}
+console.log(novoArray)
 
 //---> EX 2: Utilizando o for para percorrer o array começando do índice 0 e trazendo o maior número do array.
-// let maiorNumero = 0 
+let maiorNumero = 0 
 
-// for(let i = 0; i < arrayListaDeNumeros.length; i = i + 1){ // A variável i = 0 é o índice por onde vai começar a percorrer o array. Enquanto o índice for menor que o tamanho do array ele continua executando.
-//     let elemento = arrayListaDeNumeros[i] 
+for(let i = 0; i < arrayListaDeNumeros.length; i = i + 1){ // A variável i = 0 é o índice por onde vai começar a percorrer o array. Enquanto o índice for menor que o tamanho do array ele continua executando.
+    let elemento = arrayListaDeNumeros[i] 
 
-//     if(maiorNumero < elemento){
-//         maiorNumero = elemento
-//     }
-// }
-// console.log(maiorNumero) //---> Está sendo impresso os elementos do array um em baixo do outro.
+    if(maiorNumero < elemento){
+        maiorNumero = elemento
+    }
+}
+console.log(maiorNumero) //---> Está sendo impresso os elementos do array um em baixo do outro.
 
 // //---> EX 3: Utilizando o for of para percorrer o array e trazer seus elementos no console.
-// for(let i of arrayListaDeNumeros){ // Está declarando a variável índice do arrayDeNumeros.
-//         console.log(i) //---> Está sendo impresso os elementos do array um em baixo do outro.
-//     }
+for(let i of arrayListaDeNumeros){ // Está declarando a variável índice do arrayDeNumeros.
+        console.log(i) //---> Está sendo impresso os elementos do array um em baixo do outro.
+    }
 
 
 // Exercício 02
@@ -123,58 +126,70 @@ console.log(numero2) // Vai ser impresso no console o valor da variável numero2
 
 
 // Exercício 03
-// const quantidadeDeNumerosPares = (numero) => {
-// let i = 0
-// while(i <= numero) {
-//   console.log(i*2)
-//   i++
-// }
-// }
-// quantidadeDeNumerosPares(5)
+const quantidadeDeNumerosPares = (numero) => {
+let i = 0
+while(i <= numero) {
+  console.log(i*2)
+  i++
+}
+}
+quantidadeDeNumerosPares(5)
 
 
-// Exercício 04
-// const verficarTriangulo = (a, b, c) => {
-//     if(a === b && b === c){
-//         console.log("É um triângulo Equilátero!")
-//     } else if (a === c || b === c || a === b){
-//         console.log("É um triângulo Isósceles!")
-//     } else{
-//         console.log("É um triângulo Escaleno!")
-//     }
+Exercício 04
+const verficarTriangulo = (a, b, c) => {
+    if(a === b && b === c){
+        console.log("É um triângulo Equilátero!")
+    } else if (a === c || b === c || a === b){
+        console.log("É um triângulo Isósceles!")
+    } else{
+        console.log("É um triângulo Escaleno!")
+    }
 
-// }
-// verficarTriangulo(20, 20, 20)
+}
+verficarTriangulo(20, 20, 20)
 
 
 // Exercício 05
 
 //---> i. indique qual é o maior
-// const arrayNumeros = [15, 30]
-// let maiorNumero = 0
+const arrayNumeros = [15, 30]
+let maiorNumero = 0
 
-//     for(let i = 0; i < arrayNumeros.length; i = i + 1){ 
-//         let numero = arrayNumeros[i] 
+    for(let i = 0; i < arrayNumeros.length; i = i + 1){ 
+        let numero = arrayNumeros[i] 
 
-//         if(maiorNumero < numero){ 
-//             maiorNumero = numero
-//         } 
-//     }
-// console.log(`O maior número é: ${maiorNumero}`)
+        if(maiorNumero < numero){ 
+            maiorNumero = numero
+        } 
+    }
+console.log(`O maior número é: ${maiorNumero}`)
 
 // //---> ii. determine se eles são divisíveis um pelo outro
-// const numero1 = 15
-// const numero2 = 30
+const numero1 = 15
+const numero2 = 30
 
-//     if (numero1 % numero2 === 0){
-//         console.log(`O ${numero1} é divisível por ${numero2}`)
-//     } else{
-//         console.log(`O ${numero1} não é divisível por ${numero2}`)
-//     }
+    if (numero1 % numero2 === 0){
+        console.log(`O ${numero1} é divisível por ${numero2}`)
+    } else{
+        console.log(`O ${numero1} não é divisível por ${numero2}`)
+    }
 
 // //---> iii. determine a diferença entre eles
-// const diferenca = numero2 - numero1
-// console.log(`A difrença entre eles é: ${diferenca}`)
+const diferenca = numero2 - numero1
+console.log(`A difrença entre eles é: ${diferenca}`)
 
 
 
+/****** Exercícios de Funções: ******/
+
+//Exercício 01
+
+//---> Não consegui fazer
+
+//Exercício 02
+let exibirMensagem = function(a, b) {
+  return a + b
+}
+const mensagem = exibirMensagem("Hello ", " Future4")
+window.alert(mensagem)
