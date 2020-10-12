@@ -193,3 +193,12 @@ let exibirMensagem = function(a, b) {
 }
 const mensagem = exibirMensagem("Hello ", " Future4")
 window.alert(mensagem)
+
+
+
+/****** Exercícios de Objetos: ******/
+
+//Exercício 01
+//Explique com as suas palavras o que são e quando podemos/devemos utilizar arrays e objetos:
+//---> Arrays são uma variável especial que contém mais de um valor por vez. Você pode armazenar muitos valores ao mesmo tempo com um único nome e pode acessá-los pelo número de índice quando você precisar.
+//---> Ojetos são uma coleção de propriedades e uma associação entre um nome(ou chave) e um valor. Com as propridades dos objetos podemos guardar as informações de forma ordenada.
