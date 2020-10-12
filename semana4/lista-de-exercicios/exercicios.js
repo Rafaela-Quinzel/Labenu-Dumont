@@ -202,3 +202,244 @@ window.alert(mensagem)
 //Explique com as suas palavras o que são e quando podemos/devemos utilizar arrays e objetos:
 //---> Arrays são uma variável especial que contém mais de um valor por vez. Você pode armazenar muitos valores ao mesmo tempo com um único nome e pode acessá-los pelo número de índice quando você precisar.
 //---> Ojetos são uma coleção de propriedades e uma associação entre um nome(ou chave) e um valor. Com as propridades dos objetos podemos guardar as informações de forma ordenada.
+
+
+//Exercício 02
+let criaRetangulo = (lado1, lado2) =>{
+  const retangulo = {
+    largura: lado1,
+    altura: lado2,
+    perimetro: 2 * [lado1 + lado2],
+    area: lado1 * [lado2]
+  }
+  
+  return retangulo
+}
+const resultado = criaRetangulo(5, 2)
+console.log(resultado)
+
+
+// //Exercício 03
+const filmeFavorito = {
+  titulo: 'Invocação do Mal',
+  ano: 2013,
+  diretor: 'James Wan',
+  elenco: ['Vera Farmiga', ' Patrick Wilson', ' Ron Livingston', ' Lili Taylor']
+}
+console.log(`Venha assistir ao filme ${filmeFavorito.titulo}, de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor} e estrelado por ${filmeFavorito.elenco}!`)
+
+
+// //Exercício 04
+const usuario = {
+  nome: 'Maria dos Santos',
+  idade: 56,
+  email: 'mSantos@gmail.com',
+  endereco: 'Rua Caí, 121, Porto Alegre/RS'
+}
+
+let anonimizarPessoa = () => {
+
+const usuarioAnonimo = {
+  ...usuario,
+  nome: 'ANÔNIMO'
+}
+
+return usuarioAnonimo
+
+}
+console.log(anonimizarPessoa(usuario))
+
+
+
+/****** Exercícios de Funções de array: ******/
+
+//Exercício 01
+//---> Resposta a.:
+const usuarios = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+const retornarAdultos = usuarios.filter((usuario, index, usuarios) => {
+  if(usuario.idade >= 20){
+  return true
+  }
+  return false
+})
+console.log(retornarAdultos)
+
+//---> Resposta b.:
+const usuarios = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+const retornarCriancas = usuarios.filter((usuario, index, usuarios) => {
+  if(usuario.idade < 20){
+  return true
+  }
+  return false
+})
+console.log(retornarCriancas)
+
+
+//Exercício 02
+//---> Resposta a.:
+const array = [1, 2, 3, 4, 5, 6]
+
+const multiplicarPorDois = array.map((numeros, index, array) => {
+     return numeros * 2
+})
+console.log(multiplicarPorDois)
+
+
+ //---> Resposta b.:
+const array = [1, 2, 3, 4, 5, 6]
+
+const multiplicarPorTres = array.map((numeros, index, array) => {
+     return numeros * 3
+})
+console.log(multiplicarPorTres)
+
+
+ //---> Resposta c.:
+const array = [1, 2, 3, 4, 5, 6]
+const novo = []
+
+const multiplicarPorDois = array.map((numero, index, array) => {
+  if(numero % 2 === 0){
+    return `${numero} é par`
+  } else{
+    return `${numero} é impar`
+  }
+})
+console.log(multiplicarPorDois)
+
+
+//Exercício 03
+const pessoas = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
+
+//---> Resposta a.:
+const verificarRequisitos = pessoas.filter((usuario, index, pessoas) => {
+  if(usuario.altura >= 1.5 && usuario.idade >= 14){
+  return true
+  } 
+})
+console.log(verificarRequisitos)
+
+
+// //---> Resposta b.:
+const verificarRequisitos = pessoas.filter((usuario, index, pessoas) => {
+  if(usuario.altura < 1.5 || usuario.idade < 14){
+  return true
+  } 
+})
+console.log(verificarRequisitos)
+
+
+Exercício 04
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+//---> E-mail para as consultas não canceladas:
+const verificarNaoCanceladas = consultas.filter((consulta, index, consultas) => {
+  if(consulta.cancelada === false){
+    return true
+  }
+  return false
+
+}) .map((consulta) => {
+  if(consulta.genero === 'feminino'){
+   return `Olá Sra. ${consulta.nome}. Estamos enviando esta mensagem para lembrá-la da sua consulta no dia ${consulta.dataDaConsulta}. Por favor, acuse recebimento deste e-mail.`
+  } else if(consulta.genero === 'masculino'){
+    return `Olá Sr. ${consulta.nome}. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia ${consulta.dataDaConsulta}. Por favor, acuse recebimento deste e-mail.`
+  }
+})
+console.log(verificarNaoCanceladas)
+
+//---> E-mail para as consultas canceladas:
+const verificarCanceladas = consultas.filter((consulta, index, consultas) => {
+  if(consulta.cancelada === true){
+    return true
+  }
+  return false
+
+}) .map((consulta) => {
+  if(consulta.genero === 'feminino'){
+   return `Olá Sra. ${consulta.nome}. Infelizmente, sua consulta marcada para o dia ${consulta.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
+  } else if(consulta.genero === 'masculino'){
+    return `Olá Sr. ${consulta.nome}. Infelizmente, sua consulta marcada para o dia ${consulta.dataDaConsulta}. foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
+  }
+})
+console.log(verificarCanceladas)
+
+
+//Exercício 05
+const contas = [
+	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
+]
+
+contas.forEach((saldo, index, contas) => {
+  switch(saldo.cliente){
+    case "João":
+      saldo.saldoTotal = 600
+      break;
+    case 'Paula':
+      saldo.saldoTotal = 1240
+      break;
+    case "Pedro":
+      saldo.saldoTotal = 13340
+      break;
+    case "Luciano":
+      saldo.saldoTotal = 2000
+      break;
+    case "Artur":
+      saldo.saldoTotal = 500
+      break;
+      case "Soter":
+      saldo.saldoTotal = 0
+      break;
+  }
+})
+console.log(contas)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
