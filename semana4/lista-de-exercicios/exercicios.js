@@ -7,10 +7,10 @@
     const cotacao = Number(prompt("Informe o valor da cotação do Dólar")) //---> Está variável está solicitando ao usuário que digite um número e vai guardar esse valor.
 
     return "R$" + (valorEmDolar * cotacao) //---> Vai retornar R$ + o parâmetro da função * resultado do número digitado pelo usuário na variável cotacao, ex: R$500.
-}
+ }
   const meuDinheiro = conversorDeMoeda(100) //---> Foi criado outra variável que vai armazenar a função com o novo valor de parâmetro(100). Agora valorEMDolar vale 100.
   console.log(meuDinheiro) //---> Está imprimindo a variável meuDinheiro que, está pegando a função que traz o valor digitado * o valor que seu parâmetro tem dentro desta variável.
-  */
+*/
 
 
 // Exercício 02 
@@ -30,20 +30,20 @@
 
 
 // Exercício 03 
-/*const numeros = [25, 12, 55, 64, 121, 44, 11, 84, 51, 48, 14, 73, 111, 283] //---> Foi declarado um array de números.
-const array1 = []  //---> Foi declarado um array vazio para receber um elemento ou mais.
-const array2 = [] //---> Foi declarado um array vazio para receber um elemento ou mais.
+  /*const numeros = [25, 12, 55, 64, 121, 44, 11, 84, 51, 48, 14, 73, 111, 283] //---> Foi declarado um array de números.
+  const array1 = []  //---> Foi declarado um array vazio para receber um elemento ou mais.
+  const array2 = [] //---> Foi declarado um array vazio para receber um elemento ou mais.
 
-for(let numero of numeros){  //---> Está declarando a variável numero que vai percorrer os elementos do array numeros.
-    if(numero % 2 === 0){  //---> Foi criada essa condição para verificar se o resto da divisão da variável numero é igual a 0, ou seja, se é par. Sem sim vai executar o código a baixo.
-        array1.push(numero) // O push está adicionando no array1, que está vazio, o resultado da variável numero.
-    } else{
-        array2.push(numero) //---> Se a condição não for verdadeira, vai retornar com push no array2 a variável numero.
-    }
-}
-console.log("Quantidade total de números", numeros.length) //---> Aqui vai ser impresso a frase e o número de elementos dentro do array numeros. Ex: 'Quantidade total de números 14'
-console.log(array1.length) //---> Vai ser impresso no console a quantidade de elementos no array1. Ex: 6
-console.log(array2.length) //---> Vai ser impresso no console a quantidade de elementos no array2. Ex: 8
+  for(let numero of numeros){  //---> Está declarando a variável numero que vai percorrer os elementos do array numeros.
+      if(numero % 2 === 0){  //---> Foi criada essa condição para verificar se o resto da divisão da variável numero é igual a 0, ou seja, se é par. Sem sim vai executar o código a baixo.
+          array1.push(numero) // O push está adicionando no array1, que está vazio, o resultado da variável numero.
+      } else{
+          array2.push(numero) //---> Se a condição não for verdadeira, vai retornar com push no array2 a variável numero.
+       }
+  }
+  console.log("Quantidade total de números", numeros.length) //---> Aqui vai ser impresso a frase e o número de elementos dentro do array numeros. Ex: 'Quantidade total de números 14'
+  console.log(array1.length) //---> Vai ser impresso no console a quantidade de elementos no array1. Ex: 6
+  console.log(array2.length) //---> Vai ser impresso no console a quantidade de elementos no array2. Ex: 8
 */
 
 
@@ -76,12 +76,12 @@ const arrayListaDeNumeros = [10, 30, 50, 70, 100, 150, 180]
 //---> EX 1: Utilizando o while para percorrer o array começando do índice 0 e trazendo os índices dos números iguais ou maiores que 100 do array. 
 let i = 0
 let novoArray = []
-while(i < arrayListaDeNumeros.length){
-    if(arrayListaDeNumeros[i] >= 100){
-        novoArray.push(i)
-    }
-    i++
-}
+  while(i < arrayListaDeNumeros.length){
+      if(arrayListaDeNumeros[i] >= 100){
+          novoArray.push(i)
+      }
+      i++
+  }
 console.log(novoArray)
 
 //---> EX 2: Utilizando o for para percorrer o array começando do índice 0 e trazendo o maior número do array.
@@ -96,42 +96,42 @@ for(let i = 0; i < arrayListaDeNumeros.length; i = i + 1){ // A variável i = 0 
 }
 console.log(maiorNumero) //---> Está sendo impresso os elementos do array um em baixo do outro.
 
-// //---> EX 3: Utilizando o for of para percorrer o array e trazer seus elementos no console.
+//---> EX 3: Utilizando o for of para percorrer o array e trazer seus elementos no console.
 for(let i of arrayListaDeNumeros){ // Está declarando a variável índice do arrayDeNumeros.
-        console.log(i) //---> Está sendo impresso os elementos do array um em baixo do outro.
+      console.log(i) //---> Está sendo impresso os elementos do array um em baixo do outro.
     }
 
 
-// Exercício 02
-//    const booleano1 = true
-//    const booleano2 = false
-//    const booleano3 = !booleano2
-//    const booleano4 = !booleano3 
+// // Exercício 02
+// //    const booleano1 = true
+// //    const booleano2 = false
+// //    const booleano3 = !booleano2
+// //    const booleano4 = !booleano3 
 
-/* a) booleano1 && booleano2 && !booleano4
-     -> true && false && true
+// /* a) booleano1 && booleano2 && !booleano4
+//      -> true && false && true
 
-   b) (booleano1 && booleano2) || !booleano3
-     -> (true && false) || true
+//    b) (booleano1 && booleano2) || !booleano3
+//      -> (true && false) || true
    
-   c) (booleano2 || booleano3) && (booleano4 || booleano1)
-     -> (false || true) && (false || true)
+//    c) (booleano2 || booleano3) && (booleano4 || booleano1)
+//      -> (false || true) && (false || true)
 
-   d) !(booleano2 && booleano3) || !(booleano1 && booleano3)
-     -> !(true && false) || !(false && false)
+//    d) !(booleano2 && booleano3) || !(booleano1 && booleano3)
+//      -> !(true && false) || !(false && false)
 
-   e) !(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
-     -> !(false) && !(false) || (!true && true && true)
-*/
+//    e) !(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
+//      -> !(false) && !(false) || (!true && true && true)
+// */
 
 
 // Exercício 03
 const quantidadeDeNumerosPares = (numero) => {
-let i = 0
-while(i <= numero) {
-  console.log(i*2)
-  i++
-}
+  let i = 0
+  while(i <= numero) {
+    console.log(i*2)
+    i++
+  }
 }
 quantidadeDeNumerosPares(5)
 
@@ -181,13 +181,47 @@ console.log(`A difrença entre eles é: ${diferenca}`)
 
 
 
-/****** Exercícios de Funções: ******/
+ /****** Exercícios de Funções: ******/
 
 //Exercício 01
 
-//---> Não consegui fazer
+const numeros = [67, 89, 50, 10, 95, 20]
 
+const verficarNumeros = () => {
 
+  const max1 = Math.max(...numeros)
+  const primeiroMaior = []
+  primeiroMaior.push(max1)
+  // console.log(primeiroMaior) // Resultado 95 no console
+
+  // console.log(numeros.indexOf(95))
+
+  numeros.splice(4, 1)
+  // console.log(numeros)
+
+  const max2 = Math.max(...numeros)
+  const segundoMaior = []
+  segundoMaior.push(max2)
+  console.log(segundoMaior) // Resultado 89 no console
+
+  const min1 = Math.min(...numeros)
+  const primeiroMenor = []
+  primeiroMenor.push(min1)
+  // console.log(primeiroMenor) // Resultado 10 no console
+
+  // console.log(numeros.indexOf(10)) 
+
+  numeros.splice(3, 1)
+  // console.log(numeros)
+
+  const min2 = Math.min(...numeros)
+  const segundoMenor = []
+  segundoMenor.push(min2)
+  console.log(segundoMenor) // Resultado 20 no console
+
+ return `O segundo maior número é ${segundoMaior} e o segundo menor número é ${segundoMenor}`
+}
+console.log(verficarNumeros())
 
 
 //Exercício 02
@@ -199,7 +233,7 @@ window.alert(mensagem)
 
 
 
-/****** Exercícios de Objetos: ******/
+// /****** Exercícios de Objetos: ******/
 
 //Exercício 01
 //Explique com as suas palavras o que são e quando podemos/devemos utilizar arrays e objetos:
@@ -222,7 +256,7 @@ const resultado = criaRetangulo(5, 2)
 console.log(resultado)
 
 
-// //Exercício 03
+//Exercício 03
 const filmeFavorito = {
   titulo: 'Invocação do Mal',
   ano: 2013,
@@ -232,7 +266,7 @@ const filmeFavorito = {
 console.log(`Venha assistir ao filme ${filmeFavorito.titulo}, de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor} e estrelado por ${filmeFavorito.elenco}!`)
 
 
-// //Exercício 04
+//Exercício 04
 const usuario = {
   nome: 'Maria dos Santos',
   idade: 56,
@@ -267,7 +301,7 @@ const usuarios = [
 
 const retornarAdultos = usuarios.filter((usuario, index, usuarios) => {
   if(usuario.idade >= 20){
-  return true
+    return true
   }
   return false
 })
@@ -283,7 +317,7 @@ const usuarios = [
 
 const retornarCriancas = usuarios.filter((usuario, index, usuarios) => {
   if(usuario.idade < 20){
-  return true
+    return true
   }
   return false
 })
@@ -295,7 +329,7 @@ console.log(retornarCriancas)
 const array = [1, 2, 3, 4, 5, 6]
 
 const multiplicarPorDois = array.map((numeros, index, array) => {
-     return numeros * 2
+    return numeros * 2
 })
 console.log(multiplicarPorDois)
 
@@ -304,7 +338,7 @@ console.log(multiplicarPorDois)
 const array = [1, 2, 3, 4, 5, 6]
 
 const multiplicarPorTres = array.map((numeros, index, array) => {
-     return numeros * 3
+    return numeros * 3
 })
 console.log(multiplicarPorTres)
 
@@ -335,18 +369,18 @@ const pessoas = [
 
 //---> Resposta a.:
 const verificarRequisitos = pessoas.filter((usuario, index, pessoas) => {
-  if(usuario.altura >= 1.5 && usuario.idade >= 14){
-  return true
-  } 
+    if(usuario.altura >= 1.5 && usuario.idade >= 14){
+      return true
+    } 
 })
 console.log(verificarRequisitos)
 
 
-// //---> Resposta b.:
+//---> Resposta b.:
 const verificarRequisitos = pessoas.filter((usuario, index, pessoas) => {
-  if(usuario.altura < 1.5 || usuario.idade < 14){
-  return true
-  } 
+    if(usuario.altura < 1.5 || usuario.idade < 14){
+      return true
+    } 
 })
 console.log(verificarRequisitos)
 
@@ -361,10 +395,10 @@ const consultas = [
 
 //---> E-mail para as consultas não canceladas:
 const verificarNaoCanceladas = consultas.filter((consulta, index, consultas) => {
-  if(consulta.cancelada === false){
-    return true
-  }
-  return false
+    if(consulta.cancelada === false){
+      return true
+    }
+    return false
 
 }) .map((consulta) => {
   if(consulta.genero === 'feminino'){
@@ -383,11 +417,11 @@ const verificarCanceladas = consultas.filter((consulta, index, consultas) => {
   return false
 
 }) .map((consulta) => {
-  if(consulta.genero === 'feminino'){
-   return `Olá Sra. ${consulta.nome}. Infelizmente, sua consulta marcada para o dia ${consulta.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
-  } else if(consulta.genero === 'masculino'){
-    return `Olá Sr. ${consulta.nome}. Infelizmente, sua consulta marcada para o dia ${consulta.dataDaConsulta}. foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
-  }
+    if(consulta.genero === 'feminino'){
+       return `Olá Sra. ${consulta.nome}. Infelizmente, sua consulta marcada para o dia ${consulta.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
+    } else if(consulta.genero === 'masculino'){
+       return `Olá Sr. ${consulta.nome}. Infelizmente, sua consulta marcada para o dia ${consulta.dataDaConsulta}. foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
+    }
 })
 console.log(verificarCanceladas)
 
