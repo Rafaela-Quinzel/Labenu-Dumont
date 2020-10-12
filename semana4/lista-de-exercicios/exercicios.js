@@ -136,7 +136,7 @@ while(i <= numero) {
 quantidadeDeNumerosPares(5)
 
 
-Exercício 04
+//Exercício 04
 const verficarTriangulo = (a, b, c) => {
     if(a === b && b === c){
         console.log("É um triângulo Equilátero!")
@@ -186,6 +186,9 @@ console.log(`A difrença entre eles é: ${diferenca}`)
 //Exercício 01
 
 //---> Não consegui fazer
+
+
+
 
 //Exercício 02
 let exibirMensagem = function(a, b) {
@@ -348,7 +351,7 @@ const verificarRequisitos = pessoas.filter((usuario, index, pessoas) => {
 console.log(verificarRequisitos)
 
 
-Exercício 04
+//Exercício 04
 const consultas = [
 	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
 	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
@@ -399,45 +402,18 @@ const contas = [
 	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
 ]
 
-contas.forEach((saldo, index, contas) => {
-  switch(saldo.cliente){
-    case "João":
-      saldo.saldoTotal = 600
-      break;
-    case 'Paula':
-      saldo.saldoTotal = 1240
-      break;
-    case "Pedro":
-      saldo.saldoTotal = 13340
-      break;
-    case "Luciano":
-      saldo.saldoTotal = 2000
-      break;
-    case "Artur":
-      saldo.saldoTotal = 500
-      break;
-      case "Soter":
-      saldo.saldoTotal = 0
-      break;
-  }
+contas.forEach((cliente, index, array) => {
+    let soma = 0
+    for (let compra of cliente.compras) {
+        soma += compra
+    }
+    cliente.saldoTotal -= soma
+   for (let i = 0; i < cliente.compras.length; i++) {
+    soma += cliente.compras[i]    
+    console.log(Number(soma))           
+   }
 })
 console.log(contas)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
