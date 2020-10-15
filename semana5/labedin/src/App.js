@@ -1,8 +1,16 @@
 import React from 'react';
 import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
+import CardPequeno from './components/CardPequeno/CardPequeno';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import FotoPerfil from './imagens/perfil.jpeg';
+import LogoEmail from './imagens/gmail.png';
+import LogoEndereco from './imagens/endereco.png';
+import LogoDesigner from './imagens/designer.png';
+import LogoPasta from './imagens/pasta.png';
+import LogoInstagram from './imagens/instagram.png';
+import LogoFacebook from './imagens/facebook.png';
+
 
 
 function App() {
@@ -13,7 +21,7 @@ function App() {
         <CardGrande 
           imagem={FotoPerfil} 
           nome="Rafaela Quinzel" 
-          descricao="Olá, eu sou a Rafaela. Sou aluna da Labenu. Estou estundando programação e dandos os primeiros passos para a minha transição de carreira na área de tecnologia."
+          descricao="Olá, eu sou a Rafaela. Sou aluna da Labenu. Estou estundando programação e dandos os primeiros passos para a minha transição de carreira para a área de tecnologia."
         />
         
         <ImagemButton 
@@ -23,30 +31,46 @@ function App() {
       </div>
 
       <div className="page-section-container">
+        <h2>Dados pessoais</h2>
+        <CardPequeno 
+          imagem={LogoEmail} 
+          nome="Email:" 
+          descricao="estudantelabenu@gmail.com"
+        />
+
+        <CardPequeno 
+          imagem={LogoEndereco} 
+          nome="Endereço:" 
+          descricao="Avenida Chuí, n 121 - Porto Alegre/RS"
+        />
+        
+      </div>
+
+      <div className="page-section-container">
         <h2>Experiências profissionais</h2>
         <CardGrande 
-          imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png" 
-          nome="Labenu" 
-          descricao="Formando desenvolvedores para o mercado de trabalho!" 
+          imagem={LogoDesigner} 
+          nome="Designer e ilustração" 
+          descricao="Sou ilustradora nas horas vagas. Fazia mais desenhos no papel e hoje aderi ao desenho digital. Fiz também alguns trabalhos como designer, mas foi por um curto período." 
         />
         
         <CardGrande 
-          imagem="https://imagens.canaltech.com.br/empresas/4418.400.jpg" 
-          nome="NASA" 
-          descricao="Apontando defeitos." 
+          imagem={LogoPasta} 
+          nome="Administrativo" 
+          descricao="Iniciei no mercado de trabalho na área de vendas internas. Algum tempo depois, tive uma oportunidade na área administrativa e foi onde trabalhei até decidir mudar de carreira." 
         />
       </div>
 
       <div className="page-section-container">
         <h2>Minhas redes sociais</h2>
         <ImagemButton 
-          imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" 
-          texto="Facebook" 
+          imagem={LogoInstagram} 
+          texto="Instagram" 
         />        
 
         <ImagemButton 
-          imagem="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1-1.png" 
-          texto="Twitter" 
+          imagem={LogoFacebook}
+          texto="Facebook" 
         />        
       </div>
     </div>
