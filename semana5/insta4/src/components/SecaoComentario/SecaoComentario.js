@@ -7,10 +7,11 @@ export class SecaoComentario extends Component {
 	}
 //   Exercício 4 - Implementação
 	onChangeComentario = (event)  => {
-		this.setState({valorInputComentario: event.target.value});
-		console.log(event.target.value);
+		this.setState({valorInputComentario: event.target.value})
+		console.log(event.target.value)
 	}
 
+	
 	render() {
 		return <div className={'comment-container'}>
 			<input

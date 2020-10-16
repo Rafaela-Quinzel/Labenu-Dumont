@@ -7,6 +7,9 @@ import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import iconeSalvar from '../../imagens/favoritewhite.svg'
+
+
 
 class Post extends React.Component {
   state = {
@@ -81,17 +84,17 @@ class Post extends React.Component {
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
         />
+
+        <IconeComContador
+          icone={iconeSalvar}
+          onClickIcone={this.onClickComentario}
+          />
+
       </div>
 
-      <div>
+     
+     <div>
       {componenteComentario}
-      {/* //Exercício 4 - Implementação */}
-      <SecaoComentario
-          onChangeComentario={this.onChangeComentario}
-          onClickComentario={this.state.componenteComentario}
-          aoEnviarComentario={this.state.componenteComentario}
-          value={this.state.valorInputComentario}
-        />
       </div>
     </div>
   }
