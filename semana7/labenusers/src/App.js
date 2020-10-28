@@ -1,39 +1,48 @@
-import Axios from "axios";
 import React from "react";
 import styled from "styled-components";
 import Cadastro from "./components/Cadastro";
 import Lista from "./components/Lista"
 
+// const AppContainer = styled.div`
+//   font-family: Arial, Helvetica, sans-serif;
+//   border: 1px solid black;
+//   padding: 50px;
+//   width: 20vw;
+//   margin: 5vw 35vw;
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   align-items: flex-start;
+// `
+
 
 
 class App extends React.Component {
   state = {
-    criarUsuario: [],
-    criarUsuarioValue: ""
+    pagina: true,
+  }
+
+  trocarPagina = () => {
+    if (this.state.pagina) {
+    this.setState({pagina: false})
+    } else {
+      this.setState({pagina: true})
+    }
   };
 
-  componentDidMount = () => {
-    this.getUsuarios();
-  };
-
-  getUsuarios = () => {
-    Axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
-      headers: {
-        Authorization: "rafaela-quinzel-dumont"
-      }
-    })
-    .then((resposta) => {
-      this.setState({criarUsuario: resposta.data})
-      console.log(resposta)
-    })
-    .catch((erro) => {
-      console.log(erro.message)
-    })
-  };
-
+ 
   render() {
-  return (
-    <Cadastro/>
+    const renderizarLista = () => {
+      if (this.state.pagina) {
+        return <Cadastro trocarPagina={this.trocarPagina}/>
+      } else {
+      return <Lista trocarPagina={this.trocarPagina}/>
+      }
+    }
+   return (
+     <div>
+     <p>{renderizarLista()}</p> 
+     </div>
+   
     
   );
 }
