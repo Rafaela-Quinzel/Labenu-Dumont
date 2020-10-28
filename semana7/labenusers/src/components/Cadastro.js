@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components";
-import Lista from "./Lista";
-
 
 
 const FormContainer = styled.div`
@@ -31,7 +29,7 @@ width: 15vw;
 padding: 2px;
 margin-bottom: 8px;
 margin-top: 10px;
-background-color: green;
+background-color: #045509;
 color: whitesmoke;
 `;
 
@@ -39,7 +37,7 @@ const BotaoMudarPagina = styled.button`
 width: 15vw;
 padding: 2px;
 margin-bottom: 15px;
-background-color: goldenrod;
+background-color: #cc9f06;
 color: whitesmoke;
 `;
 
@@ -47,17 +45,15 @@ color: whitesmoke;
 
 class Cadastro extends React.Component {
     state = {
-        criarUsuario: [],
-        criarEmail: [],
-        criarUsuarioValue: "",
-        criarEmailValue: ""
+        nameValue: "",
+        emailValue: ""
       };
 
 
     criarNovoUsuario = () => {
         const body = {
-          name: this.state.criarUsuarioValue,
-          email: this.state.criarEmailValue
+          name: this.state.nameValue,
+          email: this.state.emailValue
         };
     
         axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
@@ -68,24 +64,22 @@ class Cadastro extends React.Component {
           }
         )
         .then((resposta) => {
-          this.setState({criarUsuarioValue: "", criarEmailValue: ""});
-          this.mostrarUsuarios();
-          console.log(resposta)
-          window.alert("Usuário cadastrado!")
+          alert("Usuário cadastrado!");
+          this.setState({ nameValue: "", emailValue: ""});
         })
         .catch((erro) => {
           console.log(erro.message);
-          console.log(body)
+          alert("Não foi possível cadastrar usuário!")
         })
       };
 
 
-      onChangeCriarUsuarioValue = (event) => {
-        this.setState({criarUsuarioValue: event.target.value});
+      onChangeNameValue = (event) => {
+        this.setState({nameValue: event.target.value});
       };
     
-      onChangeCriarEmailValue = (event) => {
-        this.setState({criarEmailValue: event.target.value})
+      onChangeEmailValue = (event) => {
+        this.setState({emailValue: event.target.value})
       };
 
       
@@ -94,16 +88,15 @@ class Cadastro extends React.Component {
   render() {
         return (
             <FormContainer>
-            
             <InputContainer>Nome:</InputContainer>
             <input
-            value={this.state.name}
-            onChange={this.onChangeCriarUsuarioValue}
+            value={this.state.nameValue}
+            onChange={this.onChangeNameValue}
             placeholder='Digite seu nome'/>
             <EmailContainer>E-mail:</EmailContainer>
             <input
-            value={this.state.email}
-            onChange={this.onChangeCriarEmailValue}
+            value={this.state.emailValue}
+            onChange={this.onChangeEmailValue}
             placeholder='Digite seu e-mail'/>
             <BotaoSalvar onClick={this.criarNovoUsuario}>Salvar</BotaoSalvar>
             <BotaoMudarPagina onClick={this.props.trocarPagina}>Ir para página de lista</BotaoMudarPagina>
