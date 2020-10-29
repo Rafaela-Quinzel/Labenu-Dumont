@@ -1,7 +1,7 @@
 import React from "react";
 import Cadastro from "./components/Cadastro";
+import DadosUsuario from "./components/DadosUsuario";
 import Lista from "./components/Lista"
-
 
 
 class App extends React.Component {
@@ -27,11 +27,10 @@ class App extends React.Component {
       }
     }
     return (
-     <div className="App">
-       {renderizarLista()}
-     </div>
+      <div className="App">
+        {renderizarLista()}
+      </div>
     );
   }
 }
-
 export default App;
