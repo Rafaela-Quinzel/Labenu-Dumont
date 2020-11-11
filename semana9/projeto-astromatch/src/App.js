@@ -1,5 +1,5 @@
-// import './App.css';
-import {AppConteiner} from "./components/styled"
+import { useEffect, useState } from 'react'
+import {AppConteiner} from './components/styled'
 import HomeScreen from './components/HomeScreen';
 import MatchScreen from './components/MatchScreen';
 
