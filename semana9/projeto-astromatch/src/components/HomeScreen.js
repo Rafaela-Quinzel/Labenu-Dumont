@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import {HomeConteiner, MainConteiner, ImageUser, Header, NoMatch, Match, UserName, UserAge, UserDescription, ContentScreen, MatchsButton, BackButton, TitleLogo, Footer} from "./styled"
+import {HomeConteiner, ImageProfile, Header, NoMatch, Match, NameProfile, AgeProfile, BioProfile, ContentScreen, MatchesButton, ProfileTitle, TitleLogo, Footer, ProfileConteiner} from "./styled"
 import ButtonNoMatch from "./images/iconnomatch.svg"
 import ButtonMatch from "./images/iconheartmatch.svg"
 import Back from "./images/back.svg"
@@ -9,43 +9,67 @@ import Matchs from "./images/matchs.svg"
 import Logo from "./images/logo.svg"
 
 
-function HomeScreen(props) {
-   const [dataProfiles, setDataProfiles] = useState([])
+function HomeScreen() {
+   const [infoProfiles, setInfoProfiles] = useState([])
+  // const [matche, setMatche] = useState([])
 
 
    useEffect(() => {
-     renderProfiles()
+     getProfiles()
    }, [])
 
-   const renderProfiles = () => {
+   const getProfiles = () => {
      axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/person')
      .then(response => {
-       setDataProfiles(response.data)
-     })
+       setInfoProfiles(response.data.profile)
+      })
+      .catch(error => {
+        console.log(error)
+      })
    }
+
+//   const choosePerson = (id, response) => {
+//     const body = {
+//       id: id,
+//       choice: matche
+//     }
+//    axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/choose-person')
+//    .then((answer) => {
+//      setMatche(response.data)
+//      console.log(matche)
+//    })
+//    .catch(error => {
+//      console.log(error)
+//    })
+//  }
+
+
   return (        
     <HomeConteiner>
-     <ContentScreen>
-      <Header>
-       <MatchsButton src={Back}/>
-        <TitleLogo src={Logo}/>
-        <BackButton src={Matchs}/>
-      </Header>
-       <hr/>
-      <MainConteiner>
-        <ImageUser src={'https://i.pinimg.com/564x/94/81/ab/9481aba77c503d0c99f80ac54810021b.jpg'}/>
-         
-        <UserName>Amanda Oliveira,</UserName>
-        <UserAge> 18 anos</UserAge>
-        <UserDescription>Gosto de Viajar!</UserDescription>
-      
-      </MainConteiner>
+
+      <ContentScreen>
+        <Header>
+            <TitleLogo src={Logo}/>
+            <MatchesButton src={Matchs}/>
+        </Header>
+        <hr/>
+
+        <ProfileConteiner key={infoProfiles.id}>
+          <ImageProfile src={infoProfiles.photo}/>
+          {/* <ProfileTitle> */}
+          <NameProfile>{infoProfiles.name},  </NameProfile>
+          <AgeProfile> {infoProfiles.age} anos</AgeProfile>
+          {/* </ProfileTitle> */}
+          <BioProfile>{infoProfiles.bio}</BioProfile>
+        </ProfileConteiner>
 
         <Footer>
-        <NoMatch src={ButtonNoMatch}/>
-        <Match src={ButtonMatch}/>
+          <NoMatch src={ButtonNoMatch}/>
+          <Match src={ButtonMatch} /> 
+          {/* onClick={choosePerson} */}
         </Footer>
-        </ContentScreen>
+      </ContentScreen>
+
     </HomeConteiner>
   );
 }

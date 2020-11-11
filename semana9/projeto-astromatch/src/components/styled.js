@@ -16,51 +16,10 @@ export const HomeConteiner = styled.div`
    align-items: center;
 `
 
-export const ContentScreen = styled.div`
-   background-color: white;
-   box-shadow: 0 5px 15px 0 rgba(115,118,117,0.80);
-   width: 24vw;
-   height: 90vh;
-   border: 1px solid black;
-   margin-top: 2%;
-   margin-bottom: 0;
-   border-radius: 2%; 
-`
-
-export const MatchsConteiner = styled.div`
-   background-color: white;
-   width: 24vw;
-   height: 90vh;
-   border: 1px solid black;
-   margin-top: 2%;
-   margin-bottom: 0;
-   border-radius: 2%;
-   margin-left: 38%; 
-`
-
-export const Header = styled.div`
-   display: flex;
-   justify-content: space-around;
-`
-
-export const MatchsButton = styled.img`
-   width: 8%;
-   margin-top: 2vh;
-`
-
-export const BackButton = styled.img`
-   width: 8%;
-   margin-top: 2vh;
-`
-
-export const TitleLogo = styled.img`
-   width: 100px;
-   height: 50px;
-   padding-top: 2%;
-`
-
-export const MainConteiner = styled.main`
+export const ProfileConteiner = styled.main`
    box-shadow: 0 5px 15px 0 rgba(117,117,117,0.77);
+   color: white;
+   text-shadow: 2px 1px 1px black;
    width: 22vw;
    height: 50vh;
    border-radius: 2%;
@@ -68,44 +27,87 @@ export const MainConteiner = styled.main`
    display: grid;
 `
 
-// export const UserData = styled.div`
-//    /* box-shadow: -30px 30px 20px rgba(0,0,0,0.3); */
-//    background-color: black;
-// `
+export const MatchesConteiner = styled.div`
+   background-color: white;
+   width: 25vw;
+   height: 92vh;
+   border: 1px solid black;
+   margin-top: 2%;
+   margin-bottom: 0;
+   border-radius: 2%;
+   margin-left: 37%;
+   text-align: center; 
+`
 
+export const HeaderMatches = styled.header`
+   display: flex;
+   justify-content: space-around;
+`
 
-export const ImageUser = styled.img`
+export const ContentScreen = styled.div`
+   background-color: white;
+   box-shadow: 0 5px 15px 0 rgba(115,118,117,0.80);
+   width: 25vw;
+   height: 92vh;
+   border: 1px solid black;
+   margin-bottom: 0;
+   border-radius: 2%; 
+`
+
+export const Header = styled.div`
+   display: flex;
+   justify-content: space-around;
+`
+
+export const MatchesButton = styled.img`
+   width: 9%;
+`
+
+export const BackButton = styled.img`
+   width: 9%;
+   margin-top: 1vh; 
+`
+
+export const TitleLogo = styled.img`
+   width: 120px;
+   height: 50px;
+   padding-top: 2%;
+   margin-left: 27%;
+`
+
+export const LogoMatches = styled.img`
+   width: 120px;
+   height: 50px;
+   padding-top: 2%;
+   margin-right: 25%;
+`
+
+export const ImageProfile = styled.img`
    width: 22vw;
    height: 60vh;
    border-radius: 2%;
 `
-
-export const UserName = styled.div`
-   color: white;
-   text-shadow: 2px 1px 1px black;
+export const NameProfile = styled.div`
+   position: absolute;
 	font-weight: bold;
    font-size: 20px;
+   margin-top: 22%;
    margin-left: 1%;
-   position: absolute;
-   margin-top: 22%;
 `
 
-export const UserAge = styled.div`
-   color: white;
-   text-shadow: 2px 1px 1px black;
-   font-size: 18px;
-   margin-left: 13%;
-   position: absolute;
-   margin-top: 22%;
-`
-
-export const UserDescription = styled.p`
-   color: white;
-   text-shadow: 2px 1px 1px black;
-   margin-top: 10px;
+export const AgeProfile = styled.div`
    font-size: 14px;
+   margin-top: 45vh;
    position: absolute;
-   margin-left: 3%;
+   float: right;
+`
+
+export const BioProfile = styled.p`
+   position: absolute;
+   width: 20%;
+   margin-top: 10px;
+   font-size: 12px;
+   margin-left: 1%;
    margin-top: 24%;
 `
 
@@ -125,17 +127,18 @@ export const Match = styled.img`
    margin-top: 32%; 
 `
 
-export const ProfileConteiner = styled.main`
+export const InfoMatches = styled.div`
    text-align: center; 
 `
 
-export const ProfileImage = styled.img`
-   width: 50px;
-   border-radius: 100%;
+export const MatcheImage = styled.img`
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
    border: 1px solid rgba(0, 0, 0, 0.267);
 `
 
-export const ProfileName = styled.p`
+export const MatcheName = styled.p`
    font-size: 14px;
    color: purple;
    float: right;
