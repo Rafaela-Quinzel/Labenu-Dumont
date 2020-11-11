@@ -1,13 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import {MatchesConteiner, HeaderMatches, MatchesButton, BackButton, LogoMatches, ProfileImage, MatcheImage, MatcheName, Break, InfoMatches } from "./styled"
-import Matches from "./images/matchs.svg"
+import {MatchesConteiner, HeaderMatches, BackButton, LogoMatches, ProfileImage, MatcheImage, MatcheName, Break, InfoMatches } from "./styled"
 import Back from "./images/back.svg"
 import Logo from "./images/logo.svg"
 
 
-function MatcheScreen() {
+function MatcheScreen(props) {
 const [matches, setMatches] = useState([])
 
   useEffect(() => {
@@ -16,13 +15,13 @@ const [matches, setMatches] = useState([])
 
 
   const getMatches = () => {
-    axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/person')
+    axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/matches')
     .then(response => {
-      setMatches(response.data.profile)
+      setMatches(response.data)
       console.log(response)
     })
     .catch(error => {
-      console.log(error)
+      console.log(error.massage)
     })
   }
 
@@ -38,15 +37,26 @@ const [matches, setMatches] = useState([])
       <hr/>
 
       <InfoMatches key={matches.id}>
-        <MatcheImage src={matches.photo}/>
-        <MatcheName>{matches.name}</MatcheName>
-        <Break/>
+        {matches.map((profile => {
+          return (
+            <div>
+              id={profile.id}
+              key={profile.id}
+              {/* choosePerson={choosePerson} */}
+              name={profile.name}
+              age={profile.age}
+            </div>
+          )
+        }))}
+        {/* <MatcheImage src={matches.photo}/>
+        <MatcheName>{matches.name}</MatcheName> */}
+        
 
-        <MatcheImage src={'https://i.pinimg.com/564x/6e/b2/8c/6eb28cc1549a19b35283aaca49ecd7bf.jpg'}/>
+        {/* <MatcheImage src={'https://i.pinimg.com/564x/6e/b2/8c/6eb28cc1549a19b35283aaca49ecd7bf.jpg'}/>
         <MatcheName>Carolina Danvers</MatcheName>
-        <Break/>
-
+        <Break/> */}
       </InfoMatches>
+      <Break/>
        
     </MatchesConteiner>
   );

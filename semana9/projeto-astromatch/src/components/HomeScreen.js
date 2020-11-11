@@ -7,11 +7,13 @@ import ButtonMatch from "./images/iconheartmatch.svg"
 import Back from "./images/back.svg"
 import Matchs from "./images/matchs.svg"
 import Logo from "./images/logo.svg"
+import MatcheScreen from './MatcheScreen'
 
 
-function HomeScreen() {
+function HomeScreen(props) {
    const [infoProfiles, setInfoProfiles] = useState([])
-  // const [matche, setMatche] = useState([])
+   
+  //  const [matche, setMatche] = useState("")
 
 
    useEffect(() => {
@@ -24,24 +26,31 @@ function HomeScreen() {
        setInfoProfiles(response.data.profile)
       })
       .catch(error => {
-        console.log(error)
+        console.log(error.massage)
       })
    }
 
-//   const choosePerson = (id, response) => {
-//     const body = {
-//       id: id,
-//       choice: matche
-//     }
-//    axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/choose-person')
-//    .then((answer) => {
-//      setMatche(response.data)
-//      console.log(matche)
-//    })
-//    .catch(error => {
-//      console.log(error)
-//    })
-//  }
+  const choosePerson = () => {
+    const body = {
+      id: infoProfiles.id,
+      choice: true
+    }
+   axios.post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/choose-person',
+     body
+     )
+   .then((response) => {
+     getProfiles()
+     console.log(response, 'OK')
+   })
+   .catch(error => {
+     console.log(error.message)
+   })
+ }
+
+ const addMatch = () => {
+     choosePerson()
+     console.log('ok')
+ }
 
 
   return (        
@@ -50,23 +59,23 @@ function HomeScreen() {
       <ContentScreen>
         <Header>
             <TitleLogo src={Logo}/>
-            <MatchesButton src={Matchs}/>
+            <MatchesButton src={Matchs} onClick={props.showMatches}/>
         </Header>
         <hr/>
-
+         
         <ProfileConteiner key={infoProfiles.id}>
           <ImageProfile src={infoProfiles.photo}/>
           {/* <ProfileTitle> */}
-          <NameProfile>{infoProfiles.name},  </NameProfile>
-          <AgeProfile> {infoProfiles.age} anos</AgeProfile>
+          <NameProfile>{infoProfiles.name}, {infoProfiles.age} anos</NameProfile>
+          {/* <AgeProfile> {infoProfiles.age} anos</AgeProfile> */}
           {/* </ProfileTitle> */}
           <BioProfile>{infoProfiles.bio}</BioProfile>
         </ProfileConteiner>
 
         <Footer>
           <NoMatch src={ButtonNoMatch}/>
-          <Match src={ButtonMatch} /> 
-          {/* onClick={choosePerson} */}
+          <Match src={ButtonMatch} onClick={addMatch}/> 
+          
         </Footer>
       </ContentScreen>
 

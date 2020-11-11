@@ -4,14 +4,31 @@ import HomeScreen from './components/HomeScreen';
 import MatcheScreen from './components/MatcheScreen';
 
 function App() {
-  return (
-    <AppConteiner>
-      
-      <HomeScreen/>
+  const [currentPage, setCurrentPage] = useState("homescreen")
 
-      <MatcheScreen/>
-    
-    </AppConteiner>
+  const showMatches = () => {
+    if(currentPage === "homescreen") {
+       setCurrentPage("matches")
+    } else {
+      setCurrentPage("homescreen")
+    }
+ }
+
+
+  return (
+    <div>
+      {currentPage === "homescreen" ? (
+           <HomeScreen />
+         ) : ( <MatcheScreen  changePage={showMatches}/>)}
+         
+            <AppConteiner>
+              
+              {/* <HomeScreen/> */}
+
+              <MatcheScreen/>
+            
+            </AppConteiner>
+    </div>
   );
 }
 
