@@ -8,39 +8,31 @@ import Logo from "./images/logo.svg"
 
 
 function MatchScreen(props) {
-  // const [matchs, setMatchs] = useState([])
+  const [matchs, setMatchs] = useState([])
 
 
-  // useEffect(() => {
-  //   renderMatchs()
-  // }, [])
+  useEffect(() => {
+    axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/matches')
+    .then(response => {
+      setMatchs(response.data)
+      console.log(matchs)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }, [])
 
-  // const renderMatchs = () => {
-  //   axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/matches')
-  //   .then(response => {
-  //     setMatchs(response.data)
-  //     console.log(matchs)
-  //   })
-  //   .catch(error => {
-  //     console.log(error)
-  //   })
-  // }
   return (        
     <MatchsConteiner>
       <Header>
        <MatchsButton src={Back}/>
-        {/* <TitleLogo>astromatch</TitleLogo> */}
         <TitleLogo src={Logo}/>
         <BackButton src={Matchs}/>
       </Header>
       <hr/>
 
       <ProfileConteiner>
-       {/* {matchs.map(match => {
-          return (
-          <p>{match.name}</p>
-          )
-       })} */}
+       {matchs}
       <ProfileImage src={'https://i.pinimg.com/564x/6e/b2/8c/6eb28cc1549a19b35283aaca49ecd7bf.jpg'}/>
       <ProfileName>Carolina Danvers</ProfileName>
       <Break/>

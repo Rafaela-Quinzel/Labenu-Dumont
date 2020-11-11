@@ -10,19 +10,19 @@ import Logo from "./images/logo.svg"
 
 
 function HomeScreen(props) {
-  //  const [dataProfiles, setDataProfiles] = useState([])
+   const [dataProfiles, setDataProfiles] = useState([])
 
 
-  //  useEffect(() => {
-  //    renderProfiles()
-  //  }, [])
+   useEffect(() => {
+     renderProfiles()
+   }, [])
 
-  //  const renderProfiles = () => {
-  //    axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/person')
-  //    .then(response => {
-  //      setDataProfiles(response.data)
-  //    })
-  //  }
+   const renderProfiles = () => {
+     axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/rafaela/person')
+     .then(response => {
+       setDataProfiles(response.data)
+     })
+   }
   return (        
     <HomeConteiner>
      <ContentScreen>
