@@ -1,34 +1,21 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {AppConteiner} from './components/styled'
 import HomeScreen from './components/HomeScreen';
 import MatcheScreen from './components/MatcheScreen';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("homescreen")
+  const [currentScreen, setCurrentScreen] = useState(true)
 
-  const showMatches = () => {
-    if(currentPage === "homescreen") {
-       setCurrentPage("matches")
-    } else {
-      setCurrentPage("homescreen")
-    }
+  const changeScreen = () => {
+    setCurrentScreen(!currentScreen)
  }
 
 
   return (
-    <div>
-      {currentPage === "homescreen" ? (
-           <HomeScreen />
-         ) : ( <MatcheScreen  changePage={showMatches}/>)}
-         
-            <AppConteiner>
-              
-              {/* <HomeScreen/> */}
-
-              <MatcheScreen/>
-            
-            </AppConteiner>
-    </div>
+    <AppConteiner>
+      {currentScreen ? <HomeScreen changeScreen={changeScreen} />
+      : <MatcheScreen changeScreen={changeScreen} />}       
+    </AppConteiner>
   );
 }
 
