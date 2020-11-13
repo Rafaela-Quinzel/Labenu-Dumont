@@ -76,7 +76,7 @@ export const MathListProfiles = styled.div`
    height: 76vh;
    overflow-y: scroll;
    @media screen and (max-width:500px) {
-      height: 50%;
+      height: 84%;
    }
 `
 

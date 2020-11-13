@@ -43,6 +43,7 @@ function HomeScreen(props) {
 
   const iconNoMatch = noChoose ? (ButtonNoMatch) : (NoMatchEffect);
 
+  
   const defaultOptions = {
     loop: true,
     autoplay: true, 
