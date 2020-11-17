@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// Styled Contact
+// Styled ContactPage
 export const ContactContainer = styled.div`
   display: grid;
   justify-items: center;
