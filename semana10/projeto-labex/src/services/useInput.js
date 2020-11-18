@@ -1,11 +1,11 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
-export function UseInputTrips() {
-    const [input, setInput] = useState("")
+// export function UseInputTrips() {
+//     const [input, setInput] = useState("")
 
-    const handleInput = (event) => {
-        setInput(event.target.value)
-    }
+//     const handleInput = (event) => {
+//         setInput(event.target.value)
+//     }
 
-    return [input, handleInput]
-}
+//     return [input, handleInput]
+// }

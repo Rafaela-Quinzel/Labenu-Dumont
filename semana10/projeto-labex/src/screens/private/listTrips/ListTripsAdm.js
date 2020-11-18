@@ -1,12 +1,12 @@
-import { TripsTitle, ImagePlanet, ListContainer, TripContainer, NameTrip } from './styled'
-import  { useRequestData }  from '../../services/useRequestData'
+import { TripsTitle, ImagePlanet, ListContainer, TripContainer, NameTrip } from '../../../trips/styled'
+import  { useRequestData }  from '../../../../services/useRequestData'
 import { useHistory } from 'react-router-dom'
 
 
 
 function ListTripsPage() {
 
-    const getTrips = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela/trips', [])
+    const getTrips = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips', [])
 
     const history = useHistory()
 

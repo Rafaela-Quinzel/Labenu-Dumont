@@ -1,5 +1,5 @@
 import { CreateContainer, InputCreate, ButtonSave} from './styled'
-import  { usePostTrips }  from '../../services/usePostTrips'
+import  { usePostTrips }  from '../../../services/usePostTrips'
 import axios from 'axios'
 
 

@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HomePage from '../screens/home/HomePage'
-import LoginPage from '../screens/login/LoginPage'
-import ApplicationFormPage from '../screens/formPage/ApplicationFormPage'
-import ListTripsPage from '../screens/trips/ListTripsPage'
-import TripDetailsPage from '../screens/trips/TripDetailsPage'
-import CreateTripPage from '../screens/trips/CreateTripPage'
+import HomePage from '../screens/public/home/HomePage'
+import LoginPage from '../screens/private/login/LoginPage'
+import ApplicationFormPage from '../screens/public/formPage/ApplicationFormPage'
+import ListTripsPage from '../screens/private/createTrips/listTrips/ListTripsPage'
+import TripDetailsPage from '../screens/private/tripDetail/TripDetailsPage'
+import CreateTripPage from '../screens/public/trips/CreateTripPage'
 import AboutPage from '../screens/aboutUS/AboutPage'
 import ContactPage from '../screens/contact/ContactPage'
 
@@ -25,7 +25,7 @@ function Router() {
             <Route exact path="/viagens">
                <ListTripsPage />
             </Route>
-            <Route exact path="/detalhes_da_viagem">
+            <Route exact path="/detalhes_das_viagens">
                <TripDetailsPage />
             </Route>
             <Route exact path="/viagens">
