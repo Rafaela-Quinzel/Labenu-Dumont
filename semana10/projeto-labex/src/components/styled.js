@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { mainBlue, mainBlack } from '../constants/colors'
+import { mainBlue } from '../constants/colors'
+import { Link } from 'react-router-dom'
 
 // Styled Header
 export const HeaderContainer = styled.header`
@@ -16,13 +17,17 @@ export const Logo = styled.img`
    margin-top: 1%;
 `
 
-export const Menu = styled.span`
+export const Menu = styled(Link)`
    cursor: pointer;
+   text-decoration: none;
    &:hover {
      border-bottom: 2px solid white;
    }
    margin-left: 4%;
+   color: white;
 `
+
+
 
 
 // Styled Footer

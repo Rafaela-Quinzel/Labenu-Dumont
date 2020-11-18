@@ -2,7 +2,7 @@ import React from 'react'
 import { AboutContainer, MainContainer } from './styled'
 import  Header  from '../../components/Header'
 import  Footer  from '../../components/Footer'
-import { useHistory } from 'react-router-dom'
+
 
 
 function WhoWeAre() {

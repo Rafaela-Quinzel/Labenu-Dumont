@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import { HeaderContainer, Logo, Menu } from './styled'
 import LogoRocket from '../assets/images/foguete.svg';
 
@@ -7,32 +6,15 @@ import LogoRocket from '../assets/images/foguete.svg';
 
 const Header = () => {
 
-    const history = useHistory()
-     
-    const goToHomePage = () => {
-        history.push("/")
-    }
-     
-    const goToListTripsPage = () => {
-        history.push('/viagens')
-    }
-
-    const goToAboutPage = () => {
-        history.push('/sobre')
-    }
-
-    const goToContactPage = () => {
-        history.push('/contato')
-    }
-
     return (
         <HeaderContainer>
             <Logo src={LogoRocket} />
+            <Menu to='/home'>Home</Menu>
+            <Menu to='/viagens'>Viagens</Menu>
+            <Menu to='/sobre'>Quem somos</Menu>
+            <Menu to='/contato' target='_blank'>Fale conosco</Menu>
+            {/* TESTE <a href=' https://co.pinterest.com/' target='_blank' >clique</a> */}
 
-            <Menu onclick={goToHomePage}>Home</Menu>
-            <Menu onClick={goToListTripsPage}>Viagens</Menu>
-            <Menu onClick={goToAboutPage}>Quem somos</Menu>
-            <Menu onClick={goToContactPage}>Fale conosco</Menu>
         </HeaderContainer>
     )
 }

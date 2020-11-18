@@ -1,9 +1,15 @@
 import { CreateContainer, InputCreate, ButtonSave} from './styled'
+import  { usePostTrips }  from '../../services/usePostTrips'
 import axios from 'axios'
 
 
 
 function CreateTripPage() {
+
+    const createTrips = usePostTrips('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela/trips', {})
+    console.log(createTrips)
+
+
 
 
     return (

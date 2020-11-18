@@ -13,12 +13,11 @@ function Router() {
   return (
     <BrowserRouter>
         <Switch>
-      {/* <Route exact path="/sobre/:linguagem"> */}
-            <Route exact path="/login">
-               <LoginPage />
-            <Route exact path="/">
+            <Route exact path="/home">
                <HomePage />
             </Route>
+            <Route exact path="/login">
+               <LoginPage />
             </Route>
             <Route exact path="/inscreva-se">
                <ApplicationFormPage />
