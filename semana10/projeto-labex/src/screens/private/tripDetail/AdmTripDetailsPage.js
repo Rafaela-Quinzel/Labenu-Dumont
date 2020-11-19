@@ -14,6 +14,8 @@ function AdmTripDetailsPage() {
 
     useProtectedPage()
 
+
+
     const logOut = () => {
         localStorage.removeItem('token')
         history.push('/home')
@@ -40,50 +42,52 @@ function AdmTripDetailsPage() {
             }
         }).then((response) => {
             setTrip(response.data.trip)
+            console.log(response.data.trip)
+            console.log(id)
         }).catch((error) => {
                 console.log(error)
         })
     }
     
     // Aceitar candidato
-    const aceptApplication = (applicationId) => {
-        const body = {
-            approve: true
-        }
-        axios
-            .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/lais-mello/trips/${id}/candidates/${applicationId}/decide/`,
-            body, {
-                headers: {
-                    auth: localStorage.getItem('token')
-                }
-            })
-            .then(() => {
-                alert("Candidate aprovade!")
-            })
-            .catch(e => {
-                console.log(e)
-            })
-    }
+    // const aceptApplication = (applicationId) => {
+    //     const body = {
+    //         approve: true
+    //     }
+    //     axios
+    //         .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/lais-mello/trips/${id}/candidates/${applicationId}/decide/`,
+    //         body, {
+    //             headers: {
+    //                 auth: localStorage.getItem('token')
+    //             }
+    //         })
+    //         .then(() => {
+    //             alert("Candidate aprovade!")
+    //         })
+    //         .catch(e => {
+    //             console.log(e)
+    //         })
+    // }
 
         //rejeitar candidato
-        const rejectApplication = (applicationId) => {
-            const body = {
-               approve: false
-            }
-           axios
-            .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}/candidates/${applicationId}/decide/`,
-            body,  {
-                headers: {
-                    auth: localStorage.getItem('token')
-                }
-            })
-            .then(() => {
-                alert("Candidate reprovade!")
-            })
-            .catch(e => {
-                console.log(e)
-            })
-       }
+    //     const rejectApplication = (applicationId) => {
+    //         const body = {
+    //            approve: false
+    //         }
+    //        axios
+    //         .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}/candidates/${applicationId}/decide/`,
+    //         body,  {
+    //             headers: {
+    //                 auth: localStorage.getItem('token')
+    //             }
+    //         })
+    //         .then(() => {
+    //             alert("Candidate reprovade!")
+    //         })
+    //         .catch(e => {
+    //             console.log(e)
+    //         })
+    //    }
 
     return (
         <DetailsContainer>
@@ -114,8 +118,8 @@ function AdmTripDetailsPage() {
                            <p>Profissão: {candidate.profession}</p>
                            <p>País: {candidate.country}</p>
                            <p>Motivo: {candidate.applicationText}</p>
-                           <button onClick={aceptApplication}>Aceitar candidato</button>
-                           <button onClick={rejectApplication}>Recusar candidato</button>
+                           <button >Aceitar candidato</button>
+                           <button >Recusar candidato</button>
                         </div>
                     )})}
             </DetailsTrip>

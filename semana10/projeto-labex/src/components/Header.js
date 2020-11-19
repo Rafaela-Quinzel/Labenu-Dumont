@@ -13,7 +13,7 @@ const Header = () => {
             <Menu to='/home'>Home</Menu>
             <Menu to='/viagens'>Viagens</Menu>
             <Menu to='/sobre'>Quem somos</Menu>
-            <Menu to='/contato' target='_blank'>Fale conosco</Menu>
+            <Menu to='/contato'>Fale conosco</Menu>
             {/* TESTE <a href=' https://co.pinterest.com/' target='_blank' >clique</a> */}
 
         </HeaderContainer>

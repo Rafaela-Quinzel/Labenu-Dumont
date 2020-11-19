@@ -1,50 +1,40 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+import { useForm } from '../../../services/useForm'
 import { CreateContainer, InputCreate, ButtonSave} from './styled'
 import axios from 'axios'
 
 
 function CreateTripPage() {
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [durationInDays, setDurationInDays] = useState('')
-    const [planet, setPlanet] = useState('')
-    const [date, setDate] = useState('')
+    const [form, onChange] = useForm({
+        email: '', 
+        description: '',
+        durationInDays: '',
+        planet: '',
+        date: ''
+    })
 
-    const history = useHistory()
+    // const history = useHistory()
     const pathParams = useParams()
     const id = pathParams.id
 
-    const handleName = (event) => {
-        setName(event.target.value)
-    }
-
-    const handleDescription = (event) => {
-        setDescription(event.target.value)
-    }
-
-    const handleDurationInDays = (event) => {
-        setDurationInDays(event.target.value)
-    }
-
-    const handlePlanet = (event) => {
-        setPlanet(event.target.value)
-    }
-
-    const handleDate= (event) => {
-        setDate(event.target.value)
+    const onSubmitForm = (event) => {
+        event.preventDefault()
     }
 
     //criar viagem
-    const createTrip = () => {
+    const createTrip = (event) => {
         const body = {
-            name: name,
-            description: description,
-            durationInDays: durationInDays,
-            planet: planet,
-            date: date
+            name: form.name,
+            description: form.description,
+            durationInDays: form.durationInDays,
+            planet: form.planet,
+            date: form.date
         }
-        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/${id}/apply`,
+        
+        event.preventDefault()
+
+        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips',
         body, {
             headers: {
                 auth: localStorage.getItem('token')
@@ -56,17 +46,54 @@ function CreateTripPage() {
         })
     }
 
-    
 
     return (
         <CreateContainer>
             <h3>Criar Viagem:</h3>
-                <InputCreate placeholder={'Nome'} value={name} onChange={handleName} />
-                <InputCreate placeholder={'Planeta'} value={planet} onChange={handlePlanet} />
-                <InputCreate placeholder={'Data'} value={date} onChange={handleDate} type='date'/>
-                <InputCreate placeholder={'Descrição'} value={description} onChange={handleDescription} />
-                <InputCreate placeholder={'Duração'} value={durationInDays} onChange={handleDurationInDays} />
+            <form onSubmit={onSubmitForm}>
+                <InputCreate 
+                    value={form.name} 
+                    onChange={onChange}
+                    placeholder={'Nome'}
+                    name={'name'}
+                    type={'text'} 
+                    pattern={"[A-Za-z]{3,}"}
+                    required 
+                />
+                <InputCreate 
+                    value={form.planet} 
+                    onChange={onChange}
+                    placeholder={'Planeta'}
+                    name={'planet'}
+                    type={'text'} 
+                    pattern={"[A-Za-z]{3,}"}
+                    required  
+                />
+                <InputCreate 
+                    value={form.date} 
+                    onChange={onChange}
+                    placeholder={'Data'}
+                    name={'date'}
+                    type={'date'}
+                    required
+                />
+                <InputCreate 
+                    value={form.description} 
+                    onChange={onChange}
+                    placeholder={'Descrição'} 
+                    name={'description'}
+                    type={'text'}
+                    required
+                />
+                <InputCreate
+                    value={form.durationInDays} 
+                    onChange={onChange} 
+                    placeholder={'Duração em dias'} 
+                    name={'durationInDays'}
+                    type={'number'}
+                 />
                 <ButtonSave onClick={createTrip}>Salvar</ButtonSave>
+                </form>
          
         </CreateContainer>
     )

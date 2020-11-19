@@ -11,8 +11,8 @@ function ListTripsPage() {
     const history = useHistory()
 
 
-    const goToApplicationForm = () => {
-        history.push('/inscreva-se/:id/apply')
+    const goToApplicationForm = (id) => {
+        history.push(`/inscreva-se/${id}/apply`)
     }
 
     return (
@@ -29,7 +29,7 @@ function ListTripsPage() {
                                 <NameTrip>
                                    {trip.name}
                                 </NameTrip>
-                                <button onClick={goToApplicationForm}>
+                                <button onClick={() => goToApplicationForm(trip.id)}>
                                    Increva-se
                                 </button>
                         </TripsContainer>

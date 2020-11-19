@@ -9,9 +9,14 @@ export const HomeContainer = styled.div`
 
 export const MainContainer = styled.main`
     text-align: center;
-    padding-top: 10%;
+    padding-top: 4%;
     padding-left: 5%;
     height: 65vh;
+`
+
+export const AnimationContainer = styled.div`
+   margin-top: 0%;
+   margin-bottom: 0%;
 `
 
 export const ButtonSignUp = styled.button`

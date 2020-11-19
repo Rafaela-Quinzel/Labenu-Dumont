@@ -1,27 +1,27 @@
-import React from 'react'
-import { HomeContainer, MainContainer, ButtonSignUp, ButtonLogin } from './styled'
+import React, { useState } from 'react'
+import { HomeContainer, MainContainer, AnimationContainer, ButtonSignUp, ButtonLogin } from './styled'
 import  Header  from '../../../components/Header'
 import  Footer  from '../../../components/Footer'
 import { useHistory } from 'react-router-dom'
-// import Lottie from 'react-lottie';
-// import animationData from '../../animation/animation.json' //animação
+import Lottie from 'react-lottie';
+import animationData from '../../../animation/animation.json' //animação
 
 
 
 function HomePage(){
     //animação
-    // const [ animationState, setAnimationState ] = useState({
-    //     isStopped: false, isPaused: false
-    // })
+    const [ animationState, setAnimationState ] = useState({
+        isStopped: false, isPaused: false
+    })
 
-    // const defaultOptions = {
-    //     loop: true,
-    //     autoplay: true, 
-    //     animationData: animationData,
-    //     rendererSettings: {
-    //       preserveAspectRatio: 'xMidYMid slice'
-    //     }
-    //   };
+    const defaultOptions = {
+        loop: true,
+        autoplay: true, 
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        }
+      };
 
 
    const history = useHistory()
@@ -38,14 +38,14 @@ function HomePage(){
         <HomeContainer>
            <Header/>
                <MainContainer>
-               {/* <AnimationContainer>
+               <AnimationContainer>
                     <Lottie options={defaultOptions}
-                    height={300}
-                    width={300}
+                    height={250}
+                    width={250}
                     isStopped={animationState.isStopped}
                     isPaused={animationState.isPaused}
                 />
-                </AnimationContainer> */}
+                </AnimationContainer>
                     <h2>Embarque conosco nessa aventura!</h2>
                     <ButtonSignUp onClick={goToApplicationFormPage}>Inscreva-se</ButtonSignUp>
                     <ButtonLogin onClick={goToLoginPage}>Login</ButtonLogin>

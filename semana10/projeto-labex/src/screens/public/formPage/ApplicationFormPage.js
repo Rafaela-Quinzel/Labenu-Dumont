@@ -1,51 +1,40 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+import { useForm } from '../../../services/useForm'
 import { FormContainer, InputForm, ButtonSubit} from './styled'
 import axios from 'axios'
 
 
 
 function ApplicationFormPage() {
-    const [name, setName] = useState('')
-    const [age, setAge] = useState(0)
-    const [profession, setProfession] = useState('')
-    const [country, setCountry] = useState('')
-    const [applicationText, setApplicationText] = useState('')
+    const [form, onChange] = useForm({
+        name: '', 
+        age: '', 
+        profession: '', 
+        country: '', 
+        applicationText: ''
+    })
 
     const pathParams = useParams()
     const id = pathParams.id
+    console.log(id)
 
-    const history = useHistory()
+    // const history = useHistory()
 
-
-    const handleName = (event) => {
-        setName(event.target.value)
+    const onSubmitForm = (event) => {
+        event.preventDefault()
     }
 
-    const handleAge = (event) => {
-        setAge(event.target.value)
-    }
-
-    const handleProfession = (event) => {
-        setProfession(event.target.value)
-    }
-
-    const handleCountry = (event) => {
-        setCountry(event.target.value)
-    }
-
-    const handleApplicationText = (event) => {
-        setApplicationText(event.target.value)
-    }
-
-    const singUpTrip = () => {
+    const singUpTrip = (event) => {
         const body = {
-            name: name,
-            age: age,
-            profession: profession,
-            country: country,
-            applicationText: applicationText
+            name: form.name,
+            age: form.age,
+            profession: form.profession,
+            country: form.country,
+            applicationText: form.applicationText
         }
+
+        event.preventDefault()
    
         axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/${id}/apply`,
         body, {
@@ -64,17 +53,56 @@ function ApplicationFormPage() {
     return (
         <FormContainer>
             <h3>Formulário de inscrição:</h3>
-            <InputForm placeholder={'Nome'} value={name} onChange={handleName} />
+            <form onSubmit={onSubmitForm}>
+            <InputForm 
+                value={form.name} 
+                onChange={onChange}
+                placeholder={'Nome'} 
+                name={'name'}
+                type={'text'}
+                pattern={"[A-Za-z]{3,}"}
+                required
+            />
             <br/>
-            <InputForm placeholder={'Idade'} value={age} onChange={handleAge} type='number'/>
+            <InputForm 
+                value={form.age} 
+                onChange={onChange} 
+                placeholder={'Idade'}
+                name={'age'}
+                type={'number'}
+                required 
+            />
             <br/>
-            <InputForm placeholder={'Motivo'} value={applicationText} onChange={handleApplicationText} />
+            <InputForm 
+                value={form.applicationText} 
+                onChange={onChange}
+                placeholder={'Motivo'}
+                name={'applicationText'}
+                type={'text'}
+                pattern={"[A-Za-z]{3,}"}
+                required 
+            />
             <br/>
-            <InputForm placeholder={'Profissão'} value={profession} onChange={handleProfession} />
+            <InputForm 
+                value={form.profession} 
+                onChange={onChange}
+                placeholder={'Profissão'} 
+                name={'profession'}
+                type={'text'}
+                required
+            />
             <br/>
-            <InputForm placeholder={'País onde reside'} value={country} onChange={handleCountry} />
+            <InputForm 
+                value={form.country} 
+                onChange={onChange}
+                placeholder={'País onde reside'}
+                name={'country'}
+                type={'text'}
+                required 
+            />
             <br/>
             <ButtonSubit onClick={singUpTrip}>Enviar inscrição</ButtonSubit>
+            </form>
         </FormContainer>
     )
 }
