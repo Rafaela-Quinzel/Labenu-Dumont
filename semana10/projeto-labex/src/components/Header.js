@@ -1,6 +1,7 @@
 import React from 'react'
 import { HeaderContainer, Logo, Menu } from './styled'
-import LogoRocket from '../assets/images/foguete.svg';
+// import LogoRocket from '../assets/images/foguete.svg';
+import LogoSite from '../assets/images/logo.svg';
 
 
 
@@ -8,7 +9,7 @@ const Header = () => {
 
     return (
         <HeaderContainer>
-            <Logo src={LogoRocket} />
+            <Logo src={LogoSite} />
             <Menu to='/home'>Home</Menu>
             <Menu to='/viagens'>Viagens</Menu>
             <Menu to='/sobre'>Quem somos</Menu>

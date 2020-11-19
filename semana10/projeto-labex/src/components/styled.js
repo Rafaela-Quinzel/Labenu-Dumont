@@ -7,14 +7,15 @@ export const HeaderContainer = styled.header`
    background-color: ${mainBlue};
    color: white;
    width: 100%;
-   height: 12vh;
+   height: 15vh;
 `
 
 export const Logo = styled.img`
-   width: 40px;
+   width: 130px;
    margin-left: 2%;
-   margin-right: 55%;
-   margin-top: 1%;
+   margin-right: 50%;
+   margin-top: 10px;
+   padding-bottom: 5px;
 `
 
 export const Menu = styled(Link)`
@@ -26,8 +27,6 @@ export const Menu = styled(Link)`
    margin-left: 4%;
    color: white;
 `
-
-
 
 
 // Styled Footer

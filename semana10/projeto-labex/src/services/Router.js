@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from '../screens/public/home/HomePage'
-import LoginPage from '../screens/private/login/LoginPage'
+import AdmLoginPage from '../screens/private/login/AdmLoginPage'
 import ApplicationFormPage from '../screens/public/formPage/ApplicationFormPage'
-import ListTripsPage from '../screens/private/createTrips/listTrips/ListTripsPage'
-import TripDetailsPage from '../screens/private/tripDetail/TripDetailsPage'
-import CreateTripPage from '../screens/public/trips/CreateTripPage'
-import AboutPage from '../screens/aboutUS/AboutPage'
-import ContactPage from '../screens/contact/ContactPage'
+import ListTripsPage from '../screens/public/trips/ListTripsPage'
+import AdmListTrips from '../screens/private/listTrips/AdmListTrips'
+import AdmTripDetailsPage from '../screens/private/tripDetail/AdmTripDetailsPage'
+import AdmCreateTripPage from '../screens/private/createTrips/AdmCreateTripPage'
+import AboutPage from '../screens/public/aboutUS/AboutPage'
+import ContactPage from '../screens/public/contact/ContactPage'
 
 function Router() {
   return (
@@ -17,22 +18,22 @@ function Router() {
                <HomePage />
             </Route>
             <Route exact path="/login">
-               <LoginPage />
+               <AdmLoginPage />
             </Route>
-            <Route exact path="/inscreva-se">
+            <Route exact path="/inscreva-se/:id/apply">
                <ApplicationFormPage />
             </Route>
             <Route exact path="/viagens">
                <ListTripsPage />
             </Route>
-            <Route exact path="/detalhes_das_viagens">
-               <TripDetailsPage />
+            <Route exact path="/viagens_adm">
+               <AdmListTrips />
             </Route>
-            <Route exact path="/viagens">
-               <ListTripsPage />
+            <Route exact path="/detalhes_da_viagem/:id">
+               <AdmTripDetailsPage />
             </Route>
             <Route exact path="/criar_viagens">
-               <CreateTripPage />
+               <AdmCreateTripPage />
             </Route>
             <Route exact path="/sobre">
                <AboutPage />

@@ -1,5 +1,5 @@
 import { ContactContainer, InputData, InputMessage, ButtonSubit} from './styled'
-import  Header  from '../../components/Header'
+import  Header  from '../../../components/Header'
 
 
 
