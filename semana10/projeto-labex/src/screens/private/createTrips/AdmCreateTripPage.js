@@ -14,9 +14,15 @@ function CreateTripPage() {
         date: ''
     })
 
+
+    // let data = new Date()
+
+    //  console.log(data)
+     
+
     // const history = useHistory()
-    const pathParams = useParams()
-    const id = pathParams.id
+    // const pathParams = useParams()
+    // const id = pathParams.id
 
     const onSubmitForm = (event) => {
         event.preventDefault()
@@ -39,9 +45,10 @@ function CreateTripPage() {
             headers: {
                 auth: localStorage.getItem('token')
             }
-        }).then((response) => {
-           console.log(response)
+        }).then(() => {
+            alert('Viagem cadastrada com sucesso!')
         }).catch((error) => {
+            alert('Não foi possível cadastrar a viagem!')
             console.log(error)
         })
     }
@@ -57,7 +64,7 @@ function CreateTripPage() {
                     placeholder={'Nome'}
                     name={'name'}
                     type={'text'} 
-                    pattern={"[A-Za-z]{3,}"}
+                    pattern={'[A-Za-z]{3,}'}
                     required 
                 />
                 <InputCreate 
@@ -66,7 +73,7 @@ function CreateTripPage() {
                     placeholder={'Planeta'}
                     name={'planet'}
                     type={'text'} 
-                    pattern={"[A-Za-z]{3,}"}
+                    pattern={'[A-Za-z]{3,}'}
                     required  
                 />
                 <InputCreate 
@@ -75,6 +82,7 @@ function CreateTripPage() {
                     placeholder={'Data'}
                     name={'date'}
                     type={'date'}
+                    min={'2020-11-19'}
                     required
                 />
                 <InputCreate 

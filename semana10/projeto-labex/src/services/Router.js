@@ -9,6 +9,7 @@ import AdmTripDetailsPage from '../screens/private/tripDetail/AdmTripDetailsPage
 import AdmCreateTripPage from '../screens/private/createTrips/AdmCreateTripPage'
 import AboutPage from '../screens/public/aboutUS/AboutPage'
 import ContactPage from '../screens/public/contact/ContactPage'
+import AdmSingUpPage from '../screens/private/singUp/AdmSingUpPage'
 
 function Router() {
   return (
@@ -26,8 +27,11 @@ function Router() {
             <Route exact path="/viagens">
                <ListTripsPage />
             </Route>
-            <Route exact path="/viagens_adm">
+            <Route exact path="/viagens_adm/:id">
                <AdmListTrips />
+            </Route>
+            <Route exact path="/cadastrar_login">
+               <AdmSingUpPage />
             </Route>
             <Route exact path="/detalhes_da_viagem/:id">
                <AdmTripDetailsPage />

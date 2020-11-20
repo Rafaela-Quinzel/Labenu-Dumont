@@ -8,6 +8,7 @@ import axios from 'axios'
 
 function AdmTripDetailsPage() {
     const [trip, setTrip] = useState({})
+    const [candidates, setCandidates] = useState([])
     const history = useHistory()
     const pathParams = useParams()
     const id = pathParams.id
@@ -15,23 +16,15 @@ function AdmTripDetailsPage() {
     useProtectedPage()
 
 
-
-    const logOut = () => {
-        localStorage.removeItem('token')
-        history.push('/home')
-    }
-
     const goBack = () => {
        history.goBack()
     }
 
-    const goToCreateTrip = () => {
-       history.push('/criar_viagens')
-    }
 
     useEffect(() => {
         getTripDetails()
     }, [])
+
 
     // Ir para os detalhes da viagem selecionada
     const getTripDetails = () => {
@@ -42,68 +35,65 @@ function AdmTripDetailsPage() {
             }
         }).then((response) => {
             setTrip(response.data.trip)
-            console.log(response.data.trip)
-            console.log(id)
+            setCandidates(response.data.trip.candidates)
         }).catch((error) => {
                 console.log(error)
         })
     }
     
     // Aceitar candidato
-    // const aceptApplication = (applicationId) => {
-    //     const body = {
-    //         approve: true
-    //     }
-    //     axios
-    //         .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/lais-mello/trips/${id}/candidates/${applicationId}/decide/`,
-    //         body, {
-    //             headers: {
-    //                 auth: localStorage.getItem('token')
-    //             }
-    //         })
-    //         .then(() => {
-    //             alert("Candidate aprovade!")
-    //         })
-    //         .catch(e => {
-    //             console.log(e)
-    //         })
-    // }
+    const aceptApplication = (candidateId, approve) => {
+        const body = {
+            approve: approve
+        }
+        axios
+            .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}/candidates/${candidateId}/decide`,
+            body, {
+                headers: {
+                    auth: localStorage.getItem('token')
+                }
+            })
+            .then(() => {
+                alert("Candidato aprovado!")
+                getTripDetails()
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 
-        //rejeitar candidato
-    //     const rejectApplication = (applicationId) => {
-    //         const body = {
-    //            approve: false
-    //         }
-    //        axios
-    //         .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}/candidates/${applicationId}/decide/`,
-    //         body,  {
-    //             headers: {
-    //                 auth: localStorage.getItem('token')
-    //             }
-    //         })
-    //         .then(() => {
-    //             alert("Candidate reprovade!")
-    //         })
-    //         .catch(e => {
-    //             console.log(e)
-    //         })
-    //    }
+    //rejeitar candidato
+    const rejectApplication = (candidateId, approve) => {
+        const body = {
+            approve: approve
+        }
+        axios
+            .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}/candidates/${candidateId}/decide`,
+            body,  {
+                headers: {
+                    auth: localStorage.getItem('token')
+                }
+            })
+            .then(() => {
+                alert("Candidato reprovado!")
+                getTripDetails()
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 
     return (
         <DetailsContainer>
-            <button onClick={logOut}>
-                Logout
-            </button>
             <button onClick={goBack}>
                 Voltar
             </button>
-            <button onClick={goToCreateTrip}>
-                Criar viagem
-            </button>
+            
             <h3>Detalhes da Viagem:</h3>
             <br/>
             <DetailsTrip>
-                <p>Viagem: {trip.name}</p>
+              <h4>Viagem:</h4>
+                <p>Nome: {trip.name}</p>
                 <p>Planeta: {trip.planet}</p>
                 <p>Data: {trip.date}</p>
                 <p>Duração: {trip.durationInDays}</p>
@@ -118,8 +108,19 @@ function AdmTripDetailsPage() {
                            <p>Profissão: {candidate.profession}</p>
                            <p>País: {candidate.country}</p>
                            <p>Motivo: {candidate.applicationText}</p>
-                           <button >Aceitar candidato</button>
-                           <button >Recusar candidato</button>
+                           <button onClick={() => aceptApplication(candidate.id, true)}>Aceitar candidato</button>
+                           <button onClick={() => rejectApplication(candidate.id, false)}>Recusar candidato</button>
+                        </div>
+                    )})}
+                    <h4>Candidatos Aprovados:</h4>
+                    {trip.approved && trip.approved.map(candidate => {
+                    return (
+                        <div key={candidate.id}>
+                           <p>Nome: {candidate.name}</p>
+                           <p>Idade: {candidate.age}</p>
+                           <p>Profissão: {candidate.profession}</p>
+                           <p>País: {candidate.country}</p>
+                           <p>Motivo: {candidate.applicationText}</p>
                         </div>
                     )})}
             </DetailsTrip>

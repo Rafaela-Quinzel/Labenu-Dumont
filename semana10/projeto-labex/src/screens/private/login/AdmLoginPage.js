@@ -1,43 +1,45 @@
 import React, { useEffect, useState } from 'react'
 import { LoginContainer, InputLogin, ButtonLogin} from './styled'
-// import { useForm } from '../../../services/useForm'
-import { useHistory } from 'react-router-dom'
+import { useForm } from '../../../services/useForm'
+import { useHistory, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 
 function LoginPage() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const history = useHistory()
+    const [form, onChange] = useForm({
+        email: '',
+        password: ''
+    })
+    
 
+    const pathParams = useParams()
+    const id = pathParams.id
+    const history = useHistory()
+    
 
     useEffect(() => {
         const token = localStorage.getItem('token')
 
         if(token) {
-            history.push('/viagens_adm')
+            history.push(`/viagens_adm/${id}`)
         }
-    }, [history])
+    }, [history, id])
 
-    const handleEmail = (event) => {
-        setEmail(event.target.value)
-    }
-
-    const handlePassword = (event) => {
-        setPassword(event.target.value)
-    }
-
+  
     const login = () => {
         const body = {
-            email: email,
-            password: password
+            email: form.email,
+            password: form.password
         }
    
         axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/login',
-        body
-        ).then((response) => {
+        body, {
+            headers: {
+                auth: localStorage.getItem('token')
+            }
+        }).then((response) => {
             localStorage.setItem('token', response.data.token)
-            history.push('/viagens_adm')
+            history.push(`/viagens_adm/${id}`)
         }).catch((error) => {
             console.log(error)
         })
@@ -46,9 +48,24 @@ function LoginPage() {
     return (
         <LoginContainer>
             <h3>Página de Login:</h3>
-            <InputLogin type='email' placeholder={'E-mail'} value={email} onChange={handleEmail}/>
+            <InputLogin 
+                value={form.email} 
+                onChange={onChange}
+                placeholder={'E-mail'}
+                name={'email'}
+                type={'email'}
+                pattern={'[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}'}
+                required  
+            />
             <br />
-            <InputLogin type='password' placeholder={'Senha'} value={password} onChange={handlePassword}/>
+            <InputLogin 
+                value={form.password} 
+                onChange={onChange}
+                placeholder={'Senha'} 
+                name={'password'}
+                type={'password'}
+                required 
+            />
             <br/>
             <ButtonLogin onClick={login}>Login</ButtonLogin>
         </LoginContainer>

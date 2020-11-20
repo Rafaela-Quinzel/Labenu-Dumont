@@ -1,13 +1,38 @@
 import { TripsTitle, ImagePlanet, ListContainer, TripsContainer, NameTrip } from './styled'
 import  { useRequestData }  from '../../../services/useRequestData'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
+// import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 
 
 
 function ListTripsPage() {
 
+    const pathParams = useParams()
+    const id = pathParams.id
+
     const getTrips = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips', [])
+
+
+    //deleltar viagem
+    const deleteTrip = () => {
+        axios
+            .delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}`,
+            {
+                headers: {
+                    auth: localStorage.getItem('token')
+                }
+            })
+            .then((response) => {
+                alert('Viagem deletada!')
+                console.log(response)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
 
     const history = useHistory()
     
@@ -15,6 +40,14 @@ function ListTripsPage() {
     const goToTripDetailsPage = (id) => {
         history.push(`/detalhes_da_viagem/${id}`)
     }
+
+    const goToSingUpPage = () => {
+        history.push('/cadastrar_login')
+    }
+
+    const goToCreateTrip = () => {
+        history.push('/criar_viagens')
+     }
 
     const logOut = () => {
         localStorage.removeItem('token')
@@ -25,7 +58,11 @@ function ListTripsPage() {
     return (
         <div>
             <button onClick={logOut}>Logout</button>
-            <TripsTitle>Página de Viagens:</TripsTitle>
+            <button onClick={goToSingUpPage}>Cadastrar login</button>
+            <button onClick={goToCreateTrip}>
+                Criar viagem
+            </button>
+            <TripsTitle>Viagens cadastradas:</TripsTitle>
                 <ListContainer key={getTrips.id}>
                     {getTrips.map(trip => {
                         return (
@@ -39,6 +76,9 @@ function ListTripsPage() {
                                 </NameTrip>
                                 <button onClick={() => goToTripDetailsPage(trip.id)}>
                                    Ver detalhes
+                                </button>
+                                <button onClick={() => deleteTrip(trip.id, true)}>
+                                   Excluir
                                 </button>
                             </TripsContainer>
                         )

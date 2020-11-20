@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { HomeContainer, MainContainer, AnimationContainer, ButtonSignUp, ButtonLogin } from './styled'
 import  Header  from '../../../components/Header'
 import  Footer  from '../../../components/Footer'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import Lottie from 'react-lottie';
 import animationData from '../../../animation/animation.json' //animação
 
@@ -22,7 +22,8 @@ function HomePage(){
           preserveAspectRatio: 'xMidYMid slice'
         }
       };
-
+    
+     
 
    const history = useHistory()
 

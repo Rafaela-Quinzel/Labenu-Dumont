@@ -17,8 +17,7 @@ function ApplicationFormPage() {
 
     const pathParams = useParams()
     const id = pathParams.id
-    console.log(id)
-
+    
     // const history = useHistory()
 
     const onSubmitForm = (event) => {
@@ -36,15 +35,16 @@ function ApplicationFormPage() {
 
         event.preventDefault()
    
-        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/${id}/apply`,
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}/apply`,
         body, {
             headers: {
                 auth: localStorage.getItem('token')
             }
         }
-        ).then((response) => {
-           console.log(response)
+        ).then(() => {
+           alert('cadastro enviado com sucesso!')
         }).catch((error) => {
+            alert('Erro ao enviar cadastro!')
             console.log(error)
         })
     }
