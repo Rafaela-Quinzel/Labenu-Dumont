@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { LoginContainer, InputLogin, ButtonLogin} from './styled'
+import React from 'react'
+import { LoginContainer } from './styled'
+import { ButtonSaveLogin } from '../../../constants/buttons'
+import { InputLogin } from '../../../constants/inputs'
 import { useForm } from '../../../services/useForm'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
@@ -12,6 +14,10 @@ function LoginPage() {
     })
 
     const history = useHistory()
+
+    const onSubmitForm = (event) => {
+        event.preventDefault();
+    }
 
 
     const newLogin = (event) => {
@@ -38,6 +44,7 @@ function LoginPage() {
 
     return (
         <LoginContainer>
+            <form onSubmit={onSubmitForm}>
             <h3>Cadastrar Login:</h3>
             <InputLogin 
             value={form.email} 
@@ -58,7 +65,10 @@ function LoginPage() {
             required
         />
             <br/>
-        <ButtonLogin onClick={newLogin}>Cadastrar</ButtonLogin>
+        <ButtonSaveLogin onClick={newLogin}>
+            SALVAR
+        </ButtonSaveLogin>
+        </form>
         </LoginContainer>
     )
 }

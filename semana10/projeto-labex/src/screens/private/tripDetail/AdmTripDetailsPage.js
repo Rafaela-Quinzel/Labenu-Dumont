@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
-import { DetailsContainer, DetailsTrip } from './styled'
+import { useParams } from 'react-router-dom'
+import { DetailsContainer, DetailsTrip, Candidates, AcceptedCandidates, TitlePage } from './styled'
+import { ButtonAcceptedCandidate, ButtonDeleteCandidate } from '../../../constants/buttons'
 import { useProtectedPage } from '../../../services/useProtectedPage'
 import axios from 'axios'
 
@@ -9,17 +10,10 @@ import axios from 'axios'
 function AdmTripDetailsPage() {
     const [trip, setTrip] = useState({})
     const [candidates, setCandidates] = useState([])
-    const history = useHistory()
     const pathParams = useParams()
     const id = pathParams.id
 
     useProtectedPage()
-
-
-    const goBack = () => {
-       history.goBack()
-    }
-
 
     useEffect(() => {
         getTripDetails()
@@ -85,44 +79,45 @@ function AdmTripDetailsPage() {
 
     return (
         <DetailsContainer>
-            <button onClick={goBack}>
-                Voltar
-            </button>
-            
-            <h3>Detalhes da Viagem:</h3>
-            <br/>
+            <TitlePage>Detalhes da Viagem:</TitlePage>
             <DetailsTrip>
-              <h4>Viagem:</h4>
-                <p>Nome: {trip.name}</p>
-                <p>Planeta: {trip.planet}</p>
-                <p>Data: {trip.date}</p>
-                <p>Duração: {trip.durationInDays}</p>
-                <p>Descrição: {trip.description}</p>
-        
+            <br/>
+            <Candidates>
                 <h4>Candidaturas:</h4>
                 {trip.candidates && trip.candidates.map(candidate => {
                     return (
                         <div key={candidate.id}>
-                           <p>Nome: {candidate.name}</p>
-                           <p>Idade: {candidate.age}</p>
-                           <p>Profissão: {candidate.profession}</p>
-                           <p>País: {candidate.country}</p>
-                           <p>Motivo: {candidate.applicationText}</p>
-                           <button onClick={() => aceptApplication(candidate.id, true)}>Aceitar candidato</button>
-                           <button onClick={() => rejectApplication(candidate.id, false)}>Recusar candidato</button>
+                           <p>Nome: {candidate.name} </p>
+                           <p>Idade: {candidate.age} </p>
+                           <p>Profissão: {candidate.profession} </p>
+                           <p>País: {candidate.country} </p>
+                           <p>Motivo: 
+                           <br/>
+                               {candidate.applicationText}
+                               </p>
+                           <ButtonAcceptedCandidate onClick={() => aceptApplication(candidate.id, true)}>
+                               ACEITAR
+                            </ButtonAcceptedCandidate>
+                            <ButtonDeleteCandidate onClick={() => rejectApplication(candidate.id, false)}>
+                               RECUSAR
+                            </ButtonDeleteCandidate>
                         </div>
                     )})}
-                    <h4>Candidatos Aprovados:</h4>
+            </Candidates>
+            <AcceptedCandidates>
+                <h4>Candidatos Aprovados:</h4>
                     {trip.approved && trip.approved.map(candidate => {
-                    return (
-                        <div key={candidate.id}>
-                           <p>Nome: {candidate.name}</p>
-                           <p>Idade: {candidate.age}</p>
-                           <p>Profissão: {candidate.profession}</p>
-                           <p>País: {candidate.country}</p>
-                           <p>Motivo: {candidate.applicationText}</p>
-                        </div>
-                    )})}
+                        return (
+                            <div key={candidate.id}>
+                                <p>Nome: {candidate.name}</p>
+                                <p>Idade: {candidate.age}</p>
+                                <p>Profissão: {candidate.profession}</p>
+                                <p>País: {candidate.country}</p>
+                                <p>Motivo: {candidate.applicationText}</p>
+                            </div>
+                        )
+                    })}
+            </AcceptedCandidates>
             </DetailsTrip>
         </DetailsContainer>
     )

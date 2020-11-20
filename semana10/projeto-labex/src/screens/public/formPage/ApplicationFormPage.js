@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import React from 'react'
+import { useParams } from 'react-router-dom'
 import { useForm } from '../../../services/useForm'
-import { FormContainer, InputForm, ButtonSubit} from './styled'
+import { FormContainer } from './styled'
+import { ButtonSubmit } from '../../../constants/buttons'
+import { InputRegister } from '../../../constants/inputs'
 import axios from 'axios'
 
 
@@ -18,7 +20,6 @@ function ApplicationFormPage() {
     const pathParams = useParams()
     const id = pathParams.id
     
-    // const history = useHistory()
 
     const onSubmitForm = (event) => {
         event.preventDefault()
@@ -54,7 +55,7 @@ function ApplicationFormPage() {
         <FormContainer>
             <h3>Formulário de inscrição:</h3>
             <form onSubmit={onSubmitForm}>
-            <InputForm 
+            <InputRegister 
                 value={form.name} 
                 onChange={onChange}
                 placeholder={'Nome'} 
@@ -64,7 +65,7 @@ function ApplicationFormPage() {
                 required
             />
             <br/>
-            <InputForm 
+            <InputRegister 
                 value={form.age} 
                 onChange={onChange} 
                 placeholder={'Idade'}
@@ -73,7 +74,7 @@ function ApplicationFormPage() {
                 required 
             />
             <br/>
-            <InputForm 
+            <InputRegister 
                 value={form.applicationText} 
                 onChange={onChange}
                 placeholder={'Motivo'}
@@ -83,7 +84,7 @@ function ApplicationFormPage() {
                 required 
             />
             <br/>
-            <InputForm 
+            <InputRegister 
                 value={form.profession} 
                 onChange={onChange}
                 placeholder={'Profissão'} 
@@ -92,7 +93,7 @@ function ApplicationFormPage() {
                 required
             />
             <br/>
-            <InputForm 
+            <InputRegister 
                 value={form.country} 
                 onChange={onChange}
                 placeholder={'País onde reside'}
@@ -101,7 +102,9 @@ function ApplicationFormPage() {
                 required 
             />
             <br/>
-            <ButtonSubit onClick={singUpTrip}>Enviar inscrição</ButtonSubit>
+            <ButtonSubmit onClick={singUpTrip}>
+                ENVIAR INSCRIÇÃO
+            </ButtonSubmit>
             </form>
         </FormContainer>
     )

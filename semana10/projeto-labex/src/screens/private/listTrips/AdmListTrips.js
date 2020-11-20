@@ -1,9 +1,9 @@
-import { TripsTitle, ImagePlanet, ListContainer, TripsContainer, NameTrip } from './styled'
+import { TripsTitle, InfoTrip, ListContainer, TripsContainer, NameTrip } from './styled'
 import  { useRequestData }  from '../../../services/useRequestData'
 import { useHistory, useParams } from 'react-router-dom'
-// import React, { useState, useEffect } from 'react'
+import  AdmHeader  from '../../../components/AdmHeader'
+import { ButtonDetails, ButtonDelete  } from '../../../constants/buttons'
 import axios from 'axios'
-
 
 
 
@@ -15,8 +15,8 @@ function ListTripsPage() {
     const getTrips = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips', [])
 
 
-    //deleltar viagem
-    const deleteTrip = () => {
+    //deletar viagem
+    const deleteTrip = (id) => {
         axios
             .delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}`,
             {
@@ -41,50 +41,47 @@ function ListTripsPage() {
         history.push(`/detalhes_da_viagem/${id}`)
     }
 
-    const goToSingUpPage = () => {
-        history.push('/cadastrar_login')
-    }
-
-    const goToCreateTrip = () => {
-        history.push('/criar_viagens')
-     }
-
-    const logOut = () => {
-        localStorage.removeItem('token')
-        history.push('/home')
-    }
-
 
     return (
-        <div>
-            <button onClick={logOut}>Logout</button>
-            <button onClick={goToSingUpPage}>Cadastrar login</button>
-            <button onClick={goToCreateTrip}>
-                Criar viagem
-            </button>
+        <>
+          <AdmHeader />
             <TripsTitle>Viagens cadastradas:</TripsTitle>
                 <ListContainer key={getTrips.id}>
                     {getTrips.map(trip => {
                         return (
                             <TripsContainer >
-                                <h3>Viagem:</h3>
-                                <ImagePlanet 
-                                   src={'https://abrilmdemulher.files.wordpress.com/2019/10/mercucc81rio_retrocc81grado6.png?w=1000'}
-                                />
-                                <NameTrip>
-                                   {trip.name}
+                                <NameTrip> 
+                                   {trip.name} 
                                 </NameTrip>
-                                <button onClick={() => goToTripDetailsPage(trip.id)}>
-                                   Ver detalhes
-                                </button>
-                                <button onClick={() => deleteTrip(trip.id, true)}>
-                                   Excluir
-                                </button>
+                                <InfoTrip>
+                                    <p>Planeta:
+                                        <br/>  
+                                        {trip.planet}
+                                    </p>
+                                    <p>Data da viagem: 
+                                    <br/> 
+                                    {trip.date} 
+                                    </p>
+                                    <p>Duração da viagem: 
+                                    <br/> 
+                                    {trip.durationInDays} dias
+                                    </p>
+                                    <p>Descrição da viagem: 
+                                        <br/> 
+                                        {trip.description}
+                                    </p>
+                                <ButtonDetails onClick={() => goToTripDetailsPage(trip.id)}>
+                                   DETALHES
+                                </ButtonDetails>
+                                <ButtonDelete  onClick={() => deleteTrip(trip.id)}>
+                                   EXCLUIR
+                                </ButtonDelete >
+                                </InfoTrip>
                             </TripsContainer>
                         )
                     })}
                 </ListContainer>
-        </div>
+        </>
     )
 }
 export default ListTripsPage;

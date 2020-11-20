@@ -1,33 +1,42 @@
 import styled from 'styled-components'
+import {mainGray, mainDarkOrange, mainLightBlue, mainDarkGray } from '../../../constants/colors'
+
+
 
 // Styled ListTripsPage //
 export const TripsTitle = styled.h2`
+  color: ${mainGray};
   text-align: center;
-`
-
-export const ImagePlanet = styled.img`
-  width: 150px;
+  margin-top: 5%;
 `
 
 export const ListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 2em;
   justify-items: center;
-  margin-left: 4%;
-  margin-top: 5%;
+  margin: 5%;
 `
 
 export const TripsContainer = styled.div`
+  overflow: auto;
   text-align: center;
-  border: 1px solid black;
-  width: 16vw;
-  height: 50vh;
+  background-color: ${mainLightBlue};
+  border-radius: 10px;
+  width: 20vw;
+  height: 52vh;
 `
 
-export const NameTrip = styled.p`
+export const NameTrip = styled.h3`
+  color: ${mainDarkOrange};
+  padding: 1% 4%;
+`
+
+export const InfoTrip = styled.p`
+  color: ${mainDarkGray};
   font-size: 14px;
-  margin: 2%;
-  padding: 5%;
+  text-align: center;
+  padding: 1%;
 `
 
 

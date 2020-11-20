@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { LoginContainer, InputLogin, ButtonLogin} from './styled'
+import React, { useEffect } from 'react'
+import { LoginContainer } from './styled'
+import { ButtonLogin } from '../../../constants/buttons'
+import { InputNewLogin } from '../../../constants/inputs'
 import { useForm } from '../../../services/useForm'
 import { useHistory, useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -16,6 +18,11 @@ function LoginPage() {
     const id = pathParams.id
     const history = useHistory()
     
+    
+    const onSubmitForm = (event) => {
+        event.preventDefault();
+    }
+
 
     useEffect(() => {
         const token = localStorage.getItem('token')
@@ -41,14 +48,16 @@ function LoginPage() {
             localStorage.setItem('token', response.data.token)
             history.push(`/viagens_adm/${id}`)
         }).catch((error) => {
+            alert('Login inválido!')
             console.log(error)
         })
     }
 
     return (
         <LoginContainer>
-            <h3>Página de Login:</h3>
-            <InputLogin 
+            <h3>Administrador:</h3>
+            <form onSubmit={onSubmitForm}>
+            <InputNewLogin 
                 value={form.email} 
                 onChange={onChange}
                 placeholder={'E-mail'}
@@ -58,7 +67,7 @@ function LoginPage() {
                 required  
             />
             <br />
-            <InputLogin 
+            <InputNewLogin 
                 value={form.password} 
                 onChange={onChange}
                 placeholder={'Senha'} 
@@ -67,7 +76,10 @@ function LoginPage() {
                 required 
             />
             <br/>
-            <ButtonLogin onClick={login}>Login</ButtonLogin>
+            <ButtonLogin onClick={login}>
+                LOGIN
+            </ButtonLogin>
+            </form>
         </LoginContainer>
     )
 }

@@ -1,21 +1,27 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { HeaderContainer, Logo, Menu } from './styled'
-// import LogoRocket from '../assets/images/foguete.svg';
+import { ButtonAdm } from '../constants/buttons'
 import LogoSite from '../assets/images/logo.svg';
 
 
 
 const Header = () => {
 
+    const history = useHistory()
+
+    const goToLoginPage = () => {
+        history.push('/login')
+    }
+
     return (
         <HeaderContainer>
             <Logo src={LogoSite} />
-            <Menu to='/home'>Home</Menu>
-            <Menu to='/viagens'>Viagens</Menu>
-            <Menu to='/sobre'>Quem somos</Menu>
-            <Menu to='/contato'>Fale conosco</Menu>
-            {/* TESTE <a href=' https://co.pinterest.com/' target='_blank' >clique</a> */}
-
+            <Menu to='/home'>HOME</Menu>
+            <Menu to='/viagens'>VIAGENS</Menu>
+            <ButtonAdm onClick={goToLoginPage}>
+                ADM
+            </ButtonAdm>
         </HeaderContainer>
     )
 }

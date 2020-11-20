@@ -7,8 +7,6 @@ import ListTripsPage from '../screens/public/trips/ListTripsPage'
 import AdmListTrips from '../screens/private/listTrips/AdmListTrips'
 import AdmTripDetailsPage from '../screens/private/tripDetail/AdmTripDetailsPage'
 import AdmCreateTripPage from '../screens/private/createTrips/AdmCreateTripPage'
-import AboutPage from '../screens/public/aboutUS/AboutPage'
-import ContactPage from '../screens/public/contact/ContactPage'
 import AdmSingUpPage from '../screens/private/singUp/AdmSingUpPage'
 
 function Router() {
@@ -21,7 +19,7 @@ function Router() {
             <Route exact path="/login">
                <AdmLoginPage />
             </Route>
-            <Route exact path="/inscreva-se/:id/apply">
+            <Route exact path="/inscricao/:id/apply">
                <ApplicationFormPage />
             </Route>
             <Route exact path="/viagens">
@@ -38,12 +36,6 @@ function Router() {
             </Route>
             <Route exact path="/criar_viagens">
                <AdmCreateTripPage />
-            </Route>
-            <Route exact path="/sobre">
-               <AboutPage />
-            </Route>
-            <Route exact path="/contato">
-               <ContactPage />
             </Route>
             <Route>
                <HomePage />
