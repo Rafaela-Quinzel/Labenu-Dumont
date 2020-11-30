@@ -1,0 +1,2 @@
+
+export const mainBlue = 'blue'

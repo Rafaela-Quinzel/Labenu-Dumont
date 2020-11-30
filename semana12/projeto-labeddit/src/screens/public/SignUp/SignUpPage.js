@@ -7,7 +7,7 @@ import { useForm } from '../../../services/useForm'
 
 function SignUpPage() {
   const [form, onChange] = useForm({
-    name: '',
+    username: '',
     email: '',
     password: ''
   })
@@ -20,7 +20,7 @@ function SignUpPage() {
 
   const newLogin = (event) => {
     const body = {
-      name: form.name,
+      username: form.username,
       email: form.email,
       password: form.password
     }
