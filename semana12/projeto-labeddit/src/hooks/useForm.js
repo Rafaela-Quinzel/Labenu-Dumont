@@ -8,9 +8,10 @@ export const useForm = (initialValues) => {
       setForm({ ...form, [name]: value });
     };
   
-    // const restState = () = > {
+    // const restState = () => { // Limpa os inputs
     //   setForm(initialValues)
     // }
   
-    return [form, onChange];
+    return {form, onChange};
+    // return {form, onChange, restState}; // Tem que passar aqui também
   };
