@@ -1,6 +1,6 @@
 
 export const goToFeedPosts = (history) => {
-    history.push('/feeds')
+    history.push('/posts')
 }
 
 
@@ -14,11 +14,15 @@ export const goToLoginPage = (history) => {
 }
 
 
-export const goToPrivatePostPage = (history,id) => {
-    history.push(`/feed/post/${id}`)
+export const goToDetailsPostPage = (history, id) => {
+    history.push(`/posts/${id}`)
 } 
 
 export const logOut = (history) => {
     localStorage.removeItem('token')
     history.push('/login')
+}
+
+export const goToCreatePost = (history) => {
+    history.push('/criar_post')
 }

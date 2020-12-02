@@ -1,9 +1,11 @@
 import React from 'react'
-import { FeedContainer } from './styled'
-import CardPost from '../../../components/CardFeed/CardFeed'
+import { useHistory } from 'react-router-dom'
+import { FeedContainer, FabStyled, TitlePage  } from './styled'
 import { useProtectPage } from '../../../hooks/useProtectPage'
 import { useRequestData } from '../../../hooks/useRequestData'
 import { BASE_URL } from '../../../constants/urls'
+import CardFeed from '../../../components/CardFeed/CardFeed'
+import { goToCreatePost } from '../../../routes/coordinator'
 
 
 function FeedPostsPage() {
@@ -12,15 +14,19 @@ function FeedPostsPage() {
 
   useRequestData()
 
-  const getPosts = useRequestData(`${BASE_URL}posts`, {})
+  const history = useHistory()
+
+  const getPosts = useRequestData(`${BASE_URL}/posts`, {})
 
   console.log(getPosts)
 
   return (
     <FeedContainer>
+      <TitlePage>Feeds</TitlePage>
       {getPosts && getPosts.posts && getPosts.posts.map((item) => {
         return (
-          <CardPost 
+          <CardFeed
+            key={item.id} 
             id={item.id} 
             title={item.title} 
             text={item.text} 
@@ -30,8 +36,10 @@ function FeedPostsPage() {
           />
         )
       })}
+      <FabStyled color='secondary' onClick={() => goToCreatePost(history)}>
+        ➕
+      </FabStyled>
     </FeedContainer>
   );
 }
-
 export default FeedPostsPage;

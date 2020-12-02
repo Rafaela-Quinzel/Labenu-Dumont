@@ -4,7 +4,7 @@ import { goToFeedPosts } from '../routes/coordinator'
 
 
 export const login = (body, history) => {
-   axios.post(`${BASE_URL}login`, body).then(response => {
+   axios.post(`${BASE_URL}/login`, body).then(response => {
        localStorage.setItem('token', response.data.token)
        goToFeedPosts(history)
    }).catch(error => {
@@ -15,7 +15,7 @@ export const login = (body, history) => {
 
 
 export const signUp = (body, history) => {
-    axios.post(`${BASE_URL}signup`, body).then(response => {
+    axios.post(`${BASE_URL}/signup`, body).then(response => {
         localStorage.setItem('token', response.data.token)
         alert('Cadastro efetuado com sucesso!')
         goToFeedPosts(history)

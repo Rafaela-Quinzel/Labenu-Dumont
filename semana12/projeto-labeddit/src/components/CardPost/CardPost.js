@@ -1,39 +1,29 @@
 import React from 'react'
-import { CardContainer, Post, CreateContent, 
-    HeaderPost, FooterPost, CardContent, ButtonVote, Comments, AddComment } from './styled'
+import { CardContainer, Post, CreateContent, NameUserPost, PostCardContainer,
+    HeaderPost, FooterPost, CardContent, ButtonVote, Comments, AddComment, CreatePost, AddPost } from './styled'
 
 
-
-
-function CardPost() {
+function CardPost(props) {
   return (
     <CardContainer>
-        <Post>
-            <HeaderPost>
-               <p>Nome de usuário</p>
-            </HeaderPost>
-            <CardContent>
-               <p>Texto post</p>
-            </CardContent>
-            <FooterPost>
-                <ButtonVote> ⬆ </ButtonVote>
-                  0
-                <ButtonVote> ⬇ </ButtonVote>
-                <Comments> 
-                    0 comentários
-                </Comments>
-            </FooterPost>
-        </Post>
-        <Post>
-            <CreateContent>
-                <p>Escreva seu Comentário</p>
-            </CreateContent>
-            <AddComment>
-                Comentar
-            </AddComment>
-        </Post>
+            <PostCardContainer>
+        <HeaderPost>
+            <NameUserPost>{props.username}</NameUserPost>
+        </HeaderPost>
+          <CardContent>
+            <p>{props.title}</p>
+            <p>{props.text}</p>
+          </CardContent>
+        <FooterPost>
+          <ButtonVote> ⬆ </ButtonVote>
+            <p>{props.votesCount}</p>
+          <ButtonVote> ⬇ </ButtonVote>
+          <Comments> 
+            <p>{props.commentsCount} comentários</p>
+          </Comments>
+        </FooterPost>
+      </PostCardContainer> 
     </CardContainer>
   );
 }
-
 export default CardPost

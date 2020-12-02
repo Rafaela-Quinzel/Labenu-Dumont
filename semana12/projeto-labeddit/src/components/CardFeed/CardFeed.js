@@ -1,41 +1,38 @@
 import React from 'react'
-import axios from 'axios'
-import { CardContainer, CreatePost, CreateContent, 
-  HeaderPost, FooterPost, CardContent, ButtonVote, Comments, AddPost } from './styled'
- 
+import { useHistory } from 'react-router-dom'
+import { useProtectPage } from '../../hooks/useProtectPage'
+import { CardContainer, FeedCardContainer, Image,
+  HeaderFeed, FooterFeed, CardContent, TitlePost, Comments, NameUserPost } from './styled'
+import { goToDetailsPostPage } from '../../routes/coordinator'
+import ImageLogo from '../../assets/astronauta.svg'
 
 function CardFeed(props) {
 
+  useProtectPage() //Proteção da página
 
+  const history = useHistory()
 
   return (
-    <CardContainer key={props.id}>
-        {/* <CreatePost>
-          <CreateContent>
-              <p>Escreva seu post</p>
-          </CreateContent>
-          <AddPost>
-               Postar
-          </AddPost>
-        </CreatePost> */}
-
-        <CreatePost>
-            <HeaderPost>
-               <p>{props.username}</p>
-            </HeaderPost>
-            <CardContent>
-              <p>{props.title}</p>
-              <p>{props.text}</p>
-            </CardContent>
-            <FooterPost>
-                <ButtonVote> ⬆ </ButtonVote>
-                   <p>{props.votesCount}</p>
-                <ButtonVote> ⬇ </ButtonVote>
-                <Comments> 
-                   <p>{props.commentsCount} comentários</p>
-                </Comments>
-            </FooterPost>
-        </CreatePost>
+    <CardContainer onClick={() => goToDetailsPostPage(history, props.id)}>
+      
+      <FeedCardContainer>
+        <HeaderFeed>
+            <Image src={ImageLogo} alt={ImageLogo}/>
+            <NameUserPost>{props.username}</NameUserPost>
+        </HeaderFeed>
+          <CardContent>
+            <TitlePost>{props.title}</TitlePost>
+            {/* <p>{props.text}</p> */}
+          </CardContent>
+        {/* <FooterFeed>
+          <ButtonVote> ⬆ </ButtonVote>
+            <p>{props.votesCount}</p>
+          <ButtonVote> ⬇ </ButtonVote>
+          <Comments> 
+            <p>{props.commentsCount} comentários</p>
+          </Comments>
+        </FooterFeed> */}
+      </FeedCardContainer>
     </CardContainer>
   );
 }

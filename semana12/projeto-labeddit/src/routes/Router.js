@@ -1,9 +1,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import LoginPage from '../screens/public/Login/LoginPage'
-import PrivatePostPage from '../screens/private/PostPage/PrivatePostPage'
-import FeedPostsPage from '../screens/private/FeedPosts/PrivateFeedPage'
+import DetailsPostsPage from '../screens/private/DetailsPostsPage/DetailsPostsPage'
+import FeedsPage from '../screens/private/FeedPosts/FeedsPage'
 import SignUpPage from '../screens/public/SignUp/SignUpPage'
+import CreatePost from '../components/CreatePost/CreatePost'
 
 const Router = () => {
     return (
@@ -11,8 +12,9 @@ const Router = () => {
             <Route exact path='/' component={LoginPage}/>
             <Route exact path='/login' component={LoginPage}/>
             <Route exact path='/cadastro' component={SignUpPage}/>
-            <Route exact path='/feeds' component={FeedPostsPage}/>
-            <Route exact path='/posts' component={PrivatePostPage}/>
+            <Route exact path='/posts' component={FeedsPage}/>
+            <Route exact path='/post/:id' component={DetailsPostsPage}/>
+            <Route exact path='/criar_post' component={CreatePost}/>
             <Route>
                  <div>Erro - página não encontrada!</div>
             </Route>
