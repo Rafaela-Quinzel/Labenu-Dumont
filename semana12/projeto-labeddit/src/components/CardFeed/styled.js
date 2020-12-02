@@ -20,7 +20,7 @@ export const CreateContent = styled.div`
 
 export const CardContent = styled.div`
    width: 30vw;
-   height: 15vh;
+   height: 18vh;
    margin: 2%;
 `
 
@@ -29,11 +29,13 @@ export const HeaderPost = styled.div`
    border-bottom: 1px solid black;
    padding-bottom: 15px;
    width: 30vw;
-   height: 1vh;
+   height: 8px;
 `
 
 export const FooterPost = styled.div`
    border-top: 1px solid black;
+   display: flex;
+   /* justify-content: space-between; */
 `
 
 export const AddPost = styled.p`
@@ -42,9 +44,10 @@ export const AddPost = styled.p`
 
 export const ButtonVote = styled.span`
    font-size: 30px;
-   margin: 2%;
+   margin: 1% 2%;
+ 
 `
 
 export const Comments = styled.span`
-  margin-left: 48%;
+  margin-left: 45%;
 `

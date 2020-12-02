@@ -1,34 +1,38 @@
 import React from 'react'
+import axios from 'axios'
 import { CardContainer, CreatePost, CreateContent, 
   HeaderPost, FooterPost, CardContent, ButtonVote, Comments, AddPost } from './styled'
+ 
+
+function CardFeed(props) {
 
 
 
-function CardFeed() {
   return (
-    <CardContainer>
-        <CreatePost>
+    <CardContainer key={props.id}>
+        {/* <CreatePost>
           <CreateContent>
               <p>Escreva seu post</p>
           </CreateContent>
           <AddPost>
                Postar
           </AddPost>
-        </CreatePost>
+        </CreatePost> */}
 
         <CreatePost>
             <HeaderPost>
-              <p>Nome de usuário</p>
+               <p>{props.username}</p>
             </HeaderPost>
             <CardContent>
-            <p>Texto post</p>
+              <p>{props.title}</p>
+              <p>{props.text}</p>
             </CardContent>
             <FooterPost>
                 <ButtonVote> ⬆ </ButtonVote>
-                  0
+                   <p>{props.votesCount}</p>
                 <ButtonVote> ⬇ </ButtonVote>
                 <Comments> 
-                    0 comentários
+                   <p>{props.commentsCount} comentários</p>
                 </Comments>
             </FooterPost>
         </CreatePost>

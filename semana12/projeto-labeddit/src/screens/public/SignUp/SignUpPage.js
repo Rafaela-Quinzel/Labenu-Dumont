@@ -15,7 +15,7 @@ function SignUpPage() {
     username: ""
   })
   
-  // useProtectPage()
+  useProtectPage()
   const history = useHistory()
 
   const handleInputChange = (event) => {
@@ -31,7 +31,6 @@ function SignUpPage() {
   }
 
 
-  
   return (
     <SignupPageContainer>
       <Logo src={LogoPage}/>

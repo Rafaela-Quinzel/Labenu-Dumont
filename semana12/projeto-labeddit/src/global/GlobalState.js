@@ -12,16 +12,14 @@ const GlobalState = (props) => {
 
   const getPosts = () => {
     axios
-      .get(`${BASE_URL}/posts`)
+      .get(`${BASE_URL}posts`)
       .then((response) => {
         setPosts(response.data);
       })
       .catch((error) => console.log(error.message));
   };
 
-  const data = {
-    posts,
-  };
+  const data = {posts};
 
   return (
     <GlobalStateContext.Provider value={data}>

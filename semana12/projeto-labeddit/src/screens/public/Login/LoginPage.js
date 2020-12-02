@@ -28,11 +28,9 @@ function LoginPage() {
 
   
   const handleSubmit = (event) => {
-      event.preventDefault();
-      login(form, history)
+    event.preventDefault();
+    login(form, history)
   }
-
-
 
   return (
     <LoginPageContainer>

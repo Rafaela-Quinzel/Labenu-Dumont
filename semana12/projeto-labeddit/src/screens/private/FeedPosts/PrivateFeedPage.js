@@ -4,28 +4,25 @@ import CardPost from '../../../components/CardFeed/CardFeed'
 import { useProtectPage } from '../../../hooks/useProtectPage'
 import { useRequestData } from '../../../hooks/useRequestData'
 import { BASE_URL } from '../../../constants/urls'
-// import { useUnProtectPage } from '../../../hooks/useUnProtectPage'
 
 
 function FeedPostsPage() {
     
-  // useProtectPage() //Proteção da página
+  useProtectPage() //Proteção da página
 
   useRequestData()
 
-  const data = useRequestData(`${BASE_URL}/posts`, undefined)
+  const getPosts = useRequestData(`${BASE_URL}posts`, {})
 
-  // useUnProtectPage() //Se já tem token cadastrado, vai entrar direto no feed
-
+  console.log(getPosts)
 
   return (
     <FeedContainer>
-      <CardPost/>
-      {!data ? <div>Loading</div> : data.posts.map((item) => {
-        return <CardPost id={item.id} title={item.title} text={item.text} username={item.username} votesCount={item.votesCount} commentsCount={item.commentsCount} />
-      })
-
-      }
+      {getPosts && getPosts.posts && getPosts.posts.map((item) => {
+        return (
+          <CardPost id={item.id} title={item.title} text={item.text} username={item.username} votesCount={item.votesCount} commentsCount={item.commentsCount} />
+        )
+      })}
     </FeedContainer>
   );
 }

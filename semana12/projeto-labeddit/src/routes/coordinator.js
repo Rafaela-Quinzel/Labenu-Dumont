@@ -17,3 +17,8 @@ export const goToLoginPage = (history) => {
 export const goToPrivatePostPage = (history,id) => {
     history.push(`/feed/post/${id}`)
 } 
+
+export const logOut = (history) => {
+    localStorage.removeItem('token')
+    history.push('/login')
+}
