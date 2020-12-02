@@ -6,12 +6,17 @@ import { goToFeedPosts, goToLoginPage } from '../../routes/coordinator'
 
 const MainAppBar = () => {
     const history = useHistory()
+
+    const logOut = () => {
+      localStorage.removeItem('token')
+      history.push('/login')
+  }
     return (
         <AppBar className={'appbar'}>
           <Toolbar>
             <ButtonsContainer>
               <Button color="inherit" onClick={() => goToFeedPosts(history)}>LabEddit</Button>
-              <Button color="inherit" onClick={() => goToLoginPage(history)}>Logout</Button>
+              <Button color="inherit" onClick={logOut}>Logout</Button>
             </ButtonsContainer>
           </Toolbar>
         </AppBar>

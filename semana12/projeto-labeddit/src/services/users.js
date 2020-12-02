@@ -4,9 +4,8 @@ import { goToFeedPosts } from '../routes/coordinator'
 
 
 export const login = (body, history) => {
-   axios.post(`${BASE_URL}/login`, body).then(response => {
-       console.log(response.data)
-       window.localStorage.setItem('token', response.data.token)
+   axios.post(`${BASE_URL}login`, body).then(response => {
+       localStorage.setItem('token', response.data.token)
        goToFeedPosts(history)
    }).catch(error => {
        console.log(error.message)
@@ -16,9 +15,8 @@ export const login = (body, history) => {
 
 
 export const signUp = (body, history) => {
-    axios.post(`${BASE_URL}/signup`, body).then(response => {
-        console.log(response.data)
-        window.localStorage.setItem('token', response.data.token)
+    axios.post(`${BASE_URL}signup`, body).then(response => {
+        localStorage.setItem('token', response.data.token)
         goToFeedPosts(history)
     }).catch(error => {
         console.log(error.message)

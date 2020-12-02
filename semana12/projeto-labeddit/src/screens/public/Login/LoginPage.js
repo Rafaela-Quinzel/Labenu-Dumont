@@ -6,19 +6,20 @@ import { useProtectPage } from '../../../hooks/useProtectPage'
 import { LoginPageContainer, FormContainer, Logo } from './styled'
 import { TextField, Button } from '@material-ui/core'
 import LogoPage from '../../../assets/astronauta.svg'
+import { goToSignUpPage } from '../../../routes/coordinator'
 
 
 
 function LoginPage() {
-  const {form, onChange, restState} = useForm({
-    email: '',
-    password: ''
+  const { form, onChange } = useForm({
+    email: "",
+    password: ""
   })
   
   useProtectPage()
   const history = useHistory()
 
-
+ 
   const handleInputChange = (event) => {
     const {value, name} = event.target
 
@@ -26,16 +27,17 @@ function LoginPage() {
   }
 
   
-  const onSubmitForm = (event) => {
+  const handleSubmit = (event) => {
       event.preventDefault();
       login(form, history)
   }
 
 
+
   return (
     <LoginPageContainer>
       <Logo src={LogoPage}/>
-      <FormContainer onSubmit={onSubmitForm}>
+      <FormContainer onSubmit={handleSubmit}>
         <TextField
           value={form.email}
           onChange={handleInputChange}
@@ -43,7 +45,7 @@ function LoginPage() {
           label='E-mail'
           name='email'
           type='email'
-          pattern={'[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}'}
+          // pattern={'[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}'}
           required
         />
         <br/>
@@ -57,15 +59,15 @@ function LoginPage() {
           required
         />
         <Button 
-          onClick={login}
           variant='contained'
           color="secondary"
-          type='submit'
+          type="submit"
         >
           LOGIN
         </Button>
         <Button 
           color="secondary"
+          onClick={() => goToSignUpPage(history)}
         >
           Não tem Login? Clique aqui
         </Button>

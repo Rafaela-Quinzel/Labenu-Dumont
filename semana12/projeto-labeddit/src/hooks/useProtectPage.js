@@ -3,11 +3,11 @@ import { useHistory } from 'react-router-dom'
 import { goToLoginPage, goToFeedPosts } from '../routes/coordinator'
 
 
-export function useProtectedPage() {
+export function useProtectPage() {
     const history = useHistory()
 
     useEffect(() => {
-      const token = window.localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       if(!token) {
         goToLoginPage(history)
       } else {
