@@ -20,7 +20,14 @@ function FeedPostsPage() {
     <FeedContainer>
       {getPosts && getPosts.posts && getPosts.posts.map((item) => {
         return (
-          <CardPost id={item.id} title={item.title} text={item.text} username={item.username} votesCount={item.votesCount} commentsCount={item.commentsCount} />
+          <CardPost 
+            id={item.id} 
+            title={item.title} 
+            text={item.text} 
+            username={item.username} 
+            votesCount={item.votesCount} 
+            commentsCount={item.commentsCount} 
+          />
         )
       })}
     </FeedContainer>

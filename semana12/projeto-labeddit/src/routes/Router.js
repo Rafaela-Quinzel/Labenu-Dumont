@@ -8,6 +8,7 @@ import SignUpPage from '../screens/public/SignUp/SignUpPage'
 const Router = () => {
     return (
         <Switch>
+            <Route exact path='/' component={LoginPage}/>
             <Route exact path='/login' component={LoginPage}/>
             <Route exact path='/cadastro' component={SignUpPage}/>
             <Route exact path='/feeds' component={FeedPostsPage}/>

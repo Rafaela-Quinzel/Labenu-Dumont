@@ -7,6 +7,7 @@ import { logOut } from '../../routes/coordinator'
 const MainAppBar = () => {
     const history = useHistory()
 
+
     return (
         <AppBar className={'appbar'}>
           <Toolbar>

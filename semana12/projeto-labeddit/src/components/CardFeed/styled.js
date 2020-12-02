@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export const CardContainer = styled.div`
    display: grid;
    justify-content: center;
+   margin-top: 2%;
 `
 
 export const CreatePost = styled.div`
@@ -14,14 +15,16 @@ export const CreatePost = styled.div`
 `
 
 export const CreateContent = styled.div`
-   width: 30vw;
+   width: 35vw;
    height: 22vh;
+   word-wrap: break-word;
 `
 
 export const CardContent = styled.div`
    width: 30vw;
-   height: 18vh;
-   margin: 2%;
+   height: 19vh;
+   margin: 1%;
+   word-wrap: break-word;
 `
 
 export const HeaderPost = styled.div`
@@ -44,7 +47,7 @@ export const AddPost = styled.p`
 
 export const ButtonVote = styled.span`
    font-size: 30px;
-   margin: 1% 2%;
+   margin: 0.2% 2%;
  
 `
 
