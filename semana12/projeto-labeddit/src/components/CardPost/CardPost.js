@@ -8,9 +8,11 @@ function CardPost(props) {
 
   return (
     <CardContainer>
-            <PostCardContainer>
+      <PostCardContainer>
         <HeaderPost>
-            <NameUserPost>{props.username}</NameUserPost>
+          <NameUserPost>
+            {props.username}
+          </NameUserPost>
         </HeaderPost>
           <CardContent>
             <p>{props.title}</p>
