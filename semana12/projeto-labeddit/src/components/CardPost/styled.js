@@ -68,5 +68,4 @@ export const CreatePost = styled.div`
 
 export const NameUserPost = styled.h3`
    color: ${mainDarkPurple};
-   
 `

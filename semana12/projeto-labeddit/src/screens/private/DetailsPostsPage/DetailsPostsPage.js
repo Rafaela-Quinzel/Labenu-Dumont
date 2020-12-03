@@ -1,41 +1,78 @@
-import React from 'react'
-import { PostsContainer } from './styled'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { PostsContainer, CardContainer, HeaderPost, PostCardContainer, 
+  CardContent, FooterPost, NameUserPost, ButtonVote, Comments, TitlePage } from './styled'
 import { useParams } from 'react-router-dom'
-import  CardPost from '../../../components/CardPost/CardPost'
-import { useProtectPage } from '../../../hooks/useProtectPage';
+// import { useProtectPage } from '../../../hooks/useProtectPage';
 import { useRequestData } from  '../../../hooks/useRequestData'
 import { BASE_URL } from '../../../constants/urls'
+import CardPost from '../../../components/CardPost/CardPost'
 
 
 function DetailsPostsPage() {
+  const [postDetails,setPostDetails] = useState([])
   
-  useProtectPage() //Proteção da página
+  // useProtectPage() //Proteção da páginadando erro
 
   const params = useParams()
   
+  // const data = useRequestData(`${BASE_URL}/posts/${params.id}`, {}) 
+ 
 
-  const data = useRequestData(`${BASE_URL}/posts/${params.id}`, {}) //[]
-  // const post = data[0]
+  // console.log(data)
 
-  console.log(data)
+  useEffect(()=>{
+    GetPostDetails()
+  },[])
+
+  const GetPostDetails = () => {
+    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts/${params.id}`,
+    {
+        headers: {
+            Authorization: localStorage.getItem("token")
+        }
+    })
+    .then((response)=>{
+        setPostDetails(response.data.post)
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+}
 
 
   return (
     <PostsContainer>
-      {data && data.posts && data.posts.map((item) => {
-        return (
-          <CardPost
-            key={item.id} 
-            id={item.id} 
-            title={item.title} 
-            text={item.text} 
-            username={item.username} 
-            votesCount={item.votesCount} 
-            commentsCount={item.commentsCount} 
-          />
-        )
-      })}
+      <CardPost
+                username={postDetails.username}
+                text={postDetails.text}
+                votesCount={postDetails.votesCount}
+                commentsCount={postDetails.commentsCount}
+                id={postDetails.id}
+            />
+      {/* <TitlePage>Detalhes do Post:</TitlePage>
+      <CardContainer>
+            <PostCardContainer>
+        <HeaderPost>
+            <NameUserPost>{data.username}</NameUserPost>
+        </HeaderPost>
+          <CardContent>
+            <p>{data.title}</p>
+            <p>{data.text}</p>
+          </CardContent>
+        <FooterPost>
+          <ButtonVote> ⬆ </ButtonVote>
+            <p>{data.votesCount}</p>
+          <ButtonVote> ⬇ </ButtonVote>
+          <Comments> 
+            <p>{data.commentsCount} comentários</p>
+          </Comments>
+        </FooterPost>
+      </PostCardContainer> 
+    </CardContainer> */}
+ 
     </PostsContainer>
+
   );
 }
 

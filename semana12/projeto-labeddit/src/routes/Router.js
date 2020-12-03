@@ -13,7 +13,7 @@ const Router = () => {
             <Route exact path='/login' component={LoginPage}/>
             <Route exact path='/cadastro' component={SignUpPage}/>
             <Route exact path='/posts' component={FeedsPage}/>
-            <Route exact path='/post/:id' component={DetailsPostsPage}/>
+            <Route exact path='/posts/:id' component={DetailsPostsPage}/>
             <Route exact path='/criar_post' component={CreatePost}/>
             <Route>
                  <div>Erro - página não encontrada!</div>

@@ -14,7 +14,7 @@ export const goToLoginPage = (history) => {
 }
 
 
-export const goToDetailsPostPage = (history, id) => {
+export const goToDetailsPostsPage = (history, id) => {
     history.push(`/posts/${id}`)
 } 
 
