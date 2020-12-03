@@ -18,7 +18,7 @@ function FeedPostsPage() {
 
   const getPosts = useRequestData(`${BASE_URL}/posts`, {})
 
-  console.log(getPosts)
+  // console.log(getPosts)
 
   return (
     <FeedContainer>

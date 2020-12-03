@@ -1,13 +1,21 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-import { createPost } from '../../services/feed'
+import { AddPost } from '../../services/feed'
+import { CreateContainer, FormContainer } from './styled'
+import { useProtectPage } from '../../hooks/useProtectPage'
 import { TextField, Button } from '@material-ui/core'
 
 function CreatePost() {
     const { form, onChange } = useForm({text: "", title: ""})
 
+    // useProtectPage()
+    const history = useHistory()
+
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault()
+
+        AddPost(form, history)
     }
 
     const handleInputChange = (event) => {
@@ -19,23 +27,24 @@ function CreatePost() {
     return (
         <div>
             <h2>Crie seu post</h2>
-            <form onSubmit={handleSubmit}>
+            <CreateContainer >
+                <FormContainer onSubmit={handleSubmit}>
                 <TextField
                     value={form.title}
                     onChange={handleInputChange}
                     variant= 'outlined'
                     label='Título'
                     name='title'
-                    type='password'
+                    type='title'
                     required
                 />
                 <TextField
-                    value={form.title}
+                    value={form.text}
                     onChange={handleInputChange}
                     variant= 'outlined'
-                    label='Senha'
-                    name='password'
-                    type='password'
+                    label='texto'
+                    name='text'
+                    type='text'
                     required
                 />
                 <Button 
@@ -45,8 +54,8 @@ function CreatePost() {
                 >
                    SALVAR
                 </Button>
-            
-            </form>
+                </FormContainer>
+            </CreateContainer>
         </div>
 
     )
