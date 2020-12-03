@@ -17,12 +17,24 @@ function DetailsPostsPage() {
   const data = useRequestData(`${BASE_URL}/posts/${params.id}`, {}) //[]
   // const post = data[0]
 
-  // console.log(details)
+  console.log(data)
 
 
   return (
     <PostsContainer>
-      <CardPost/>
+      {data && data.posts && data.posts.map((item) => {
+        return (
+          <CardPost
+            key={item.id} 
+            id={item.id} 
+            title={item.title} 
+            text={item.text} 
+            username={item.username} 
+            votesCount={item.votesCount} 
+            commentsCount={item.commentsCount} 
+          />
+        )
+      })}
     </PostsContainer>
   );
 }

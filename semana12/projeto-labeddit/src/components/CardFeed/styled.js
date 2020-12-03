@@ -8,10 +8,12 @@ export const CardContainer = styled.div`
    cursor: pointer;
    display: grid;
    justify-content: center;
-   margin-top: 2%;
+   margin: 2%;
+   box-shadow: 0px 0px 1em #666;
+   -webkit-box-shadow: 5px 0px 1em #666;
+   -moz-box-shadow: 0px 0px 1em #666;
    &:hover{
       transform: scale(1.1);
-      /* background-color: rgb(247, 229, 210); */
    }
 `
 
@@ -22,7 +24,6 @@ export const HeaderFeed = styled.div`
    padding-bottom: 2%;
    width: 35vw;
    height: 6vh;
- 
 `
 
 export const FeedCardContainer = styled.div`
@@ -32,32 +33,18 @@ export const FeedCardContainer = styled.div`
    border-radius: 12px;
    width: 35vw;
    height: 18vh;
-   margin: 4%;
+   margin: 5%;
+   &:hover{
+      background-color: rgb(247, 229, 210);
+   }
 `
 
 export const CardContent = styled.div`
    width: 30vw;
    height: 10vh;
-   margin: 4% 8%;
+   margin: 4%;
    word-wrap: break-word;
 `
-
-// export const FooterFeed = styled.div`
-//    border-top: 1px solid ${mainLightGray};
-//    display: flex;
-//    height: 4vh;
-//    /* justify-content: space-between; */
-// `
-
-// export const ButtonVote = styled.span`
-//    font-size: 30px;
-//    margin: 0.4% 2%;
- 
-// `
-
-// export const Comments = styled.span`
-//   margin-left: 45%;
-// `
 
 export const NameUserPost = styled.h2`
    color: ${mainDarkPurple};

@@ -2,14 +2,13 @@ import React from 'react'
 import { useHistory } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { AddPost } from '../../services/feed'
-import { CreateContainer, FormContainer } from './styled'
-import { useProtectPage } from '../../hooks/useProtectPage'
+import { CreateContainer, FormContainer, TitlePage } from './styled'
 import { TextField, Button } from '@material-ui/core'
 
 function CreatePost() {
     const { form, onChange } = useForm({text: "", title: ""})
 
-    // useProtectPage()
+    
     const history = useHistory()
 
     const handleSubmit = (event) => {
@@ -26,8 +25,9 @@ function CreatePost() {
 
     return (
         <div>
-            <h2>Crie seu post</h2>
+            
             <CreateContainer >
+            <TitlePage>Crie seu post</TitlePage>
                 <FormContainer onSubmit={handleSubmit}>
                 <TextField
                     value={form.title}
@@ -60,5 +60,4 @@ function CreatePost() {
 
     )
 }
-
 export default CreatePost; 

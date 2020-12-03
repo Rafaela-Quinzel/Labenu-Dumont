@@ -1,9 +1,11 @@
 import React from 'react'
-import { CardContainer, Post, CreateContent, NameUserPost, PostCardContainer,
+import { CardContainer, NameUserPost, PostCardContainer,
     HeaderPost, FooterPost, CardContent, ButtonVote, Comments, AddComment, CreatePost, AddPost } from './styled'
 
 
 function CardPost(props) {
+
+
   return (
     <CardContainer>
             <PostCardContainer>

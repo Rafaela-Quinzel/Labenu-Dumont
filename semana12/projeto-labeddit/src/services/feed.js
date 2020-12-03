@@ -10,8 +10,7 @@ export const AddPost = (body, history) => {
             headers: {
                 Authorization: token
             }
-        }).then(response => {
-        console.log(response)
+        }).then(() => {
         alert('Post criado com sucesso! 🧡🧡🧡')
         goToFeedPosts(history)
     }).catch((error) => {
@@ -20,9 +19,15 @@ export const AddPost = (body, history) => {
     })
 }
 
-export const createComment = (body, postId) => {
-    axios.post(`${BASE_URL}/posts/${postId}/comment`, body).then(response => {
-        localStorage.setItem('token', response.data.token)
+export const AddComment = (body, postId) => {
+    const token = localStorage.getItem("token")
+
+    axios.post(`${BASE_URL}/posts/${postId}/comment`, body,  {
+            headers: {
+                Authorization: token
+            }
+        }).then(response => {
+        console.log(response)
         alert('Post criado com sucesso! 🧡🧡🧡')
     }).catch((error) => {
         alert('Algo deu errado! 😥')

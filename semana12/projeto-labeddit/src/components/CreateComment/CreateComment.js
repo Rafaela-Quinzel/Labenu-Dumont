@@ -1,18 +1,28 @@
 import React from 'react'
 import { useForm } from '../hooks/useForm';
-import { createComment } from '../services/feed';
+import { AddComment } from '../services/feed';
 
 function CreateComment(props) {
     const { form, onChange } = useForm({text: ""})
 
-    const handleSubmission = (event) => {
+    // const history = useHistory()
+
+    const handleSubmit = (event) => {
         event.preventDefault()
-        createComment(form, props.id )
+        AddComment(form, props.id )
         // reset()
     }
+
+    const handleInputChange = (event) => {
+        const {value, name} = event.target
+    
+        onChange(value, name)
+    }
+
+  
     return (<div>
-        <form onSubmit={handleSubmission}>
-            <input placeholder="texto" onChange={onChange} value={form.text} name="text"/>
+        <form onSubmit={handleSubmit}>
+            <input placeholder="texto" onChange={handleInputChange} value={form.text} name="text"/>
             <button>COMENTAR</button>
         </form>
     </div>
