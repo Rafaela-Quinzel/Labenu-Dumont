@@ -1,20 +1,13 @@
-import React, {useState} from 'react'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import React from 'react'
 import { useForm } from '../../hooks/useForm';
 import { AddComment } from '../../services/feed';
 import { FormContainer, CreateContainer } from './styled'
 import { TextField, Button } from '@material-ui/core'
-import GetPostDetails from '../../screens/private/DetailsPostsPage/DetailsPostsPage'
 
 
 function CreateComment(props) {
 
     const { form, onChange } = useForm({text: ""})
-
-    // const history = useHistory()
-
-    // const params = useParams()
 
 
     const handleSubmit = (event) => {

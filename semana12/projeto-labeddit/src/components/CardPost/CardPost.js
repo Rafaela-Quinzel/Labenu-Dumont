@@ -8,7 +8,7 @@ import CreateComment from '../CreateComment/CreateComment'
 
 
 function CardPost(props) {
-//   const [comment, setComment] = useState(false)
+  const [comment, setComment] = useState(false)
 //     const [comentarios, setComentarios] = useState([])
 //     const [numeroComentarios, setNumeroComentarios] = useState(0)
 
@@ -16,7 +16,21 @@ function CardPost(props) {
 //       setComment(!comment)
 //     };
 
-    
+// const fieldComment = () => {
+//   if (Comment) {
+//     setComment(false)
+//   } else {
+//      setComment(true)
+//     }
+//   };
+
+  const fieldComment = comment ? <CardPost/> : <CreateComment/>
+
+  const onClickComment = () => {
+    // EXERCÍCIO 14 - Implementação do código
+    setComment(!comment)
+  };
+
 // const addComment = (comment) => {
 //   const listaDeComentarios = [...comentarios, comment]
 
@@ -99,7 +113,7 @@ function CardPost(props) {
               {props.commentsCount}
             </NumberComments>
           <IconComents 
-              // onClick={boxComment}
+              onClick={onClickComment}
               src={ComentIcon} 
               alt={ComentIcon}
             />
@@ -107,7 +121,8 @@ function CardPost(props) {
         </FooterPost>
       </PostCardContainer> 
     </CardContainer>
-    <CreateComment id={props.id}/>
+    {fieldComment}
+    {/* <CreateComment id={props.id}/> */}
     </div>
   );
 }

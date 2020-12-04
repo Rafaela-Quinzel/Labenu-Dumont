@@ -6,7 +6,6 @@ import { useRequestData } from '../../../hooks/useRequestData'
 import { BASE_URL } from '../../../constants/urls'
 import CardFeed from '../../../components/CardFeed/CardFeed'
 import { goToCreatePost } from '../../../routes/coordinator'
-import CardComment from '../../../components/CardComment/CardComment'
 
 
 function FeedPostsPage() {
