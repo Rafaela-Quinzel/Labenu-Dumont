@@ -9,7 +9,7 @@ import ButtonVoteDown from '../../assets/votedown.svg'
 
 function CardPost(props) {
 
-  const VoteUp = () => {
+  const voteComment = () => {
     let body = {}
     if(props.direction === 1) {
         body = {
@@ -20,19 +20,19 @@ function CardPost(props) {
             "direction": 1
         }
     }
-    const token = localStorage.getItem("token")
     axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts/${props.id}/comment/${props.id}/vote`,body, {
         headers: {
-            Authorization: token
+            Authorization: localStorage.getItem("token")
         }
-    }).then(() => {
+    }).then((response) => {
       alert('Voto enviado com sucesso! 🧡🧡🧡')
+      console.log(response)
     }).catch((error)=>{
         console.log(error)
     }) 
   }
 
-  const VoteDown = () => {
+  const vote = () => {
     let body = {}
     if(props.direction === -1) {
         body = {
@@ -40,13 +40,12 @@ function CardPost(props) {
         }
     } else {
         body = {
-            "direction": 1
+            "direction": -1
         }
     }
-    const token = localStorage.getItem("token")
-    axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts/${props.id}/comment/${props.id}/vote`,body, {
+    axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts/${props.id}/vote`,body, {
         headers: {
-            Authorization: token
+            Authorization: localStorage.getItem("token")
         }
     }).then(() => {
       alert('Voto retirado com sucesso!')
@@ -54,7 +53,6 @@ function CardPost(props) {
         console.log(error)
     })
   }
-
 
   
   return (
@@ -74,15 +72,15 @@ function CardPost(props) {
           <FooterPost>
             <ButtonVote>
               <IconButtonVote 
-                onClick={VoteUp}
+                onClick={() => voteComment(props.id, 1)}
                 src={ButtonVoteUp} 
                 alt={ButtonVoteUp}
               />
             </ButtonVote>
               <NumberVotes>{props.votesCount}</NumberVotes>
             <ButtonVote>
-              <IconButtonVote
-                onClick={VoteDown} 
+              <IconButtonVote id={props.id}
+                onClick={() => vote(props.id, -1)} 
                 src={ButtonVoteDown} 
                 alt={ButtonVoteDown}
               />

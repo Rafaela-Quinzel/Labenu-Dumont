@@ -40,7 +40,7 @@ function LoginPage() {
           value={form.email}
           onChange={handleInputChange}
           variant='outlined'
-          label='E-mail'
+          label='✉ E-mail'
           name='email'
           type='email'
           // pattern={'[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}'}
@@ -51,7 +51,7 @@ function LoginPage() {
           value={form.password}
           onChange={handleInputChange}
           variant= 'outlined'
-          label='Senha'
+          label='🔒 Senha'
           name='password'
           type='password'
           required

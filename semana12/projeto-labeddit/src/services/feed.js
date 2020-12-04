@@ -34,20 +34,20 @@ export const AddComment = (body, id) => {
     })
 }
 
-// export const vote = (decision, id) => {
-//     const token = localStorage.getItem("token")
+export const vote = (decision, id) => {
+    const token = localStorage.getItem("token")
 
-//     const body = {
-//         direction: decision,
-//     }
+    const body = {
+        direction: decision,
+    }
 
-//     axios.put(`${BASE_URL}/posts/${id}/vote`, body, {
-//         headers: {
-//             Authorization: token
-//         }
-//     })
-//     .then(() => {
-//     }).catch((error) => {
-//       console.log(error)
-//     })
-// }
+    axios.put(`${BASE_URL}/posts/${id}/vote`, body, {
+        headers: {
+            Authorization: token
+        }
+    })
+    .then(() => {
+    }).catch((error) => {
+      console.log(error)
+    })
+}
