@@ -17,17 +17,17 @@ export const HeaderPost = styled.div`
 `
 
 export const PostCardContainer  = styled.div`
+   background-color: ${mainAntiquewhite};
    border: 1px solid ${mainLightGray};
    border-radius: 12px;
    width: 40vw;
-   height: 52vh;
-   margin: 4%;
+   height: 34vh;
+   margin: 2%;
 `
 
 export const CardContent = styled.div`
-   background-color: ${mainAntiquewhite};
    width: 38vw;
-   height: 34vh;
+   height: 16vh;
    margin: 2% 2%;
    word-wrap: break-word;
 `
@@ -37,7 +37,7 @@ export const FooterPost = styled.div`
    display: flex;
 `
 
-export const ButtonVote = styled.span`
+export const ButtonVote = styled.div`
    color: ${mainDarkPurple};
    font-size: 30px;
    margin: 1% 4% 0% 4%;
@@ -75,9 +75,6 @@ export const NumberComments = styled.span`
 export const IconComents = styled.img`
    width: 25px;
    margin-left: 10%;
-   &:hover{
-      transform: scale(1.2);
-   }
 `
 
 export const AddPost = styled.p`

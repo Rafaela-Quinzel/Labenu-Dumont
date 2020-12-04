@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-
+// styled CreateComment
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
@@ -10,7 +10,9 @@ export const FormContainer = styled.form`
 `
 
 export const CreateContainer = styled.div`
-    width: 40vw;
+    width: 38vw;
     display: grid;
-    margin-left: 32%;
+    margin-left: 0.4%;
+    margin-top: 2%;
+    margin-bottom: 5%;
 `

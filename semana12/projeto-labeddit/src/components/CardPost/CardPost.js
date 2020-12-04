@@ -1,128 +1,99 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import { CardContainer, NameUserPost, PostCardContainer,HeaderPost, CommentsConteiner, NumberVotes,
-  FooterPost, CardContent, ButtonVote, NumberComments, AddComment, TextPost, IconButtonVote, IconComents } from './styled'
-import VoteUp from '../../assets/voteup.svg'
-import VoteDown from '../../assets/votedown.svg'
-import ComentIcon from '../../assets/coments.svg'
-import CreateComment from '../CreateComment/CreateComment'
+  FooterPost, CardContent, ButtonVote,TextPost, IconButtonVote } from './styled'
+import ButtonVoteUp from '../../assets/voteup.svg'
+import ButtonVoteDown from '../../assets/votedown.svg'
+
 
 
 function CardPost(props) {
-  const [comment, setComment] = useState(false)
-//     const [comentarios, setComentarios] = useState([])
-//     const [numeroComentarios, setNumeroComentarios] = useState(0)
 
-//     const onClickComment = () => {
-//       setComment(!comment)
-//     };
+  const VoteUp = () => {
+    let body = {}
+    if(props.direction === 1) {
+        body = {
+            "direction": 0
+        }
+    } else {
+        body = {
+            "direction": 1
+        }
+    }
+    const token = localStorage.getItem("token")
+    axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts/${props.id}/comment/${props.id}/vote`,body, {
+        headers: {
+            Authorization: token
+        }
+    }).then(() => {
+      alert('Voto enviado com sucesso! 🧡🧡🧡')
+    }).catch((error)=>{
+        console.log(error)
+    }) 
+  }
 
-// const fieldComment = () => {
-//   if (Comment) {
-//     setComment(false)
-//   } else {
-//      setComment(true)
-//     }
-//   };
-
-  const fieldComment = comment ? <CardPost/> : <CreateComment/>
-
-  const onClickComment = () => {
-    // EXERCÍCIO 14 - Implementação do código
-    setComment(!comment)
-  };
-
-// const addComment = (comment) => {
-//   const listaDeComentarios = [...comentarios, comment]
-
-//   setComentarios(listaDeComentarios)
-//   setComment(false)
-//   setNumeroComentarios(numeroComentarios + 1)
-// }
-
-//     const boxComment = comment ? (
-//       <CreateComment enviarComentario={addComment}/>
-//     ) : (
-//       comentarios.map(comentario => {
-//         return (
-//           <div>
-//             <p>{comentario}</p>
-//           </div>
-//         )
-//       })
-//     )
-
-// const handleVote = (decision) => {
-//   const body = {
-//       direction: decision,
-//   }
-//   votePost(body, props.id, props.update)
-//  }
-
-// const arrow = () => {
-//   if (props.direction === 0) {
-//       return (<>
-//           <Arrow src={greyUp} onClick={() => handleVote(1)} />
-//           <Heading size="md">{props.votesCount}</Heading>
-//           <Arrow src={greyDown} onClick={() => handleVote(-1)} />
-//       </>)
-//   } else if (props.direction === 1) {
-//       return (<>
-//           <Arrow src={coloredUp} onClick={() => handleVote(0)} />
-//           <Heading size="md">{props.votesCount}</Heading>
-//           <Arrow src={greyDown} onClick={() => handleVote(-1)} />
-//       </>)
-//   } else {
-//       return (<>
-//           <Arrow src={greyUp} onClick={() => handleVote(1)} />
-//           <Heading size="md">{props.votesCount}</Heading>
-//           <Arrow src={coloredDown} onClick={() => handleVote(0)} />
-//       </>)
-//   }
-// }
+  const VoteDown = () => {
+    let body = {}
+    if(props.direction === -1) {
+        body = {
+            "direction": 0
+        }
+    } else {
+        body = {
+            "direction": 1
+        }
+    }
+    const token = localStorage.getItem("token")
+    axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts/${props.id}/comment/${props.id}/vote`,body, {
+        headers: {
+            Authorization: token
+        }
+    }).then(() => {
+      alert('Voto retirado com sucesso!')
+    }).catch((error)=>{
+        console.log(error)
+    })
+  }
 
 
+  
   return (
     <div>
-    <CardContainer>
-      <PostCardContainer>
-        <HeaderPost>
-          <NameUserPost>
-            {props.username}
-          </NameUserPost>
-        </HeaderPost>
-          <CardContent>
-            <p>{props.title}</p>
-            <TextPost>{props.text}</TextPost>
-          </CardContent>
-        <FooterPost>
-          <ButtonVote>
-            <IconButtonVote 
-              src={VoteUp} 
-              alt={VoteUp}
-            />
-          </ButtonVote>
-            <NumberVotes>{props.votesCount}</NumberVotes>
-          <ButtonVote>
-            <IconButtonVote 
-              src={VoteDown} 
-              alt={VoteDown}
-            />
-          </ButtonVote>
-          <CommentsConteiner>
-            <NumberComments>
-              {props.commentsCount}
-            </NumberComments>
-          <IconComents 
-              onClick={onClickComment}
-              src={ComentIcon} 
-              alt={ComentIcon}
-            />
-          </CommentsConteiner>
-        </FooterPost>
-      </PostCardContainer> 
-    </CardContainer>
-    {fieldComment}
-    {/* <CreateComment id={props.id}/> */}
+      <CardContainer>
+        <PostCardContainer>
+          <HeaderPost>
+            <NameUserPost>
+              {props.username}
+            </NameUserPost>
+          </HeaderPost>
+          
+            <CardContent>
+              <p>{props.title}</p>
+              <TextPost>{props.text}</TextPost>
+            </CardContent>
+          <FooterPost>
+            <ButtonVote>
+              <IconButtonVote 
+                onClick={VoteUp}
+                src={ButtonVoteUp} 
+                alt={ButtonVoteUp}
+              />
+            </ButtonVote>
+              <NumberVotes>{props.votesCount}</NumberVotes>
+            <ButtonVote>
+              <IconButtonVote
+                onClick={VoteDown} 
+                src={ButtonVoteDown} 
+                alt={ButtonVoteDown}
+              />
+            </ButtonVote>
+            <CommentsConteiner>
+            </CommentsConteiner>
+          </FooterPost>
+        </PostCardContainer> 
+      </CardContainer>
+      {/* {fieldComment} */}
+      
     </div>
   );
 }

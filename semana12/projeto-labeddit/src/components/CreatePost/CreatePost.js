@@ -57,7 +57,6 @@ function CreatePost() {
                 </FormContainer>
             </CreateContainer>
         </div>
-
     )
 }
 export default CreatePost; 

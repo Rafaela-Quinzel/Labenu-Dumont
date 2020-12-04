@@ -1,6 +1,6 @@
 import React from 'react'
-import { useHistory, useParams } from 'react-router-dom'
-import { FeedContainer, FabStyled, TitlePage  } from './styled'
+import { useHistory } from 'react-router-dom'
+import { FeedContainer, FabStyled } from './styled'
 import { useProtectPage } from '../../../hooks/useProtectPage'
 import { useRequestData } from '../../../hooks/useRequestData'
 import { BASE_URL } from '../../../constants/urls'
@@ -14,7 +14,7 @@ function FeedPostsPage() {
 
   useRequestData()
 
-  const params = useParams()
+  // const params = useParams()
 
   const history = useHistory()
 
@@ -23,7 +23,6 @@ function FeedPostsPage() {
 
   return (
     <FeedContainer>
-      <TitlePage>Feeds</TitlePage>
       {getPosts && getPosts.posts && getPosts.posts.map((item) => {
         return (
           <CardFeed

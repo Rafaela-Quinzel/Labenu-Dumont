@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { PostsContainer, CardContainer, HeaderPost, PostCardContainer, 
-  CardContent, FooterPost, NameUserPost, ButtonVote, Comments, TitlePage } from './styled'
+import { PostsContainer, TitlePage } from './styled'
 import { useParams } from 'react-router-dom'
 // import { useProtectPage } from '../../../hooks/useProtectPage';
-import { useRequestData } from  '../../../hooks/useRequestData'
-import { BASE_URL } from '../../../constants/urls'
 import CardPost from '../../../components/CardPost/CardPost'
 
 
@@ -13,14 +10,10 @@ import CardPost from '../../../components/CardPost/CardPost'
 function DetailsPostsPage() {
   const [postDetails,setPostDetails] = useState([])
   
-  // useProtectPage() //Proteção da páginadando erro
+  // useProtectPage() //Proteção da página dando erro
 
   const params = useParams()
   
-  // const data = useRequestData(`${BASE_URL}/posts/${params.id}`, {}) 
- 
-
-  // console.log(data)
 
   useEffect(()=>{
     GetPostDetails()
@@ -29,9 +22,9 @@ function DetailsPostsPage() {
   const GetPostDetails = () => {
     axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts/${params.id}`,
     {
-        headers: {
-            Authorization: localStorage.getItem("token")
-        }
+      headers: {
+        Authorization: localStorage.getItem("token")
+      }
     })
     .then((response)=>{
         setPostDetails(response.data.post)
@@ -40,20 +33,26 @@ function DetailsPostsPage() {
         console.log(error)
     })
   }
-
+  
+  console.log(postDetails)
 
   return (
     <PostsContainer>
-      <CardPost
-        username={postDetails.username}
-        text={postDetails.text}
-        votesCount={postDetails.votesCount}
-        commentsCount={postDetails.commentsCount}
-        id={postDetails.id}
-      />
+      <TitlePage>Comentários:</TitlePage>
+      {postDetails && postDetails.comments && postDetails.comments.map((item) => {
+        return (
+          <CardPost
+              key={item.id} 
+              id={item.id} 
+              title={item.title} 
+              text={item.text} 
+              username={item.username} 
+              votesCount={item.votesCount} 
+              commentsCount={item.commentsCount} 
+          />
+        )
+    })}
     </PostsContainer>
-
-  );
+  )
 }
-
-export default DetailsPostsPage;
+export default DetailsPostsPage

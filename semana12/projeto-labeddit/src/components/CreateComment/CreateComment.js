@@ -32,7 +32,7 @@ function CreateComment(props) {
                         value={form.text}
                         onChange={handleInputChange}
                         variant= 'outlined'
-                        label='Comentário'
+                        label='comentar post'
                         name='text'
                         type='text'
                         required

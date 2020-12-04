@@ -12,9 +12,6 @@ export const CardContainer = styled.div`
    display: grid;
    justify-content: center;
    margin-top: 2%;
-   /* &:hover{
-      transform: scale(1.1);
-   } */
 `
 export const TitlePage = styled.h1`
    color: ${mainDarkPurple};

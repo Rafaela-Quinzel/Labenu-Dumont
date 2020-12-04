@@ -19,3 +19,4 @@ export const FabStyled = styled(Fab)`
     right: 20px;
     bottom: 20px;
 `
+
