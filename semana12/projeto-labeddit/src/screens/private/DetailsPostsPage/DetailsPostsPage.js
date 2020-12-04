@@ -9,6 +9,7 @@ import { BASE_URL } from '../../../constants/urls'
 import CardPost from '../../../components/CardPost/CardPost'
 
 
+
 function DetailsPostsPage() {
   const [postDetails,setPostDetails] = useState([])
   
@@ -38,39 +39,18 @@ function DetailsPostsPage() {
     .catch((error)=>{
         console.log(error)
     })
-}
+  }
 
 
   return (
     <PostsContainer>
       <CardPost
-                username={postDetails.username}
-                text={postDetails.text}
-                votesCount={postDetails.votesCount}
-                commentsCount={postDetails.commentsCount}
-                id={postDetails.id}
-            />
-      {/* <TitlePage>Detalhes do Post:</TitlePage>
-      <CardContainer>
-            <PostCardContainer>
-        <HeaderPost>
-            <NameUserPost>{data.username}</NameUserPost>
-        </HeaderPost>
-          <CardContent>
-            <p>{data.title}</p>
-            <p>{data.text}</p>
-          </CardContent>
-        <FooterPost>
-          <ButtonVote> ⬆ </ButtonVote>
-            <p>{data.votesCount}</p>
-          <ButtonVote> ⬇ </ButtonVote>
-          <Comments> 
-            <p>{data.commentsCount} comentários</p>
-          </Comments>
-        </FooterPost>
-      </PostCardContainer> 
-    </CardContainer> */}
- 
+        username={postDetails.username}
+        text={postDetails.text}
+        votesCount={postDetails.votesCount}
+        commentsCount={postDetails.commentsCount}
+        id={postDetails.id}
+      />
     </PostsContainer>
 
   );

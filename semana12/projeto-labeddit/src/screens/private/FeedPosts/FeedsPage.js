@@ -1,11 +1,12 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { FeedContainer, FabStyled, TitlePage  } from './styled'
 import { useProtectPage } from '../../../hooks/useProtectPage'
 import { useRequestData } from '../../../hooks/useRequestData'
 import { BASE_URL } from '../../../constants/urls'
 import CardFeed from '../../../components/CardFeed/CardFeed'
 import { goToCreatePost } from '../../../routes/coordinator'
+import CardComment from '../../../components/CardComment/CardComment'
 
 
 function FeedPostsPage() {
@@ -14,11 +15,12 @@ function FeedPostsPage() {
 
   useRequestData()
 
+  const params = useParams()
+
   const history = useHistory()
 
   const getPosts = useRequestData(`${BASE_URL}/posts`, {})
 
-  // console.log(getPosts)
 
   return (
     <FeedContainer>
@@ -39,6 +41,7 @@ function FeedPostsPage() {
       <FabStyled color='secondary' onClick={() => goToCreatePost(history)}>
         ➕
       </FabStyled>
+
     </FeedContainer>
   );
 }

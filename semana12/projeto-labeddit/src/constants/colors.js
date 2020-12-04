@@ -12,4 +12,6 @@ export const mainDarkPurple = '#2E1770'
 
 export const mainAntiquewhite = 'antiquewhite'
 
+export const mainGray = 'gray'
+
 export const mainDarkGray = '#2e3035'

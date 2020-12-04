@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { mainLightGray, mainDarkPurple, mainAntiquewhite } from '../../../constants/colors'
 
+
 // styled DetailsPostsPage
 export const PostsContainer = styled.div`
    text-align: center;
@@ -11,10 +12,9 @@ export const CardContainer = styled.div`
    display: grid;
    justify-content: center;
    margin-top: 2%;
-   &:hover{
+   /* &:hover{
       transform: scale(1.1);
-      /* background-color: rgb(247, 229, 210); */
-   }
+   } */
 `
 export const TitlePage = styled.h1`
    color: ${mainDarkPurple};

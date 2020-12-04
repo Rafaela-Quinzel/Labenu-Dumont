@@ -2,7 +2,7 @@ import React from 'react'
 import {ButtonsContainer} from "./styled"
 import { AppBar, Toolbar, Button }  from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
-import { logOut } from '../../routes/coordinator'
+import { logOut, goToFeedPosts } from '../../routes/coordinator'
 
 const MainAppBar = () => {
     const history = useHistory()
@@ -12,7 +12,7 @@ const MainAppBar = () => {
         <AppBar className={'appbar'}>
           <Toolbar>
             <ButtonsContainer>
-              <Button color="inherit">LabEddit</Button>
+              <Button color="inherit" onClick={() => goToFeedPosts(history)}>LabEddit</Button>
               <Button color="inherit" onClick={() => logOut(history)}>Logout</Button>
             </ButtonsContainer>
           </Toolbar>
