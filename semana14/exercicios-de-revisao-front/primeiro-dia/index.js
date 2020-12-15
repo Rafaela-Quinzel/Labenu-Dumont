@@ -1,4 +1,5 @@
 //------------------------------------ FUNÇÕES ----------------------------------------------------------------//
+    
     // EXERCÍCIO 01: 
         /**Escreva uma função que reverte um texto.**
 
@@ -202,43 +203,35 @@
         */
 
         
-       const numeros = [3, 2, 5, 1, 4]
+        const numeros = [3, 2, 5, 1, 4]
 
-       const verficarNumeros = () => {
+        const verficarNumeros = () => {
        
-         const max1 = Math.max(...numeros)
-         const primeiroMaior = []
-         primeiroMaior.push(max1)
-         // console.log(primeiroMaior) // Resultado 95 no console
-       
-         // console.log(numeros.indexOf(95))
-       
-         numeros.splice(2, 1)
-        //  console.log(numeros)
-       
-         const max2 = Math.max(...numeros)
-         const segundoMaior = []
-         segundoMaior.push(max2)
-         console.log(segundoMaior) // Resultado 89 no console
-       
-         const min1 = Math.min(...numeros)
-         const primeiroMenor = []
-         primeiroMenor.push(min1)
-         // console.log(primeiroMenor) // Resultado 10 no console
-       
-         // console.log(numeros.indexOf(10)) 
-       
-         numeros.splice(2, 1)
-        //  console.log(numeros)
-       
-         const min2 = Math.min(...numeros)
-         const segundoMenor = []
-         segundoMenor.push(min2)
-         console.log(segundoMenor) // Resultado 20 no console
-       
-        return `O segundo maior número é ${segundoMaior} e o segundo menor número é ${segundoMenor}`
-       }
-    //    console.log(verficarNumeros())
+            const max1 = Math.max(...numeros)
+            const primeiroMaior = []
+            primeiroMaior.push(max1)
+        
+            numeros.splice(2, 1)
+        
+            const max2 = Math.max(...numeros)
+            const segundoMaior = []
+            segundoMaior.push(max2)
+            console.log(segundoMaior)
+        
+            const min1 = Math.min(...numeros)
+            const primeiroMenor = []
+            primeiroMenor.push(min1)
+        
+            numeros.splice(2, 1)
+        
+            const min2 = Math.min(...numeros)
+            const segundoMenor = []
+            segundoMenor.push(min2)
+            console.log(segundoMenor) 
+        
+            return `O segundo maior número é ${segundoMaior} e o segundo menor número é ${segundoMenor}`
+        }
+      //console.log(verficarNumeros())
     // FIM
 
 
@@ -300,32 +293,28 @@
         // console.log(charCount('teste'))
     // FIM
 
-
-
-
-   
- 
-
-   
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// FIM EXERCÍCIOS DE FUNÇÕES
 
 
 //------------------------------------- LAÇOS -----------------------------------------------------------------//
+
+// EXERCÍCIO 01 :
+        /**Escreva um programa que receba um array de números e exiba o maior número.**
+
+            Exemplo: [1, 3, 9, 5 , 2, 7]
+
+            Saída: 9
+       */
+         
+       
+      function higherNumber(array) {
+
+        const number = Math.max(...array)
+            const larger = []
+            larger.push(number)
+        
+        return larger
+    }
+    console.log(higherNumber([1, 3, 9, 5 , 2, 7]))
+// FIM
+
