@@ -252,12 +252,6 @@
             Saída esperada : "thequickbrownfxjmpsvlazydg"
        */
          
-        // Exemplo de concatenação:
-        // var a = "Meu nome é ";
-        // var b = "Tiago!";
-        // var c = a.concat(b);
-        // console.log(c) // "Meu nome é Tiago!"
-
 
         function getCharacters (string) {
 
