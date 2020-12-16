@@ -9,7 +9,7 @@
         */
     
         function inverter() {
-            var inverter = document.getElementsByName("txt");
+            let inverter = document.getElementsByName("txt");
             valor = inverter.item(0).value.toString().split("");
             normal = valor.reverse().join("")
             document.body.innerHTML += "<li>" + normal + "<br/>"
@@ -306,15 +306,208 @@
             Saída: 9
        */
          
-       
-      function higherNumber(array) {
+        function higherNumber(array) {
 
-        const number = Math.max(...array)
-            const larger = []
-            larger.push(number)
+            const numbersArray = []
+
+            for(let i = 0; i < array.length; i++) {
+                let numbers = array[i]
+                numbersArray.push(numbers)
+            }
+
+            const number = Math.max(...array)
+                const larger = []
+                larger.push(number)
+
+            return larger
+        }
+        // console.log(higherNumber([1, 3, 9, 5 , 2, 7]))
+    // FIM
+
+
+
+    // EXERCÍCIO 02 :
+        /**Escreva um programa que receba um array de strings e exiba a string mais longa.**
+
+            Exemplo: ["Casa", "Elefante", "Espelho", "Internacional"]
+
+            Saída: Internacional
+       */
+       
+        function getLongerString(arrayStrings) {
+            let lengthWord = 0
+            let biggerWord = ""
+
+            for (let i = 0; i < arrayStrings.length; i++) { 
+                if (arrayStrings[i].length > lengthWord) {
+                    lengthWord = arrayStrings[i].length
+                    biggerWord = arrayStrings[i]
+                }
+            }
+
+            return biggerWord
+        }
+        // console.log(getLongerString(["Casa", "Elefante", "Espelho", "Internacional"]))
+    // FIM
+
+
+   
+    // EXERCÍCIO 03 :
+        /**Escreva um programa que receba três números e os ordene do menor para o maior.**
+
+            Exemplo: 3, 27, 12
+
+            Saída: 3, 12, 27
+       */
+         
+        function orderNumbers(arrayNumbers) {
+
+            let order = arrayNumbers.sort(function(a,b) {
+                return a - b
+            })
+
+            let orderly = []
+
+            for (let i = 0; i < order.length; i++) {
+                orderly += order[i] + ", "
+            }
+
+            return orderly
+        }
+        // console.log(orderNumbers([3, 27, 12]))
+    // FIM
+
+
+
+
+    // EXERCÍCIO 04 :
+        /**Altere o programa anterior para que ele também exiba com um alert o maior valor**
+
+            Exemplo: 3, 27, 12
+
+            Saída: 3, 12, 27, com alerta imprimindo 27
+       */
+         
+        function largerNumber(arrayNumbers) {
+
+            let order = arrayNumbers.sort(function(a,b) {
+                return a - b
+            })
+
+            let orderly = []
+
+            let biggerNumber = 0
+
         
-        return larger
-    }
-    console.log(higherNumber([1, 3, 9, 5 , 2, 7]))
-// FIM
+            for (let i = 0; i < order.length; i++) {
+                  orderly += order[i] + ", " 
+            }
+
+            for (let i = 0; i < orderly.length; i++) {
+                    element = arrayNumbers[i]
+
+                if(biggerNumber < element) {
+                    biggerNumber = element
+                }  
+            }
+
+            // return  orderly + alert(`Números ordenados : ${orderly} \n  O maior número é: ${biggerNumber}`) && biggerNumber
+        }
+        const result = largerNumber([3, 27, 12])
+        // console.log(`O maior número é: ${result}`)
+    // FIM
+
+
+
+    // EXERCÍCIO 05 :
+        /**Escreva um laço que itere de 0 a 30. Para cada iteração, cheque se o número é par, ou se é divisível por 3. 
+           Caso o número seja divisível por 2 e 3, imprima uma mensagem que aponte "o número é par e divisível por 3" para cada vez que a condição for atendida.
+           Saída: "2 é par", "3 é divisível por 3", "4 é par", "6 é par e divisível por 3"
+       */
+         
+        function divisionNumbers() {
+
+            for (let i = 0; i < 30; i++) {
+                if (((i % 2) === 0) && ((i % 3) === 0)) {
+                    console.log ("O número " + i + " é Divisivel por 2 e 3");
+                } else  if ((i % 2) == 0) {
+                    console.log ("O número " + i + " é Divisivel por 2");
+                } else if ((i % 3) == 0) {
+                        console.log ("O número " + i + " é Divisivel por 3");
+                }
+            }
+
+            return 
+        }
+        // console.log(divisionNumbers())
+    // FIM
+
+
+
+     // EXERCÍCIO 06 :
+        /**Escreva um laço que itere de 0 a 30. Para cada iteração, cheque se o número é par, ou se é divisível por 3. 
+           Caso o número seja divisível por 2 e 3, imprima uma mensagem que aponte "o número é par e divisível por 3" para cada vez que a condição for atendida.
+           Saída: "2 é par", "3 é divisível por 3", "4 é par", "6 é par e divisível por 3"
+       */
+         
+        function asterisksPrint() {
+
+            for (let i = 0; i < 1; i++) {
+                let line = ""
+                for(let column = 0; column < 5; column++) {
+                    line = line + "*"
+                    // console.log( line)
+                }
+            }
+            
+        }
+        // console.log(asterisksPrint())
+    // FIM
+
+
+
+    // EXERCÍCIO 07 :
+        /**Escreva um código que, considerando os scores abaixo, consiga dar uma nota para os alunos.**
+
+            Saída: 
+            ["Soter: Nota C",
+            "Paula: Bota C",
+            "Caio: Nota B",
+            "Amanda: Nota A",
+            "Mateus: Nota C"]
+       */
+         
+        function giveNotes() {
+
+            
+
+            let aluno = prompt('Nome do aluno:')
+            let score = prompt('Score do aluno:')
+
+            let result = aluno + score
+
+            let nota = []
+        
+            for(let i = 0; i < 5; i++) {
+                nota.push(result)
+              
+            if(score <= 30) {
+                return `${aluno}: \n Nota E`
+            } else if (score <= 40) {
+                return `${aluno}: \n Nota D`
+            } else if (score <= 60) {
+                return `${aluno}: \n Nota C`
+            } else if (score <= 80) {
+                return `${aluno}: \n Nota B`
+            } else {
+                return `${aluno}: \n Nota A`
+            }
+
+        }
+        }
+        console.log(giveNotes())
+    // FIM
+
+
+
 
