@@ -411,11 +411,12 @@
                 }  
             }
 
-            // return  orderly + alert(`Números ordenados : ${orderly} \n  O maior número é: ${biggerNumber}`) && biggerNumber
+            return  orderly + alert(`Números ordenados : ${orderly} \n  O maior número é: ${biggerNumber}`) && biggerNumber
         }
         const result = largerNumber([3, 27, 12])
-        // console.log(`O maior número é: ${result}`)
+        console.log(`O maior número é: ${result}`)
     // FIM
+
 
 
 
@@ -476,37 +477,49 @@
             "Amanda: Nota A",
             "Mateus: Nota C"]
        */
-         
-        function giveNotes() {
 
-            
 
-            let aluno = prompt('Nome do aluno:')
-            let score = prompt('Score do aluno:')
-
-            let result = aluno + score
-
-            let nota = []
+        const studentsScores = {
+            Soter: 80,
+            Paula: 77,
+            Caio: 88,
+            Amanda: 95,
+            Mateus: 68
+        }
+    
+        const giveNotes = (score) => {
+            let gradesNotes = {}
+            for (let student in score) {
+                let note
+                if (score[student] >= 90) {
+                    note = "Nota A"
+                } else if (score[student] >= 80) {
+                    note = "Nota B"
+                } else if (score[student] >= 60) {
+                    note = "Nota C"
+                } else if (score[student] >= 40) {
+                    note = "D"
+                } else if (score[student] >= 30) {
+                    note = "E"
+                } else {
+                    note = "F"
+                }
         
-            for(let i = 0; i < 5; i++) {
-                nota.push(result)
-              
-            if(score <= 30) {
-                return `${aluno}: \n Nota E`
-            } else if (score <= 40) {
-                return `${aluno}: \n Nota D`
-            } else if (score <= 60) {
-                return `${aluno}: \n Nota C`
-            } else if (score <= 80) {
-                return `${aluno}: \n Nota B`
-            } else {
-                return `${aluno}: \n Nota A`
+                gradesNotes = { ...gradesNotes, [student]: note }
             }
-
+        
+            // return gradesNotes
         }
-        }
-        console.log(giveNotes())
+        // console.log(giveNotes(studentsScores))
     // FIM
+
+
+  
+   
+
+
+ 
+
 
 
 
