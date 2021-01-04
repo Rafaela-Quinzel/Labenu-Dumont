@@ -1,5 +1,5 @@
 {
-   "name": "exercicios-node",
+   "name": "exercicio-1",
    "version": "1.0.0",
    "description": "Exercícios de Node e package.json",
    "main": "index.js",
@@ -9,7 +9,7 @@
    },
    "keywords": [
       "node",
-      "exercicios-node"
+      "exercicio-1"
    ],
    "author": "Rafaela-Quinzel",
    "license": "ISC"
