@@ -1,0 +1,14 @@
+{
+  "name": "aula41",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "exercicio1": "tsc && ./build/exercicio1.js",
+    "exercicio2": "tsc && ./build/exercicio2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
