@@ -1,0 +1,26 @@
+#container {
+    margin: 8% 5% 4%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+#container1 {
+    margin: 8% 10% 4%;
+}
+
+#container2 {
+    margin: 21% 5% 4%;
+}
+
+form {
+    margin: 4% 0% 2%;
+}
+
+li {
+    margin: 2% 10%;
+}
+
+h1 {
+    color: blueviolet;
+}
