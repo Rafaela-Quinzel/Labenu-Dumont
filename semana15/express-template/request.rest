@@ -5,3 +5,9 @@ Content-Type: application/json
 
 GET http://localhost:3003/countries/1
 Content-Type: application/json
+
+
+###
+
+GET http://localhost:3003/countries/search?name=Bra
+Content-Type: application/json
