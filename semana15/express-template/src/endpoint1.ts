@@ -30,7 +30,7 @@ app.use(cors())
         
         const result = countries.map(country => ({
             id: country.id,
-            name:country.name
+            name: country.name
         }))
 
         if (result.length) {

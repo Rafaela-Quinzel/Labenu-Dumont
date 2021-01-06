@@ -1,0 +1,7 @@
+GET http://localhost:3003/countries/all
+Content-Type: application/json
+
+###
+
+GET http://localhost:3003/countries/1
+Content-Type: application/json
