@@ -232,7 +232,7 @@ let users: user[] = [
     })
 
 
-    //----------------------------------- EXERCÍCIO 05 -----------------------------------------------------//
+//----------------------------------- EXERCÍCIO 05 -----------------------------------------------------//
 
     /*   Vamos alterar nosso último usuário. Crie um endpoint com o método PUT para alterar o nome do nosso usuário recém criado. 
        Adicione em seu nome o sufixo -ALTERADO.  
@@ -253,6 +253,37 @@ let users: user[] = [
             }
 
         })
+
+
+//----------------------------------- EXERCÍCIO 06 -----------------------------------------------------//
+
+    /*  Essa não! Alteramos um dado por engano. Vamos realterar nosso último usuário. 
+     Crie um endpoint com o método PATCH para alterar mais uma vez o nome do nosso usuário recém alterado. 
+     Adicione em seu nome o sufixo -REALTERADO.  
+    */
+
+        app.patch('/users/:id', (req: Request, res: Response) => {
+
+            let errorCode: number = 400
+
+            try {
+                const requestBody = {
+                    name: req.body.name
+                }
+                const lastUserIndex = users.length - 1
+                users[lastUserIndex].name = `${requestBody.name}-REALTERADO`
+                res.status(200).send(`Usuário realterado!`)
+            } catch (error) {
+                res.status(errorCode).send(error.message)
+            }
+        })
+
+
+
+
+
+
+        
 
 
 

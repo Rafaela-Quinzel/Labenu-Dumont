@@ -38,7 +38,6 @@ Content-Type: application/json
 
 
 PUT http://localhost:3003/users
-Content-Type: application/json
 // atualiza o nome do usuário atraves do id
 
 {
@@ -53,9 +52,19 @@ Content-Type: application/json
 
 
 PUT http://localhost:3003/users/7
-
 // atualiza o nome do usuário atraves do id
 
 {
     "name":"Rafaela-ALTERADO"
+}
+
+
+###
+
+
+PATCH  http://localhost:3003/users/7
+// atualiza o nome do usuário atraves do id
+
+{
+    "name":"Rafaela-REALTERADO"
 }
