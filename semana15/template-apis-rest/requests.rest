@@ -1,18 +1,49 @@
 GET http://localhost:3003/users
+Content-Type: application/json
 // Busca todos os usuários
 
 
 ###
 
-GET http://localhost:3003/users/search?type=NORMAl
+
+GET http://localhost:3003/users/searchByType?type=NORMAl
+Content-Type: application/json
 // Busca por nome do tipo
 
 
 ###
 
 
-GET http://localhost:3003/users/search?type=NORMAl
-// Busca por nome do tipo
+GET http://localhost:3003/users/searchByName?name=Coragem
+Content-Type: application/json
+// Busca por nome do usuário
 
 
 ###
+
+
+POST http://localhost:3003/user
+Content-Type: application/json
+// posta novo usuário utilizando o body
+
+{
+    "name": "nome",
+    "email": "email@email.com",
+    "type": "ADMIN",
+    "age": 17
+}
+
+
+###
+
+
+PUT http://localhost:3003/user/4
+Content-Type: application/json
+// atualiza o nome do usuário atraves do id
+
+{
+    "name": "nome",
+    "email": "email@email.com",
+    "type": "ADMIN",
+    "age": 17
+}

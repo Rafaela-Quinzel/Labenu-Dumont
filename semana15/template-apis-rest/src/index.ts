@@ -201,11 +201,50 @@ let users: user[] = [
 
 
 
+//----------------------------------- EXERCÍCIO 04 -----------------------------------------------------//
 
+  /*   Crie um endpoint que use o método POST para adicionar um item ao nosso conjunto de usuários.                                                                                                         */
 
+    /* a)  Mude o método do endpoint para PUT. O que mudou?
+    
+        R: A requesição continuou funcionando.
 
+    */
 
+    /* b)  Você considera o método PUT apropriado para esta transação? Por quê? 
+    
+        R: Acredito que o método PUT não seria apropriado, pois ele é mais utilizado para atualizar os dados existentes.
 
+    */
+
+    // app.post("/user", (req: Request, res: Response) => {
+    app.put("/user", (req: Request, res: Response) => {
+
+        let errorCode: number = 400
+    
+        try {
+            const reqBody: user = {
+            id: new Date().getDate(), // ou id: Date.now() para retornar um número aleatório 
+            name: req.body.name,
+            email: req.body.email,
+            type: req.body.type,
+            age: req.body.age
+            }
+    
+            if(!reqBody.name || !reqBody.email || !reqBody.type || !reqBody.age) {
+                errorCode = 422
+                throw new Error("Algum campo está inválido. Preencha corretamente")
+            }
+    
+            users.push(reqBody)
+            res.status(200).send("Usuário inserido com sucesso!")
+    
+        } catch(error) {
+            res.status(errorCode).send({message: error.message})
+    
+        }
+    
+    })
 
 
 
