@@ -280,11 +280,28 @@ let users: user[] = [
 
 
 
+//----------------------------------- EXERCÍCIO 07 -----------------------------------------------------//
 
+    /*  Essa não! Alteramos um dado por engano. Vamos realterar nosso último usuário. 
+     Crie um endpoint com o método PATCH para alterar mais uma vez o nome do nosso usuário recém alterado. 
+     Adicione em seu nome o sufixo -REALTERADO.  
+    */
 
+        app.delete('/users/deleteUser/:id', (req: Request, res: Response) => {
 
-        
+            let errorCode: number = 400
 
+            try {
+                const lastUserIndex = users.length - 1
+
+                users.splice(lastUserIndex)
+
+                res.status(200).send(`Usuário deletado!`)
+
+            } catch (error) {
+                res.status(errorCode).send(error.message)
+            }
+        })
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
