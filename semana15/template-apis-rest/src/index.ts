@@ -65,6 +65,49 @@ let users: user[] = [
     }
 ]
 
+//----------------------------------- EXERCÍCIO 01 -----------------------------------------------------//
+
+ /* Vamos começar fazendo um endpoint que busque todos os usuários de uma lista. */
+
+    /* a) Qual método HTTP você deve utilizar para isso?
+    
+        R: Devemos utilizar o método GET, que vai retornar toda a lista de usuários.
+
+    */
+
+    /* b) Vamos começar fazendo um endpoint que busque todos os usuários de uma lista. 
+    
+       R: A entidade que está sendo manipulada é "user".
+    
+    */
+   
+    app.get("/user", (req: Request, res: Response) => {
+        let errorCode: number = 400
+
+        try {
+            const nome: string = req.query.name as string
+
+            if(!nome) {
+                errorCode = 422
+                throw new Error("Nome inválido! Por favor preencha um nome corretamente")
+            }
+
+            const myUser = users.find(((u: user) => u.name.toLocaleLowerCase() === nome.toLocaleLowerCase()))
+            if (!myUser) {
+                errorCode = 404
+                throw new Error("Usuário não encontrado!")
+            }
+
+            const result = myUser
+            res.status(200).send(result)
+
+        } catch(error) {
+            res.send(errorCode).send(error.message)
+        }
+    })
+
+
+
 
 
 
