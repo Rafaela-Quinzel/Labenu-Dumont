@@ -6,7 +6,7 @@ Content-Type: application/json
 ###
 
 
-GET http://localhost:3003/users/searchByType?type=NORMAl
+GET http://localhost:3003/users/searchByType?type=NORMAL
 Content-Type: application/json
 // Busca por nome do tipo
 
@@ -14,7 +14,7 @@ Content-Type: application/json
 ###
 
 
-GET http://localhost:3003/users/searchByName?name=Coragem
+GET http://localhost:3003/users/searchByName?name=rafaela
 Content-Type: application/json
 // Busca por nome do usuário
 
@@ -22,9 +22,24 @@ Content-Type: application/json
 ###
 
 
-POST http://localhost:3003/user
+POST http://localhost:3003/users
 Content-Type: application/json
 // posta novo usuário utilizando o body
+
+{
+    "name": "Rafaela",
+    "email": "rafaela@email.com",
+    "type": "ADMIN",
+    "age": 31
+}
+
+
+###
+
+
+PUT http://localhost:3003/users
+Content-Type: application/json
+// atualiza o nome do usuário atraves do id
 
 {
     "name": "nome",
@@ -37,13 +52,10 @@ Content-Type: application/json
 ###
 
 
-PUT http://localhost:3003/user/4
-Content-Type: application/json
+PUT http://localhost:3003/users/7
+
 // atualiza o nome do usuário atraves do id
 
 {
-    "name": "nome",
-    "email": "email@email.com",
-    "type": "ADMIN",
-    "age": 17
+    "name":"Rafaela-ALTERADO"
 }

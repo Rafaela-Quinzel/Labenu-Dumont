@@ -81,31 +81,16 @@ let users: user[] = [
     
     */
 
-    app.get("/user", (req: Request, res: Response) => {
-        let errorCode: number = 400
-
-        try {
-            const nome: string = req.query.name as string
-
-            if(!nome) {
-                errorCode = 422
-                throw new Error("Nome inválido! Por favor preencha um nome corretamente")
-            }
-
-            const myUser = users.find(((u: user) => u.name.toLocaleLowerCase() === nome.toLocaleLowerCase()))
-            if (!myUser) {
-                errorCode = 404
-                throw new Error("Usuários não encontrados!")
-            }
-
-            const result = myUser
-            res.status(200).send(result)
-
-        } catch(error) {
-            res.send(errorCode).send(error.message)
-        }
+    app.get("/users", (req: Request, res: Response) => {
+        const result = users.map(user => ({
+            id: user.id,
+            name: user.name
+        }))
+    
+        res
+            .status(200)
+            .send(result)
     })
-
 
 
 //----------------------------------- EXERCÍCIO 02 -----------------------------------------------------//
@@ -217,8 +202,8 @@ let users: user[] = [
 
     */
 
-    // app.post("/user", (req: Request, res: Response) => {
-    app.put("/user", (req: Request, res: Response) => {
+    // app.put("/user", (req: Request, res: Response) => {
+    app.post("/users", (req: Request, res: Response) => {
 
         let errorCode: number = 400
     
@@ -244,6 +229,29 @@ let users: user[] = [
     
         }
     
+    })
+
+
+    //----------------------------------- EXERCÍCIO 05 -----------------------------------------------------//
+
+    /*   Vamos alterar nosso último usuário. Crie um endpoint com o método PUT para alterar o nome do nosso usuário recém criado. 
+       Adicione em seu nome o sufixo -ALTERADO.  
+    */
+
+    app.put("/users/:id", (req: Request, res: Response) => {
+
+        let errorCode: number = 400
+        try {
+            const requestBody = {
+                name: req.body.name
+            }
+            const lastUserIndex = users.length - 1
+            users[lastUserIndex].name = `${requestBody.name}-ALTERADO`
+            res.status(200).send(`Usuário alterado!`)
+        } catch (error) {
+            res.status(errorCode).send(error.message)
+        }
+
     })
 
 
