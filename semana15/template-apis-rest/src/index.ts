@@ -238,21 +238,21 @@ let users: user[] = [
        Adicione em seu nome o sufixo -ALTERADO.  
     */
 
-    app.put("/users/:id", (req: Request, res: Response) => {
+        app.put("/users/:id", (req: Request, res: Response) => {
 
-        let errorCode: number = 400
-        try {
-            const requestBody = {
-                name: req.body.name
+            let errorCode: number = 400
+            try {
+                const requestBody = {
+                    name: req.body.name
+                }
+                const lastUserIndex = users.length - 1
+                users[lastUserIndex].name = `${requestBody.name}-ALTERADO`
+                res.status(200).send(`Usuário alterado!`)
+            } catch (error) {
+                res.status(errorCode).send(error.message)
             }
-            const lastUserIndex = users.length - 1
-            users[lastUserIndex].name = `${requestBody.name}-ALTERADO`
-            res.status(200).send(`Usuário alterado!`)
-        } catch (error) {
-            res.status(errorCode).send(error.message)
-        }
 
-    })
+        })
 
 
 
