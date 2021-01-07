@@ -125,7 +125,7 @@ let users: user[] = [
     
     */
 
-    app.get('/users/search', (req: Request, res: Response) => {
+    app.get('/users/searchByType', (req: Request, res: Response) => {
         let errorCode: number = 400;
 
         try {
@@ -140,7 +140,7 @@ let users: user[] = [
             }
 
             const result = users.filter(
-                user => user.type.includes(req.query.type as string)
+                user => user.type === req.query.type
             )
 
             if (result.length === 0) {
