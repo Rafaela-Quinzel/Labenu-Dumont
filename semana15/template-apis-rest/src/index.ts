@@ -95,7 +95,7 @@ let users: user[] = [
             const myUser = users.find(((u: user) => u.name.toLocaleLowerCase() === nome.toLocaleLowerCase()))
             if (!myUser) {
                 errorCode = 404
-                throw new Error("Usuário não encontrado!")
+                throw new Error("Usuários não encontrados!")
             }
 
             const result = myUser
@@ -145,7 +145,7 @@ let users: user[] = [
 
             if (result.length === 0) {
                 errorCode = 404;
-                throw new Error("Usuários não encontrados")
+                throw new Error("Usuários não encontrados!")
             }
 
             res
@@ -156,6 +156,50 @@ let users: user[] = [
             res.status(errorCode).send({message: error.message});
         }
     })
+
+
+//----------------------------------- EXERCÍCIO 03 -----------------------------------------------------//
+
+  /*   Vamos agora praticar o uso de buscas mais variáveis.
+    Faça agora um endpoint de busca que encontre um usuário por nome.                                                                                                         */
+
+    /* a)  Qual é o tipo de envio de parâmetro que costuma ser utilizado por aqui?
+    
+        R: O envio é através de Query.
+
+    */
+
+    /* b)  Altere este endpoint para que ele devolva uma mensagem de erro caso nenhum usuário tenha sido encontrado. */
+
+
+    app.get('/users/searchByName', (req: Request, res: Response) => {
+        let errorCode: number = 400;
+
+        try {
+            if (!req.query.name) {
+                errorCode = 400;
+                throw new Error("Nome não definido! Por favor, preencha algum nome.")
+            }
+
+            const result = users.filter(
+                user => user.name.toLocaleLowerCase().includes(req.query.name as string)
+            )
+
+            if (result.length === 0) {
+                errorCode = 404;
+                throw new Error("Usuário não encontrado!")
+            }
+
+            res
+                .status(200)
+                .send(result)
+
+        } catch (error) {
+            res.status(errorCode).send({message: error.message});
+        }
+    })
+
+
 
 
 
