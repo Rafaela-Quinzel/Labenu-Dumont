@@ -80,7 +80,7 @@ let users: user[] = [
        R: A entidade que está sendo manipulada é "user".
     
     */
-   
+
     app.get("/user", (req: Request, res: Response) => {
         let errorCode: number = 400
 
@@ -105,6 +105,60 @@ let users: user[] = [
             res.send(errorCode).send(error.message)
         }
     })
+
+
+
+//----------------------------------- EXERCÍCIO 02 -----------------------------------------------------//
+
+ /*  Agora, vamos criar um novo endpoint, que busque todos os usuários que tenham um type específico, recebendo um type por vez.
+   Após isso, responda:                                                                                                         */
+
+    /* a)  Como você passou os parâmetros de type para a requisição? Por quê?
+    
+        R: Através de Query, pois possibilita ampliar a busca a mais tipos se necessário.
+
+    */
+
+    /* b)  Você consegue pensar em um jeito de garantir que apenas types válidos sejam utilizados? 
+    
+       R: Criando uma lista enum de tipos válidos e atribuindo a mesma no type user
+    
+    */
+
+    app.get('/users/search', (req: Request, res: Response) => {
+        let errorCode: number = 400;
+
+        try {
+            if (!req.query.type) {
+                errorCode = 400;
+                throw new Error("Tipo não definido. Preencha algum tipo.")
+            }
+
+            if (req.query.type !== "ADMIN" && req.query.type !== "NORMAL") {
+                errorCode = 422;
+                throw new Error("Tipo inválido. Preencha um tipo existente.");
+            }
+
+            const result = users.filter(
+                user => user.type.includes(req.query.type as string)
+            )
+
+            if (result.length === 0) {
+                errorCode = 404;
+                throw new Error("Usuários não encontrados")
+            }
+
+            res
+                .status(200)
+                .send(result)
+
+        } catch (error) {
+            res.status(errorCode).send({message: error.message});
+        }
+    })
+
+
+
 
 
 
