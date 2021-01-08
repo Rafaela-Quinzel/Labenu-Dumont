@@ -23,7 +23,7 @@ app.post('/users/createNewUser', (req: Request, res: Response) => {
     try {
 
         // desestruturando o body para pegar estes dados.
-        const { name, CPF, birthDateAsString } = req.body
+        const { name, cpf, birthDateAsString } = req.body
         
         // Vai pegar a data ("01/01/2021") e nas barras vai quebrar a string e transformar e um array. 
         const [day, month, year] = birthDateAsString.split("/") 
@@ -45,7 +45,7 @@ app.post('/users/createNewUser', (req: Request, res: Response) => {
 
         accounts.push({
             name,
-            CPF,
+            cpf,
             birthDate,
             balance: 0,
             statement: []
@@ -57,7 +57,8 @@ app.post('/users/createNewUser', (req: Request, res: Response) => {
             throw new Error("Nome não preenchido. Por favor, preencha um nome.")
         }
 
-        if(!req.body.CPF) {
+
+        if(!req.body.cpf) {
             errorCode = 422
             throw new Error("CPF inválido. Tente novamente.")
         }
@@ -83,7 +84,7 @@ app.get('/users/all', (req: Request, res: Response) => {
             throw new Error("Nenhuma conta encontrada!")
         }
 
-        res.status(200).send(accounts)
+        res.status(200).send({message: "Success", accounts})
 
     } catch(error) {
         res.status(errorCode).send(error.message)
