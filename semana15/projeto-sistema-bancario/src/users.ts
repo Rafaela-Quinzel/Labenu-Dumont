@@ -1,16 +1,3 @@
-export type user = {
-    name: string,
-    cpf: string,
-    birthDate: { day: number, month: number, year: number },
-    balance: number, 
-    transactions: extractAccount[]
-}
+import { Account } from './types'
 
-
-export type extractAccount = {
-    value: number,
-    date: number, 
-    description: string
-}
-
-
+export const accounts: Account[] = []
