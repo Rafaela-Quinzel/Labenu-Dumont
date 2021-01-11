@@ -89,6 +89,34 @@ e) Resposta:
   * OBS: Troquei de "nome" para "name" e funcionou corretamente, tranzendo o nome a quem pertence o id solicitado.
 
 
+# EXERCÍCIO 04
+
+
+a) Resposta: 
+ -  A query  **SELECT (*)** seleciona todas as informações  da tabela Actor **(FROM Actor)** 
+ - **(WHERE)** recebe as condições.
+ - No caso do exercício as condições são:  os nomes comecem com a letra "A" ou "J" **(name LIKE "A%" OR name LIKE "J%")** e **(AND)** o salário seja maior que 300000 **(salary > 300000)**.
+
+
+ b) Resposta: 
+ - SELECT *
+   FROM Actor
+   WHERE name NOT LIKE "A%" AND salary > 350000;
+
+
+c) Resposta: 
+ - SELECT *
+   FROM Actor
+   WHERE name LIKE "%G%" OR name LIKE "%g%";
+
+
+d) Resposta: 
+ - SELECT * 
+   FROM Actor 
+   WHERE (name LIKE "%A%" OR name LIKE "%a%" OR name LIKE "%G%" OR name LIKE "%g%") 
+   AND salary BETWEEN 35000000 AND 900000;
+
+
 
 
 
