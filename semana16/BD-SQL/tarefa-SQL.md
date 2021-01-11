@@ -50,4 +50,56 @@ f) Resposta:
 
 
 
+ # EXERCÍCIO 03
+
+
+a) Resposta:
+  - SELECT id, name 
+    FROM Actor 
+    WHERE gender = "female";
+
+
+b) Resposta: 
+ - SELECT id, name, salary
+   FROM Actor
+   WHERE name = "Tony Ramos";
+
+
+c) Resposta: 
+ - SELECT *
+   FROM Actor
+   WHERE gender = "invalid";
+
+ - Retornou uma linha com todos as colunas da tabela, porém todas elas com valor "NULL" porque não há nenhum item com gender "invalid".
+
+
+ d) Resposta: 
+ - SELECT *
+   FROM Actor
+   WHERE salary <= 500000;
+
+
+e) Resposta: 
+  - ERRO: SELECT id, nome FROM Actor WHERE id = "002" LIMIT 0, 1000	Error Code: 1054. Unknown column 'nome' in 'field list'	0.031 sec
+
+  * OBS: Esse erro ocorreu porque "nome" não pertence as colunas da tabela.
+
+  - SUCESSO: SELECT id, name FROM Actor WHERE id = "002" LIMIT 0, 1000	1 row(s) returned	0.015 sec / 0.000 sec
+
+  * OBS: Troquei de "nome" para "name" e funcionou corretamente, tranzendo o nome a quem pertence o id solicitado.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
