@@ -67,3 +67,19 @@ d) UPDATE Actor
   Não retornou nenhum erro, porém também não atualizou nada. Pois o id e o nome informados não existem na tabela.
 
 
+
+# EXERCÍCIO 03
+
+
+a) Resposta: 
+ - DELETE
+   FROM Actor
+   WHERE name = "Fernanda Montenegro";
+
+
+b) Resposta: 
+ -  DELETE
+    FROM Actor
+    WHERE gender = "male" AND salary > 1000000;
+
+
