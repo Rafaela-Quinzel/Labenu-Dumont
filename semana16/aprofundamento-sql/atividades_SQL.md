@@ -220,3 +220,34 @@ f) SELECT
 
 
 
+# EXERCÍCIO 08
+
+a) Resposta: 
+ - SELECT *
+   FROM Movies
+   ORDER BY title;
+
+
+b) Resposta: 
+ - SELECT *
+   FROM Movies
+   ORDER BY title
+   LIMIT 5;
+
+
+c) Resposta:
+ - SELECT *
+   FROM Movies
+   WHERE release_date < CURDATE()
+   ORDER BY release_date DESC
+   LIMIT 3;
+
+
+d) Resposta: 
+ - SELECT *
+   FROM Movies
+   ORDER BY rating DESC
+   LIMIT 3;
+
+
+
