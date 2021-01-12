@@ -177,4 +177,46 @@ d) Resposta:
 
 
 
+# EXERCÍCIO 07
+
+
+a) SELECT 
+   COUNT(*)
+   FROM Movies
+   WHERE rating > 7.5;
+   - Resposta: 2 filmes
+
+
+b) SELECT
+   AVG(rating)
+   FROM Movies;
+   - Resposta: 8.0000
+
+
+c) SELECT 
+   COUNT(*)
+   FROM Movies
+   WHERE playing_limit_date > CURDATE();
+   - Resposta: 0 filmes
+
+
+d) SELECT 
+   COUNT(*)
+   FROM Movies
+   WHERE release_date > CURDATE();
+   - Resposta: 0 filmes
+
+
+e) SELECT
+   MAX(rating)
+   FROM Movies;
+   - Resposta: maior nota é 10 
+
+
+f) SELECT
+   MIN(rating)
+   FROM Movies;
+  - Resposta: menor nota é 7 
+
+
 
