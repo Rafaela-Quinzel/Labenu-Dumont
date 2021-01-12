@@ -83,3 +83,29 @@ b) Resposta:
     WHERE gender = "male" AND salary > 1000000;
 
 
+# EXERCÍCIO 04
+
+a) Resposta:
+ - SELECT MAX(salary)
+   FROM Actor;
+
+
+b) Resposta: 
+ - SELECT MIN(salary)
+   FROM Actor
+   WHERE gender = 'female';
+
+
+c) Resposta: 
+ - SELECT 
+   COUNT(*)
+   FROM Actor
+   WHERE gender = 'female';
+
+
+d) Resposta: 
+ - SELECT 
+   SUM(salary)
+   FROM Actor;
+
+
