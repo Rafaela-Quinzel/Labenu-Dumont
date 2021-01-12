@@ -146,3 +146,35 @@ e) Resposta:
    GROUP BY gender;
 
 
+
+# EXERCÍCIO 06
+
+
+a) Resposta: 
+ - ALTER TABLE Movies
+   ADD playing_limit_date DATE;
+
+
+b) Resposta: 
+ - ALTER TABLE Movies
+   CHANGE rating rating FLOAT;
+
+
+c) Resposta: 
+ - UPDATE Movies
+   SET playing_limit_date = "2021/01/20"
+   WHERE id = "001";
+
+ - UPDATE Movies
+   SET playing_limit_date = "2019/12/31"
+   WHERE id = "004";
+
+
+d) Resposta:
+ - DELETE 
+   FROM Movies
+   WHERE id = "001";
+
+
+
+
