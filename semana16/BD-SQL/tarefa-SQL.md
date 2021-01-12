@@ -180,6 +180,28 @@ e) Resposta:
 
 
 
+# EXERCÍCIO 06
+
+
+a) Resposta: 
+ - SELECT id, title, rating
+   FROM Movies
+   WHERE id = "002";
+
+
+b) Resposta: 
+ - SELECT id, title
+   FROM Movies
+   WHERE title = "Memórias Póstumas de Brás Cubas";
+
+
+c) Resposta: 
+ - SELECT id, title, synopsis
+   FROM Movies
+   WHERE rating >= 7;
+
+
+
 
 
 
