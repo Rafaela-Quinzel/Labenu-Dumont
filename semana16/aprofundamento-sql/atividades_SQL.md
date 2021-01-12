@@ -109,3 +109,40 @@ d) Resposta:
    FROM Actor;
 
 
+
+# EXERCÍCIO 05
+
+
+a) SELECT COUNT(*), gender
+   FROM Actor
+   GROUP BY gender;
+ - Resposta: 
+  Retornou a quantidade de 'male' e 'female' que temos na tabela Actor. Pois o **SELECT COUNT(*), gender** está pegando todos os gêneros da tabela.
+
+
+b) Resposta: 
+- SELECT id, name
+  FROM Actor
+  ORDER BY name DESC;
+
+
+c) Resposta: 
+ - SELECT *
+   FROM Actor
+   ORDER BY salary;
+
+
+d) Resposta: 
+ - SELECT *
+   FROM Actor
+   ORDER BY salary DESC
+   LIMIT 3;
+
+
+e) Resposta: 
+ - SELECT 
+   AVG(salary), gender
+   FROM Actor
+   GROUP BY gender;
+
+
