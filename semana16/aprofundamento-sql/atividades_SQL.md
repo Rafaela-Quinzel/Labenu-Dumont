@@ -25,3 +25,45 @@ d) ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
  * Estamos alterando a coluna **gender** para que aceite strings até 100 caracteres. 
 
 
+
+ # EXERCÍCIO 02 
+
+ a) Resposta:
+  - UPDATE Actor
+    SET name = "Fagundes"
+    WHERE id = "003";
+
+ - UPDATE Actor
+   SET birth_date = "1950-05-20"
+   WHERE id = "003";
+
+
+b) Resposta:
+  - UPDATE Actor
+    SET name = "JULIANA PÃES"
+    WHERE id = "006";
+
+ - UPDATE Actor
+   SET name = "Juliana Paes"
+   WHERE id = "006";
+
+
+c) Resposta: 
+ - UPDATE Actor
+   SET 
+   name = "Moacyr Franco",
+   birth_date = "1968-02-10",
+   salary = 8500000,
+   gender = "male"
+   WHERE id = "005";
+
+
+d) UPDATE Actor
+   SET name = "Moacyr Franco"
+   WHERE id = "123"; 
+- **Retorno**: 
+  UPDATE Actor SET name = "Moacyr Franco" WHERE id = "123"	0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0	0.016 sec
+- **Resposta**: 
+  Não retornou nenhum erro, porém também não atualizou nada. Pois o id e o nome informados não existem na tabela.
+
+
