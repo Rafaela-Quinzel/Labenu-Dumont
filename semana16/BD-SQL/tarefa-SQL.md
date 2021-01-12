@@ -201,6 +201,35 @@ c) Resposta:
    WHERE rating >= 7;
 
 
+# EXERCÍCIO 07
+
+
+a) Resposta: 
+ - SELECT *
+   FROM Movies
+   WHERE title LIKE "%vida%";
+
+
+b) Resposta: 
+ - SELECT *
+   FROM Movies
+   WHERE title LIKE "%anos%" OR synopsis LIKE "%anos%";
+
+
+c) Resposta: 
+ - SELECT *
+   FROM Movies
+   WHERE release_date < "2021/01/11";
+
+
+d) Resposta:
+ - SELECT *
+   FROM Movies
+   WHERE release_date < "2021/01/11"
+   AND (title LIKE "Flor" OR synopsis LIKE "%Flor%")
+   AND rating > 7;
+
+
 
 
 
