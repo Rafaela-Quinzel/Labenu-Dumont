@@ -1,0 +1,78 @@
+GET http://localhost:3003/users
+Content-Type: application/json
+// Busca todos os usuários
+
+
+###
+
+
+GET http://localhost:3003/users/searchByType?type=NORMAL
+Content-Type: application/json
+// Busca por nome do tipo
+
+
+###
+
+
+GET http://localhost:3003/users/searchByName?name=rafaela
+Content-Type: application/json
+// Busca por nome do usuário
+
+
+###
+
+
+POST http://localhost:3003/users
+Content-Type: application/json
+// posta novo usuário utilizando o body
+
+{
+    "name": "Rafaela",
+    "email": "rafaela@email.com",
+    "type": "ADMIN",
+    "age": 31
+}
+
+
+###
+
+
+PUT http://localhost:3003/users
+// atualiza o nome do usuário atraves do id
+
+{
+    "name": "nome",
+    "email": "email@email.com",
+    "type": "ADMIN",
+    "age": 17
+}
+
+
+###
+
+
+PUT http://localhost:3003/users/7
+// atualiza o nome do usuário atraves do id
+
+{
+    "name":"Rafaela-ALTERADO"
+}
+
+
+###
+
+
+PATCH  http://localhost:3003/users/7
+// atualiza o nome do usuário atraves do id
+
+{
+    "name":"Rafaela-REALTERADO"
+}
+
+
+###
+
+
+DELETE   http://localhost:3003/users/deleteUser/7
+Content-Type: application/json
+// deleta o usuário atraves do id
