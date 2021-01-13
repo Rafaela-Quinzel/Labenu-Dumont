@@ -81,6 +81,79 @@ app.get('/actor', async (req:Request , res:Response) => {
 })
 
 
+// EXERCÍCIO 04
+// app.put("/actor", async (req: Request, res: Response) => {
+//     try {
+//       await createActor(
+//         req.body.id,
+//         req.body.name,
+//         req.body.salary,
+//         req.body.dateOfBirth,
+//         req.body.gender
+//       )
+ 
+//       res.status(200).send("Criado com sucesso");
+//     } catch (err) {
+//       res.status(400).send({
+//         message: err.message,
+//       })
+//     }
+//  })
+
+
+
+// EXERCÍCIO 04
+// a) 
+async function updateSalaryById(id: string, salary: number): Promise<any> {
+ await connection("Actor")
+   .update({
+     salary: salary,
+   })
+   .where("id", id);
+}
+updateSalaryById("005",900000)
+
+
+app.post('/actor', async (req: Request, res: Response) => {
+    try {
+       await updateSalaryById(
+          req.body.id,
+          req.body.salary
+        )
+    
+        res.status(200).send("Salário atualizado");
+    } catch (err) {
+       res.status(400).send({
+          message: err.message,
+        })
+    }
+})
+
+
+// EXERCÍCIO 04
+// b) 
+ const deleteActorById = async (id: string) : Promise<any> => {
+    await connection("Actor")
+    .delete()
+    .where("id", id)
+ }
+deleteActorById("001")
+
+
+app.delete('/actor/:id', async (req:Request , res:Response) => {
+    try {
+       const id = req.params.id;
+       await deleteActorById(id);
+       res.status(200).send(`Id ${id} apagado com sucesso`)
+     } catch (err) {
+       res.status(400).send({
+         message: err.message,
+       });
+     }
+ })
+
+
+
 
 
 
