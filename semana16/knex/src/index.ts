@@ -65,6 +65,26 @@ app.post('/movie/new', async (req: Request, res: Response) => {
 })
 
 
+// EXERCÍCIO 06
+const getAllMovies = async (): Promise<any> => {
+    const result = await connection.raw(`
+      SELECT * FROM Movies LIMIT 15; 
+    `)
+  
+    return result[0]
+}
+  
+app.get('/movies/all', async (req: Request, res: Response) => {
+    try {
+      const result = await getAllMovies()
+  
+      res.status(200).send(result)
+    } catch (error) {
+      res.status(400).send(error.message)
+    }
+  })
+
+
 
 
 
