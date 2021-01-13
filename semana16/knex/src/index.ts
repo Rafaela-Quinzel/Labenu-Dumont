@@ -82,23 +82,43 @@ app.get('/actor', async (req:Request , res:Response) => {
 
 
 // EXERCÍCIO 04
-// app.put("/actor", async (req: Request, res: Response) => {
-//     try {
-//       await createActor(
-//         req.body.id,
-//         req.body.name,
-//         req.body.salary,
-//         req.body.dateOfBirth,
-//         req.body.gender
-//       )
+async function createActor(
+    id: string,
+    name: string,
+    salary: number,
+    dateOfBirth: string,
+    gender: string
+): Promise<void> {
+    await connection
+      .insert({
+        id: id,
+        name: name,
+        salary: salary,
+        birth_date: dateOfBirth,
+        gender: gender,
+      })
+      .into("Actor");
+  };
+createActor("001","Fulano de Tal",100000,"1970-01-01","male")
+
+
+app.put("/actor", async (req: Request, res: Response) => {
+    try {
+      await createActor(
+        req.body.id,
+        req.body.name,
+        req.body.salary,
+        req.body.dateOfBirth,
+        req.body.gender
+      )
  
-//       res.status(200).send("Criado com sucesso");
-//     } catch (err) {
-//       res.status(400).send({
-//         message: err.message,
-//       })
-//     }
-//  })
+      res.status(200).send("Criado com sucesso");
+    } catch (err) {
+      res.status(400).send({
+        message: err.message,
+      })
+    }
+ })
 
 
 
@@ -137,7 +157,7 @@ app.post('/actor', async (req: Request, res: Response) => {
     .delete()
     .where("id", id)
  }
-deleteActorById("001")
+deleteActorById("007")
 
 
 app.delete('/actor/:id', async (req:Request , res:Response) => {
