@@ -27,150 +27,45 @@ const connection: Knex = knex({
  })
 
 
-// EXERCÍCIO 03 
-// a) 
-async function getActorById(id: string): Promise<any> {
-    const result = await connection.raw(`
-       SELECT * FROM Actor WHERE id = '${id}'
-    `)
 
-    return result[0]
-}
-getActorById("")
-
-
-app.get("/actor/:id", async (req: Request, res: Response) => {
-    try {
-      const id = req.params.id
-      const actor = await getActorById(id)
-  
-      res.status(200).send(actor)
-    } catch (error) {
-      res.status(400).send({
-        message: error.message,
-      });
-    }
-})
-
-
-
-// EXERCÍCIO 03 
-// b) 
-async function countActorByGender(gender: string): Promise<any> {
-    const result = await connection.raw(`
-       SELECT COUNT(*) as count FROM Actor WHERE gender = '${gender}'
-    `)
-    console.log(result[0][0].count)
-    return result[0][0].count
-}
-countActorByGender("female")
-
-
-app.get('/actor', async (req:Request , res:Response) => {
-    try {
-       const gender = req.query.gender;
-       const count = await countActorByGender(gender as string);
-       res.status(200).send({
-          quantity: count,
-        })
-    } catch (error) {
-       res.status(400).send({
-         message: error.message,
-       });
-     }
-})
-
-
-// EXERCÍCIO 04
-async function createActor(
+// EXERCÍCIO 05
+const addNewMovie = async (
     id: string,
-    name: string,
-    salary: number,
-    dateOfBirth: string,
-    gender: string
-): Promise<void> {
-    await connection
-      .insert({
-        id: id,
-        name: name,
-        salary: salary,
-        birth_date: dateOfBirth,
-        gender: gender,
-      })
-      .into("Actor");
-  };
-createActor("001","Fulano de Tal",100000,"1970-01-01","male")
-
-
-app.put("/actor", async (req: Request, res: Response) => {
+    title: string,
+    synopsis: string,
+    release_date: Date,
+    rating: number,
+    playing_limit_date: Date
+  ): Promise<any> => {
     try {
-      await createActor(
-        req.body.id,
-        req.body.name,
-        req.body.salary,
-        req.body.dateOfBirth,
-        req.body.gender
-      )
- 
-      res.status(200).send("Criado com sucesso");
-    } catch (err) {
-      res.status(400).send({
-        message: err.message,
-      })
-    }
- })
-
-
-
-// EXERCÍCIO 04
-// a) 
-async function updateSalaryById(id: string, salary: number): Promise<any> {
- await connection("Actor")
-   .update({
-     salary: salary,
-   })
-   .where("id", id);
-}
-updateSalaryById("005",900000)
-
-
-app.post('/actor', async (req: Request, res: Response) => {
-    try {
-       await updateSalaryById(
-          req.body.id,
-          req.body.salary
-        )
-    
-        res.status(200).send("Salário atualizado");
-    } catch (err) {
-       res.status(400).send({
-          message: err.message,
+      await connection
+        .insert({
+          id: id, 
+          title: title, 
+          synopsis: synopsis, 
+          release_date: release_date, 
+          rating: rating, 
+          playing_limit_date: playing_limit_date
         })
+        .into("Movies")
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+  
+app.post('/movie/new', async (req: Request, res: Response) => {
+    try {
+      const {id, title, synopsis, release_date, rating, playing_limit_date} = req.body
+      addNewMovie(id, title, synopsis, release_date, Number(rating), playing_limit_date)
+  
+      res.status(200).send("Filme Cadastrado!")
+    } catch (error) {
+      res.status(400).send(error.message)
     }
 })
 
 
-// EXERCÍCIO 04
-// b) 
- const deleteActorById = async (id: string) : Promise<any> => {
-    await connection("Actor")
-    .delete()
-    .where("id", id)
- }
-deleteActorById("007")
 
-
-app.delete('/actor/:id', async (req:Request , res:Response) => {
-    try {
-       const id = req.params.id;
-       await deleteActorById(id);
-       res.status(200).send(`Id ${id} apagado com sucesso`)
-     } catch (err) {
-       res.status(400).send({
-         message: err.message,
-       });
-     }
- })
 
 
 
