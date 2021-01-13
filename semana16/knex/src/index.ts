@@ -82,7 +82,38 @@ app.get('/movies/all', async (req: Request, res: Response) => {
     } catch (error) {
       res.status(400).send(error.message)
     }
-  })
+})
+
+
+
+// EXERCÍCIO 07
+const searchMovies = async (text: string) => {
+    try {
+      const result = await connection.raw( `
+        SELECT * FROM Movies
+        WHERE
+            (title LIKE "%${text}%"
+            OR
+            synopsis LIKE "%${text}%");
+     `)
+        
+      return result[0]
+
+    } catch (error) {
+      throw new Error(error)
+    }
+}
+  
+app.get('/movies/search', async (req: Request, res: Response) => {
+    try {
+      const text: string = req.query.query as string
+      const result = await searchMovies(text)
+  
+      res.status(200).send(result)
+    } catch (error) {
+      res.status(400).send(error.message)
+    }
+})
 
 
 
