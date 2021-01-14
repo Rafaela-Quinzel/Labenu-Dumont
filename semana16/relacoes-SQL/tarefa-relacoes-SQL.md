@@ -128,3 +128,39 @@ LEFT JOIN Rating
 ON Movies.id = Rating.movie_id
 GROUP BY Movies.id;
 ````
+
+
+
+# EXERCÍCIO 05
+
+
+a) Resposta:
+ -  A query vai juntar as informações da tabela Movies com a tabela MovieCast e relacioná-las entre si através das colunas id e movie_id. O uso do JOIN duas vezes é porque a tabela Actor necessita da tabela MovieCast, que por sua vez necessita das informações da tabela Movies.
+
+
+b) Resposta:  
+````
+SELECT Movies.id AS movie_id, Movies.title AS movie_title, Actor.id AS actor_id, Actor.name AS actor_name
+FROM Movies
+LEFT JOIN MovieCast
+ON Movies.id = MovieCast.movie_id
+JOIN Actor ON Actor.id = MovieCast.actor_id;
+````
+
+
+c) Resposta: Ocorreu este erro porque diz que 'm' é desconhecida com uma coluna.
+````
+ERRO:
+
+SELECT m.id as movie_id, m,title, a.id as actor_id, a.name FROM Movies m LEFT JOIN MovieCast mc ON m.id = mc.movie_id JOIN Actor a ON a.id = mc.actor_id LIMIT 0, 1000	Error Code: 1054. Unknown column 'm' in 'field list'	
+````
+
+
+d) Resposta: 
+````
+SELECT Movies.id AS movie_id, Movies.title AS movie_title, Rating.comment AS comment, Rating.rate AS rate, Actor.id AS actor_id, Actor.name AS actor_name
+FROM Movies
+LEFT JOIN Rating ON Movies.id = Rating.movie_id
+LEFT JOIN MovieCast ON Movies.id = MovieCast.movie_id
+JOIN Actor ON Actor.id = MovieCast.actor_id;
+````
