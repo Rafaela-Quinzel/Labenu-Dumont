@@ -164,3 +164,58 @@ LEFT JOIN Rating ON Movies.id = Rating.movie_id
 LEFT JOIN MovieCast ON Movies.id = MovieCast.movie_id
 JOIN Actor ON Actor.id = MovieCast.actor_id;
 ````
+
+
+
+# EXERCÍCIO 06
+
+
+a) Resposta:
+ - A relação é N:M porque vários prêmios de Oscar que podem se relacionar com vários filmes.
+
+
+b) Resposta:
+ ````
+ CREATE TABLE Oscar (
+id VARCHAR(255) PRIMARY KEY,
+name_award VARCHAR(255) NOT NULL,
+date_award DATE NOT NULL
+);
+
+
+INSERT INTO Oscar
+VALUES
+('01', 'Óscar de melhor filme', '2021/01/14'),
+('02', 'Óscar de melhor direção', '2020/01/14');
+
+
+CREATE TABLE MoviesAwards (
+movie_id VARCHAR(255),
+oscar_id VARCHAR(255),
+FOREIGN KEY (movie_id) REFERENCES Movies(id),
+FOREIGN KEY (oscar_id) REFERENCES Oscar(id)
+);
+````
+
+
+c) Resposta:
+````
+INSERT INTO MoviesAwards
+VALUES
+('001', '02'), ('001', '01'),
+('002', '01'), ('002', '02'),
+('003', '02'), ('003', '01'),
+('004', '02'), ('004', '01'),
+('005', '02'), ('005', '01');
+````
+
+
+d) Resposta:
+````
+SELECT Movies.title AS movie_title, Oscar.name_award
+FROM MoviesAwards
+RIGHT JOIN Movies
+ON MoviesAwards.movie_id = Movies.id
+JOIN Oscar
+ON MoviesAwards.oscar_id = Oscar.id;
+````
