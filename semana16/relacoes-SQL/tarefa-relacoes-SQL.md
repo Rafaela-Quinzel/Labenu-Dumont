@@ -81,3 +81,19 @@ DELETE FROM Actor WHERE id = '001'	Error Code: 1451. Cannot delete or update a p
 ````
 
 
+
+# EXERCÍCIO 03
+
+
+a) Resposta:
+ - A query retorna uma tabela que contém informações das tabelas Movie e Rating. Onde o ON é uma condição que associa as informações das tabelas de modo a mostrar na mesma linha apenas as informações que possuam a mesma id em ambas tabelas.
+
+
+b) Resposta: 
+````
+SELECT Movies.id, Movies.title, Rating.rate
+FROM Movies
+INNER JOIN Rating 
+ON Movies.id = Rating.movie_id;
+````
+
