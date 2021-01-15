@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from 'express'
 import cors from 'cors'
 import { AddressInfo } from 'net'
 import dotenv from 'dotenv'
-import { connection } from '../connection/myConnection'
+import { connection } from '../connections/dataBaseConnection'
 
 
 dotenv.config();
