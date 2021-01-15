@@ -1,10 +1,8 @@
 import express, { Express, Request, Response } from 'express'
 import cors from 'cors'
 import { AddressInfo } from 'net'
-import knex from 'knex'
-import Knex from 'knex'
 import dotenv from 'dotenv'
-import { connection } from './connection/myConnection'
+import { connection } from '../connection/myConnection'
 
 
 dotenv.config();
