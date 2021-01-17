@@ -35,6 +35,17 @@ Content-Type: application/json
 }
 
 
+### addResponsibleTask
+
+POST  http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{  
+   "task_id": "90b3df6d-11ed-4afd-86f6-69e1e5e5a596",
+	"responsible_user_id": "001"
+}
+
+
 ### getUserById
 
 GET http://localhost:3003/user/1610856313475
@@ -58,6 +69,13 @@ GET http://localhost:3003/tasks?creatorUserId=1610856313475
 ### searchUserByNickname
 
 GET http://localhost:3003/user?nickname=rafaQ
+
+
+
+
+
+
+
 
 
 

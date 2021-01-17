@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import { v4 as uuidv4 } from 'uuid'
 import { User, Task  } from '../types/types'
 import { createUser, getUserById, editUser, createTask, getTaskById, 
-    getAllUsers, getTaksCreatedUserId, searchUserByNickname } from '../queries/queries'
+    getAllUsers, getTaksCreatedUserId, searchUserByNickname, addResponsibleTask } from '../queries/queries'
 
 
 
@@ -208,7 +208,7 @@ router.get("/tasks", async (req: Request, res: Response) => {
 
 
 router.get("/user", async (req: Request, res: Response) => {
-    
+
     let errorCode: number = 400
 
     try {
@@ -222,6 +222,37 @@ router.get("/user", async (req: Request, res: Response) => {
 
     } catch (error) {
 
+        res.status(400).send(error.sqlMessage || error.message)
+    }
+})
+
+
+router.post("/task/responsible", async (req: Request, res: Response) => {
+
+    let errorCode: number = 400
+
+    try {
+        
+        const result = {
+            task_id: req.body.task_id,
+            user_id: req.body.user_id
+        }
+
+       
+       const keys = Object.keys(req.body)
+
+       for (const key of keys) {
+
+         if (req.body[key] == "")
+         
+           return res.status(400).send({ message: "Por gentileza preencha todos os campos corretamente!"})
+       }
+
+        await addResponsibleTask(result)
+
+        res.status(200).send({ message:`A tarefa ${result.task_id} foi atribuída ao usuário ${result.user_id} com sucesso.`})
+
+    } catch (error) {
         res.status(400).send(error.sqlMessage || error.message)
     }
 })

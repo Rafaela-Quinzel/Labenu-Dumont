@@ -125,3 +125,16 @@
 	}]
 }
 ```
+
+
+***Atribuir um usuário responsável a uma tarefa***
+- Método: POST
+- Path: `/task/responsible`
+- Body de Resposta:
+
+```json
+{
+	"task_id": "Astro Dev",
+	"responsible_user_id": "astrodev"
+}
+```

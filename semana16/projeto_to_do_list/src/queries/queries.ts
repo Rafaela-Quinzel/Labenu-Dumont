@@ -1,5 +1,5 @@
 import { connection } from '../connections/dataBaseConnection'
-import { User, Task } from '../types/types'
+import { User, Task, TaskRelations } from '../types/types'
 
 
 
@@ -157,6 +157,24 @@ export const searchUserByNickname = async (nickname: string): Promise<any> => {
 
         console.log(error.sqlMessage || error.message)
     }
+}
+
+export const addResponsibleTask = async (responsible_user_id: TaskRelations): Promise<void> => {
+
+    try {
+
+        await connection.insert({
+            task_id: responsible_user_id.task_id,
+            user_id: responsible_user_id.user_id
+        })
+        .into("task_responsable")
+
+    } catch (error) {
+
+        console.log(error.sqlMessage || error.message)
+    }
+
+
 }
 
 

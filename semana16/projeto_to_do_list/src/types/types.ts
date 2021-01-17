@@ -21,3 +21,8 @@ export type Task = {
     limit_date: Date,
     creator_user_id: string,
 }
+
+export type TaskRelations = {
+    task_id: number,
+    user_id: number
+ } 
