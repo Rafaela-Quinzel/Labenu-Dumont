@@ -1,5 +1,5 @@
 import { connection } from '../connections/dataBaseConnection'
-import { Status, User, Task } from '../types/types'
+import { User, Task } from '../types/types'
 
 
 
@@ -15,7 +15,7 @@ export const createUser = async(user: User): Promise<any> => {
           })
           .into("Users");
 
-    console.log("Usuário inserido com sucesso!")
+        console.log("Usuário inserido com sucesso!")
 
     } catch (error) {
 
@@ -45,14 +45,18 @@ export const createTask = async(task: Task): Promise<void> => {
 
 
 export const editUser = async (id: string, name: string, nickname: string) => {
+
     try {
+        
         await connection('Users')
         .where('user_id', id)
         .update({
             name: name,
             nickname: nickname
         })
+
     } catch (error) {
+
         console.log(error.sqlMessage || error.message)
     }
 } 
@@ -60,24 +64,38 @@ export const editUser = async (id: string, name: string, nickname: string) => {
 
 export const getUserById = async(id: string): Promise<any> => {
 
-    const result = await connection.raw(`
-        SELECT * FROM Users
-        WHERE id = '${id}';
-    `)
+    try {
 
-    return result[0]
+        const result = await connection.raw(`
+            SELECT * FROM Users
+            WHERE id = '${id}';
+        `)
+
+        return result[0]
+
+    } catch (error) {
+
+        console.log(error.sqlMessage || error.message)
+    }
 
 }
 
 
 export const getTaskById = async(id: string): Promise<any> => {
 
-    const result = await connection.raw(`
-        SELECT * FROM Tasks
-        WHERE id = '${id}';
-    `)
+    try{
 
-    return result[0]
+        const result = await connection.raw(`
+            SELECT * FROM Tasks
+            WHERE id = '${id}';
+        `)
+
+        return result[0]
+
+    }  catch (error) {
+
+        console.log(error.sqlMessage || error.message)
+    }
 
 }
 

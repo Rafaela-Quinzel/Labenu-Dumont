@@ -18,6 +18,6 @@ export type Task = {
     title: string,
     description: string,
     status: Status,
-    limit_date: string,
+    limit_date: Date,
     creator_user_id: string,
 }
