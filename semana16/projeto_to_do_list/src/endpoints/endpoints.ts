@@ -3,7 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { v4 as uuidv4 } from 'uuid'
 import { User, Task  } from '../types/types'
-import { createUser, getUserById, editUser, createTask, getTaskById, getAllUsers } from '../queries/queries'
+import { createUser, getUserById, editUser, createTask, getTaskById, getAllUsers, getTaksCreatedUserId } from '../queries/queries'
 
 
 
@@ -162,6 +162,42 @@ router.get("/users/all", async (req: Request, res: Response) => {
        const result = await getAllUsers()
 
        res.status(200).send({users: result})
+
+    } catch (error) {
+
+        res.status(errorCode).send(error.message || error.sqlMessage)
+    }
+})
+
+
+router.get("/tasks", async (req: Request, res: Response) => {
+
+    let errorCode = 400
+
+    try {
+       
+        let errorCode: number = 400
+
+        const user_id : string = req.query.creatorUserId as string
+
+        if(!req.query.creatorUserId) {
+
+            errorCode = 422
+
+              throw new Error("Preencha o ID e tente novamente.")
+        }
+        
+        const tasks = await getTaksCreatedUserId(user_id)
+
+        if (tasks===undefined) {
+
+            errorCode = 400
+
+            throw new Error("ID não encontrado. Informe um ID válido.")
+
+        }
+        
+        res.status(200).send({tasks})
 
     } catch (error) {
 

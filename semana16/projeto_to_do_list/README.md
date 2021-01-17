@@ -78,7 +78,20 @@
 
 ***Pegar todos os usuários***
 - Método: GET
-- Path: `/user/all`
+- Path: `/users/all`
+- Body de Resposta:
+
+```json
+{
+	"id": "001",
+	"nickname": "astrodev"
+}
+```
+
+
+***Pegar tarefas criadas pelo usuário***
+- Método: GET
+- Path: `/task?user=id`
 - Body de Resposta:
 
 ```json

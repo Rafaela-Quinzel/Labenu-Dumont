@@ -50,5 +50,10 @@ GET http://localhost:3003/task/9520354e-0e6f-42b2-8df2-4b1489609ae1
 GET http://localhost:3003/users/all
 
 
+### getTasksCreatedUserId
+
+GET http://localhost:3003/tasks?creatorUserId=1610856313475
+
+
 
 
