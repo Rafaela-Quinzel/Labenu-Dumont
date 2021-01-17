@@ -3,8 +3,8 @@
 **ENDPOINTS:**
 
 ***Criar usuário***
-- Método: PUT
-- Path: `/user`
+- Método: PUT ou POST
+- Path: `/user/createUser`
 - Body:
 
 ```json

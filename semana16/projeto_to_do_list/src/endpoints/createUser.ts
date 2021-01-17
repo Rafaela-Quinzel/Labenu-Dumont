@@ -1,22 +1,23 @@
-import express, { Express, Request, Response } from 'express'
+import express, { Request, Response, Router } from 'express'
 import cors from 'cors'
-import { AddressInfo } from 'net'
 import dotenv from 'dotenv'
+import { v4 as uuidv4 } from 'uuid'
 import { connection } from '../connections/dataBaseConnection'
+import { connectToServer } from '../connections/severConnection'
+import { createUser } from '../functions/functionsRequests'
+import { User } from '../types/users'
 
 
 dotenv.config();
-const app: Express = express();
 
-app.use(express.json());
-app.use(cors())
+const router: Router = express.Router()
+router.use(express.json())
+router.use(cors())
 
 
-const server = app.listen(process.env.PORT || 3003, () => {
-    if (server) {
-       const address = server.address() as AddressInfo;
-       console.log(`Server is running in http://localhost:${address.port}`);
-    } else {
-       console.error(`Failure upon starting server.`);
-    }
- });
+ connectToServer()
+
+ export default router;
+
+
+

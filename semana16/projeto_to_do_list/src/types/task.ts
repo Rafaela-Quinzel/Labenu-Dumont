@@ -1,11 +1,10 @@
-import { STATUS } from './status'
+import { Status } from './status'
 
 export type Task = {
-    taskId: number,
+    id: number,
     title: string,
     description: string,
-    limitDate: string,
-    status: STATUS,
-    creatorUserId: number,
-    creatorUserNickname: string
+    status: Status,
+    limit_date: string,
+    creator_user_id: number,
 }

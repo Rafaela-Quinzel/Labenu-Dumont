@@ -5,20 +5,18 @@ import knex from 'knex'
 import Knex from 'knex'
 import dotenv from 'dotenv'
 import { connection } from './connections/dataBaseConnection'
+import { connectToServer } from './connections/severConnection'
+import createUser from './endpoints/createUser'
+import createTask from './endpoints/createTask'
 
 
-dotenv.config();
+
 const app: Express = express();
 
-app.use(express.json());
-app.use(cors())
+
+app.use('/user',createUser)
+
+app.use('/task', createTask)
 
 
-const server = app.listen(process.env.PORT || 3003, () => {
-    if (server) {
-       const address = server.address() as AddressInfo;
-       console.log(`Server is running in http://localhost:${address.port}`);
-    } else {
-       console.error(`Failure upon starting server.`);
-    }
- });
+

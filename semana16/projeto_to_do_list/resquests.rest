@@ -1,0 +1,10 @@
+### createUser
+
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{  
+    "name": "rafaela",
+    "nickname": "rafaQ",
+    "email": "rafa@email.com"
+}
