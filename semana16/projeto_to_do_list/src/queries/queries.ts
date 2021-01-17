@@ -1,7 +1,5 @@
 import { connection } from '../connections/dataBaseConnection'
-import { User } from '../types/users'
-import { Task } from '../types/task'
-import { idText } from 'typescript';
+import { Status, User, Task } from '../types/types'
 
 
 
@@ -15,7 +13,7 @@ export const createUser = async(user: User): Promise<any> => {
             nickname: user.nickname,
             email: user.email
           })
-          .into("ToDoListUser");
+          .into("Users");
 
     console.log("Usuário inserido com sucesso!")
 
@@ -36,7 +34,7 @@ export const createTask = async(task: Task): Promise<void> => {
             limit_date: task.limit_date,
             creator_user_id: task.creator_user_id
         })
-        .into("ToDoListTask")
+        .into("Tasks")
 
     } catch (error) {
 
@@ -46,49 +44,43 @@ export const createTask = async(task: Task): Promise<void> => {
 
 
 
-
-
-
-export const editUser = async(user: User): Promise<void> => {
-
+export const editUser = async (id: string, name: string, nickname: string) => {
     try {
-
-        await connection ("ToDoListUser")
+        await connection('Users')
+        .where('user_id', id)
         .update({
-           name: user.name,
-           nickname: user.nickname
+            name: name,
+            nickname: nickname
         })
-        .where("id")
-
     } catch (error) {
-
         console.log(error.sqlMessage || error.message)
     }
-}
+} 
 
 
 export const getUserById = async(id: string): Promise<any> => {
 
     const result = await connection.raw(`
-        SELECT * FROM NOME_TABELA
+        SELECT * FROM Users
         WHERE id = '${id}';
     `)
 
     return result[0]
 
 }
-
 
 
 export const getTaskById = async(id: string): Promise<any> => {
 
     const result = await connection.raw(`
-        SELECT * FROM NOME_TABELA
+        SELECT * FROM Tasks
         WHERE id = '${id}';
     `)
 
     return result[0]
 
 }
+
+
 
 

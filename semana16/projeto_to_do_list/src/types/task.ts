@@ -1,10 +1,10 @@
 import { Status } from './status'
 
 export type Task = {
-    id: number,
+    // id: string,
     title: string,
     description: string,
     status: Status,
     limit_date: string,
-    creator_user_id: number,
+    creator_user_id: string,
 }

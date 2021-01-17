@@ -45,8 +45,8 @@
 
 ***Criar tarefa***
 
-- Método: PUT
-- Path: `/task`
+- Método: PUT ou POST
+- Path: `/task/createTask`
 - Body:
 
 ```json
@@ -73,5 +73,17 @@
 	"status": "to_do",
 	"creatorUserId": "001",
 	"creatorUserNickname": "astrodev"
+}
+```
+
+***Pegar todos os usuários***
+- Método: GET
+- Path: `/user/all`
+- Body de Resposta:
+
+```json
+{
+	"id": "001",
+	"nickname": "astrodev"
 }
 ```

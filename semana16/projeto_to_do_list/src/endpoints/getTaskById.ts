@@ -1,22 +1,38 @@
-import express, { Express, Request, Response } from 'express'
+import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
-import { AddressInfo } from 'net'
-import dotenv from 'dotenv'
-import { connection } from '../connections/dataBaseConnection'
+import { getTaskById } from '../queries/queries'
 
 
-dotenv.config();
-const app: Express = express();
-
-app.use(express.json());
-app.use(cors())
+const router: Router = express.Router()
+router.use(express.json())
+router.use(cors())
 
 
-const server = app.listen(process.env.PORT || 3003, () => {
-    if (server) {
-       const address = server.address() as AddressInfo;
-       console.log(`Server is running in http://localhost:${address.port}`);
-    } else {
-       console.error(`Failure upon starting server.`);
-    }
- });
+router.get('/task/:id', async (req: Request, res: Response) => {
+
+   let errorCode = 400
+
+   try {
+
+     const id = req.params.id 
+
+     const result = await getTaskById(id)
+
+     if (!result) {
+
+       errorCode = 404
+
+       throw new Error("Tarefa não encontrada!")
+
+     } else {
+
+       res.status(200).send(result)
+     }
+
+   } catch (error) {
+
+     res.status(errorCode).send(error.message || error.sqlMessage)
+   }
+})
+
+export default router 

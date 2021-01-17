@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "tsc &&  node ./build/setup/createTables.js",
     "start": "tsc && node ./build/index.js",
-    "dev": "ts-node-dev ./src/index.ts"
+    "dev": "ts-node-dev ./src/index.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "Rafaela-Quinzel",

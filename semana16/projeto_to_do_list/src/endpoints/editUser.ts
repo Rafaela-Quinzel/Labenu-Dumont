@@ -1,22 +1,38 @@
-import express, { Express, Request, Response } from 'express'
+import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
-import { AddressInfo } from 'net'
-import dotenv from 'dotenv'
-import { connection } from '../connections/dataBaseConnection'
+import { editUser } from '../queries/queries'
 
 
-dotenv.config();
-const app: Express = express();
+const router: Router = express.Router()
+router.use(express.json())
+router.use(cors())
 
-app.use(express.json());
-app.use(cors())
+router.put('/user/edit/:id', (req: Request, res: Response) => {
+
+    let errorCode = 400
+
+    try {
+
+        const id: number = Number(req.params.id)
+        const { name, nickname } = req.body
 
 
-const server = app.listen(process.env.PORT || 3003, () => {
-    if (server) {
-       const address = server.address() as AddressInfo;
-       console.log(`Server is running in http://localhost:${address.port}`);
-    } else {
-       console.error(`Failure upon starting server.`);
+        if (!name || !nickname) {
+            errorCode = 422
+
+            throw new Error("Por favor, preencha os campos corretamente.")
+
+        } else {
+           
+            editUser(id, name, nickname)
+
+            res.status(201).send("Usuário editado!")
+        }
+
+
+    } catch (error) {
+        res.status(errorCode).send(error.message || error.sqlMessage)
     }
- });
+})
+
+export default router 

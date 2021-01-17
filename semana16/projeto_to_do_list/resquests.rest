@@ -1,10 +1,47 @@
 ### createUser
 
-POST http://localhost:3003/user
+POST  http://localhost:3003/user/createUser
 Content-Type: application/json
 
 {  
-    "name": "rafaela",
-    "nickname": "rafaQ",
-    "email": "rafa@email.com"
+    "name": "Fulano",
+    "nickname": "FulanoTeste",
+    "email": "fulano@email.com"
 }
+
+
+### editUser
+
+PUT  http://localhost:3003/user/edit/1610856313475
+Content-Type: application/json
+
+{  
+    "name": "Rafaela",
+    "nickname": "rafaQ"
+}
+
+
+### createTask
+
+POST http://localhost:3003/task/createTask
+Content-Type: application/json
+
+{   
+    "title": "projeto To Do List",
+    "description": "concluir projeto dentro do prazo.",
+    "status": "to_do",
+    "limit_date": "2021/01/17",
+    "creator_user_id": "1610856313475"
+}
+
+
+### getUserById
+
+GET http://localhost:3003/user/1610856313475
+
+
+### getTaskById
+
+GET http://localhost:3003/task/9520354e-0e6f-42b2-8df2-4b1489609ae1
+
+
