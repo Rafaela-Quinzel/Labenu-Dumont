@@ -131,8 +131,25 @@ export const getTaksCreatedUserId = async (user_id: string): Promise<any> => {
                 Users.nickname as creatorUserNickname
             FROM Tasks
             LEFT JOIN Users ON Tasks.creator_user_id = Users.id
-            WHERE Users.id=${user_id};
+            WHERE Users.id='${user_id}';
         `)
+
+        return result[0]
+
+    } catch (error) {
+
+        console.log(error.sqlMessage || error.message)
+    }
+}
+
+
+export const searchUserByNickname = async (nickname: string): Promise<any> => {
+
+    try {
+
+        const result = await connection("Users")
+        .select("id", "nickname")
+        .where("nickname", nickname)
 
         return result[0]
 

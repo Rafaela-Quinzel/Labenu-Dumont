@@ -83,20 +83,45 @@
 
 ```json
 {
-	"id": "001",
-	"nickname": "astrodev"
+	"users": [{
+		"id": "001",
+		"nickname": "astrodev"
+	}]
 }
 ```
 
 
 ***Pegar tarefas criadas pelo usuário***
 - Método: GET
-- Path: `/task?user=id`
+- Path: `/task?creatorUserId=id`
+- Query String: indica o id do usuário que criou através da chave creatorUserId
 - Body de Resposta:
 
 ```json
 {
-	"id": "001",
-	"nickname": "astrodev"
+	"tasks": [{
+		"taskId": "001",
+		"title": "Criar banco dos alunos",
+		"description": "Devemos criar o banco dos alunos para o módulo do backend",
+		"limitDate": "04/05/2020",
+		"creatorUserId": "001",
+		"status": "to_do",
+		"creatorUserNickname": "astrodev"
+	}]
+}
+```
+
+***Pegar usuário pela query***
+- Método: GET
+- Path: `/user?query=astro`
+- Query String: indica o termo de busca através da chave query
+- Body de Resposta:
+
+```json
+{
+	"users": [{
+		"id": "001",
+		"nickname": "astrodev",
+	}]
 }
 ```

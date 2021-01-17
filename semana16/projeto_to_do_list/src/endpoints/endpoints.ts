@@ -3,7 +3,8 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { v4 as uuidv4 } from 'uuid'
 import { User, Task  } from '../types/types'
-import { createUser, getUserById, editUser, createTask, getTaskById, getAllUsers, getTaksCreatedUserId } from '../queries/queries'
+import { createUser, getUserById, editUser, createTask, getTaskById, 
+    getAllUsers, getTaksCreatedUserId, searchUserByNickname } from '../queries/queries'
 
 
 
@@ -202,6 +203,26 @@ router.get("/tasks", async (req: Request, res: Response) => {
     } catch (error) {
 
         res.status(errorCode).send(error.message || error.sqlMessage)
+    }
+})
+
+
+router.get("/user", async (req: Request, res: Response) => {
+    
+    let errorCode: number = 400
+
+    try {
+        const result = await searchUserByNickname(req.query.nickname as string)
+
+        if (!result) {
+            errorCode = 422
+            throw new Error("Query não enviada.")
+        }
+        res.status(200).send({users: result})
+
+    } catch (error) {
+
+        res.status(400).send(error.sqlMessage || error.message)
     }
 })
 
