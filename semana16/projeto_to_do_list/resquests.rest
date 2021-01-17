@@ -45,3 +45,10 @@ GET http://localhost:3003/user/1610856313475
 GET http://localhost:3003/task/9520354e-0e6f-42b2-8df2-4b1489609ae1
 
 
+### getAllUsers
+
+GET http://localhost:3003/users/all
+
+
+
+

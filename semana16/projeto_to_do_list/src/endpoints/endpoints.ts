@@ -3,7 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { v4 as uuidv4 } from 'uuid'
 import { User, Task  } from '../types/types'
-import { createUser, getUserById, editUser, createTask, getTaskById} from '../queries/queries'
+import { createUser, getUserById, editUser, createTask, getTaskById, getAllUsers } from '../queries/queries'
 
 
 
@@ -151,6 +151,24 @@ router.get('/task/:id', async (req: Request, res: Response) => {
       res.status(errorCode).send(error.message || error.sqlMessage)
     }
 })
+
+
+router.get("/users/all", async (req: Request, res: Response) => {
+
+    let errorCode = 400
+
+    try {
+       
+       const result = await getAllUsers()
+
+       res.status(200).send({users: result})
+
+    } catch (error) {
+
+        res.status(errorCode).send(error.message || error.sqlMessage)
+    }
+})
+
 
 
 

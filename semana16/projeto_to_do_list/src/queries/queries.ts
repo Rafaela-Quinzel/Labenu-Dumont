@@ -99,6 +99,22 @@ export const getTaskById = async(id: string): Promise<any> => {
 
 }
 
+export const getAllUsers = async (): Promise<any> => {
+    
+    try {
+    const result = await connection.raw(`
+        SELECT id, nickname 
+        FROM Users;
+    `)
+    
+     return result[0]
+     
+    } catch (error) {
+
+        console.log(error.sqlMessage || error.message)
+    }
+  }
+
 
 
 
