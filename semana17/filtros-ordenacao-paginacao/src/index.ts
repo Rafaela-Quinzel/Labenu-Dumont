@@ -2,8 +2,8 @@ import express, { Express } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { AddressInfo } from 'net'
-import getUserByName from './endpoints/getUserByName'
-import getAllUsers from './endpoints/getAllUsers'
+import { getUserByName } from './endpoints/getUserByName'
+import { getAllUsers } from './endpoints/getAllUsers'
 
 
 dotenv.config();
@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(cors())
 
 
-app.get('/all', getAllUsers)
-app.get('/users/:name', getUserByName)
+app.get('/users/all', getAllUsers)
+app.get('/user/search', getUserByName)
 
 
 const server = app.listen(process.env.PORT || 3003, () => {

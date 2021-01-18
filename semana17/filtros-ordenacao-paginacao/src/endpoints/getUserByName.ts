@@ -17,7 +17,7 @@ export const getUserByName = async (req:Request, res:Response) => {
 
    try {
 
-      const name: string = req.params.name as string
+      const name: string = req.query.name as string
 
       if(!name) {
 
@@ -45,4 +45,3 @@ export const getUserByName = async (req:Request, res:Response) => {
    }
 } 
 
- export default router
