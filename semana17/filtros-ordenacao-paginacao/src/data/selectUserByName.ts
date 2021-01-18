@@ -9,7 +9,7 @@ router.use(cors())
 
 
 
-export default async function filterUserByName(name: string):Promise<any> {
+export default async function selectUserByName(name: string):Promise<any> {
 
     const result = await connection.raw(`
        SELECT *

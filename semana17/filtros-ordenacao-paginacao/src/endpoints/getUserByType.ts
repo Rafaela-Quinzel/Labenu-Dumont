@@ -1,6 +1,6 @@
 import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
-import selectUserByName from '../data/selectUserByName'
+import selectUserByType from '../data/selectUserByType'
 import { user } from '../types/types'
 
 
@@ -11,28 +11,28 @@ router.use(express.json());
 router.use(cors())
 
 
-export const getUserByName = async (req:Request, res:Response) => {
+export const getUserByType = async (req:Request, res:Response) => {
 
    let errorCode = 400
 
    try {
 
-      const name: string = req.query.name as string
+      const type: string = req.params.type as string
 
-      if(!name) {
+      if(!type) {
 
          errorCode = 406
 
-         throw new Error("Por favor, informe um nome!")
+         throw new Error("Por favor, informe um tipo!")
 
       } else {
-           const users: user[] = await selectUserByName(name)
+           const users: user[] = await selectUserByType(type)
 
-           if(!users.length) {
+           if(!type.length) {
 
              errorCode = 404
 
-             throw new Error("Não encontramos nunhum usuário com o nome informado!");
+             throw new Error("Não encontramos nunhum usuário com o tipo informado!");
            }
 
       res.status(200).send(users)
