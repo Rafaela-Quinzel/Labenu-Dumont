@@ -6,6 +6,7 @@ import { getAllUsers } from './endpoints/getAllUsers'
 import { getUserByName } from './endpoints/getUserByName'
 import { getUserByType } from './endpoints/getUserByType'
 import { getUserByNameOrType } from './endpoints/getUserByNameOrType'
+import { getFiveUsers } from './endpoints/getFiveUsers'
 
 
 
@@ -24,6 +25,8 @@ app.get('/user/search', getUserByName)
 app.get('/user/:type', getUserByType)
 
 app.get('/users/:orderBy', getUserByNameOrType)
+
+app.get('/users', getFiveUsers)
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
