@@ -12,3 +12,10 @@ GET http://localhost:3003/user/search?name=soter
 ### getUserByType
 
 GET http://localhost:3003/user/cx
+
+
+
+### getUserByNameOrType
+
+GET http://localhost:3003/users/name
+
