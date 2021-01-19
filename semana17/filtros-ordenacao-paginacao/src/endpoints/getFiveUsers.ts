@@ -16,8 +16,6 @@ export const getFiveUsers = async (req:Request, res:Response) => {
 
    try {
 
-    //   const limit = req.query.limit as string
-
       const users = await selectFiveUsers()
       
 

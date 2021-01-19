@@ -1,7 +1,7 @@
 import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
 import selectUserByType from '../data/selectUserByType'
-import { user } from '../types/types'
+import { user } from '../types/user'
 
 
 

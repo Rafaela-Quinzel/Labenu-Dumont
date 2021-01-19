@@ -1,4 +1,4 @@
-import express, { Router, Request, Response } from 'express'
+import express, { Router } from 'express'
 import cors from 'cors'
 import { connection } from '../connection/dataBaseConnection'
 
