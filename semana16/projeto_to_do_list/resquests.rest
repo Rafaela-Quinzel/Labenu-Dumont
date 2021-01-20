@@ -1,0 +1,85 @@
+### createUser
+
+POST  http://localhost:3003/user/createUser
+Content-Type: application/json
+
+{  
+    "name": "Fulano",
+    "nickname": "FulanoTeste",
+    "email": "fulano@email.com"
+}
+
+
+### editUser
+
+PUT  http://localhost:3003/user/edit/1610856313475
+Content-Type: application/json
+
+{  
+    "name": "Rafaela",
+    "nickname": "rafaQ"
+}
+
+
+### createTask
+
+POST http://localhost:3003/task/createTask
+Content-Type: application/json
+
+{   
+    "title": "Teste",
+    "description": "Testar endpoints do projeto.",
+    "status": "to_do",
+    "limit_date": "30/01/2021",
+    "creator_user_id": "1610856313475"
+}
+
+
+### addResponsibleTask
+
+POST  http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{  
+   "task_id": "90b3df6d-11ed-4afd-86f6-69e1e5e5a596",
+	"responsible_user_id": "001"
+}
+
+
+### getUserById
+
+GET http://localhost:3003/user/1610856313475
+
+
+### getTaskById
+
+GET http://localhost:3003/task/9520354e-0e6f-42b2-8df2-4b1489609ae1
+
+
+### getAllUsers
+
+GET http://localhost:3003/users/all
+
+
+### getTasksCreatedUserId
+
+GET http://localhost:3003/tasks?creatorUserId=1610856313475
+
+
+### searchUserByNickname
+
+GET http://localhost:3003/user?nickname=rafaQ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
