@@ -28,3 +28,14 @@ b) Resposta no arquivo tables.sql
 
 
 c) Resposta no arquivo insertUser.ts
+
+
+
+# EXERCÍCIO 03
+
+
+a) Resposta:
+ - 'as string' está afirmando que que o valor recebido será uma string e não undefined.
+
+
+b) Resposta no arquivo authenticator.ts na pasta services.
