@@ -3,6 +3,7 @@ import knex from 'knex'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { AddressInfo } from 'net'
+import { createUser } from './endpoints/createUser'
 
 
 
@@ -26,7 +27,7 @@ app.use(cors())
 
 
 
-// app.post('/', ..)
+app.post('/user/signup', createUser)
 
 
 
