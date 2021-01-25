@@ -4,6 +4,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { AddressInfo } from 'net'
 import  createUser from './endpoints/createUser'
+import login from './endpoints/login'
 
 
 
@@ -28,6 +29,7 @@ app.use(cors())
 
 
 app.post('/user/signup', createUser)
+app.post('/user/login', login)
 
 
 

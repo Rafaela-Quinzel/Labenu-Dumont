@@ -22,7 +22,7 @@ export default async function createUser(req: Request, res: Response): Promise<v
 
         if (!req.body.password || req.body.password.length < 6) {
 
-            throw new Error("Senha inválida!")
+            throw new Error("A senha deve conter mais de seis digitos!")
         }
 
         const id: string = generate()
