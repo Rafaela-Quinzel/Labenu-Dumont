@@ -1,8 +1,7 @@
 import { connection } from '../index'
 import { User } from '../types/user'
+import { userTableName } from '../services/tablesDataBase'
 
-
-const userTableName = "Users_aula50"
 
 export const insertUser = async (user: User) => {
 	await connection
