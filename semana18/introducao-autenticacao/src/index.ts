@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import { AddressInfo } from 'net'
 import  createUser from './endpoints/createUser'
 import login from './endpoints/login'
+import getUserById from './endpoints/getUserById'
 
 
 
@@ -30,6 +31,7 @@ app.use(cors())
 
 app.post('/user/signup', createUser)
 app.post('/user/login', login)
+app.get('/user/profile', getUserById)
 
 
 

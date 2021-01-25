@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { selectUserByEmail } from '../data/selectUserByEmail'
+import { selectUserByEmail } from '../data/selectUserByLogin'
 import { generateToken } from '../services/authenticator'
 import { loginInput } from '../types/loginInput'
 
