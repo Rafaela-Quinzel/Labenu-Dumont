@@ -15,3 +15,16 @@ export function generate(): string {
 ````
 
 
+# EXERCÍCIO 02
+
+a) Resposta:
+ - O userTableName está chamando a tabela 'User'.
+
+ - A função connection é referente aos dados de acceso do criador do código da aplicação ao bando de dados, que estão sendo guardados no arquivo .env.
+
+ - A query createUser está inserindo na tabela 'USer' id, email e password.
+
+b) Resposta no arquivo tables.sql
+
+
+c) Resposta no arquivo insertUser.ts
