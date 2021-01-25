@@ -39,3 +39,22 @@ a) Resposta:
 
 
 b) Resposta no arquivo authenticator.ts na pasta services.
+
+
+# EXERCÍCIO 07
+
+
+a) Resposta:
+
+ - O 'as any' é necessário para não dar erro na hora de transpilar e ele indica que qualquer valor pode ser atribuído.
+
+
+ b) Resposta:
+ ```
+    export const getTokenData = (token: string): AuthenticationData => {
+    return jwt.verify(
+        token,
+        process.env.JWT_KEY as string
+    ) as AuthenticationData
+    }
+```
