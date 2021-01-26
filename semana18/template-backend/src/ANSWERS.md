@@ -26,3 +26,20 @@ c) Resposta no arquivo createUser.ts na pasta de endpoints.
 
 d) Resposta:
  - Não é necessário, pois nesse endpoint utiliza o token que foi resultado no momento do login e é conferido no header.
+
+
+
+# EXERCÍCIO 03
+
+
+a) Resposta:
+````
+ALTER TABLE Users_aula50
+ADD role enum('NORMAL','ADMIN') DEFAULT 'NORMAL';
+````
+
+b) Resposta no arquivo authenticator.ts na pasta services.
+
+c) Resposta no arquivo createUser.ts na pasta enpoints.
+
+d) Resposta no arquivo login.ts na pasta enpoints.

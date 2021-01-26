@@ -3,6 +3,7 @@ import { generate } from '../services/idGenerator'
 import { generateToken } from '../services/authenticator'
 import { User } from '../types/user'
 import { hash } from '../services/hashManager'
+import { USER_ROLES } from '../types/user'
 import  insertUser  from '../data/insertUser'
 
 
@@ -10,7 +11,7 @@ export default async function createUser(req: Request, res: Response): Promise<v
 
     try {
 
-        const { email, password } = req.body
+        const { email, password, role } = req.body
  
         if (!email || email.indexOf("@") === -1) {
 
@@ -23,6 +24,11 @@ export default async function createUser(req: Request, res: Response): Promise<v
             throw new Error("A senha deve conter mais de seis digitos!")
 
         }
+
+        if (role !== USER_ROLES.ADMIN && role !== USER_ROLES.NORMAL) {
+            throw new Error(`"role" deve ser "NORMAL" ou "ADMIN"`)
+         }
+   
  
         const id: string = generate()
 
@@ -31,12 +37,16 @@ export default async function createUser(req: Request, res: Response): Promise<v
         const newUser: User = {
             id,
             email,
-            password: cypherPassword
+            password: cypherPassword,
+            role
         }
 
         await insertUser(newUser)
  
-        const token = generateToken(id)
+        const token = generateToken({
+            id,
+            role: req.body.role
+         })
  
         res
           .status(200)

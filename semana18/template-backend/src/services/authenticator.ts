@@ -1,11 +1,12 @@
 import * as jwt from 'jsonwebtoken'
+import { USER_ROLES } from '../types/user'
 
 
 
-export function generateToken(id: string): string {
+export function generateToken(input: AuthenticationData): string {
 
 
-    const token: string = jwt.sign({id},
+    const token: string = jwt.sign({ id: input, role: input.role },
         process.env.JWT_KEY as string,
         { expiresIn: process.env.JWT_EXPIRE_TIME as string || "1d" })
 
@@ -15,12 +16,16 @@ export function generateToken(id: string): string {
 }
 
 export function getTokenData(token: string): AuthenticationData {
-    const payLoad = jwt.verify(token, process.env.JWT_KEY as string)
+    const payload = jwt.verify(token, process.env.JWT_KEY as string) as AuthenticationData
 
-    return payLoad as AuthenticationData
+    return {
+        id: payload.id,
+        role: payload.role
+     }
 }
 
 
 export type AuthenticationData = {
-    id: string
+    id: string,
+    role: USER_ROLES
 } 

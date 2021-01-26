@@ -49,7 +49,10 @@ export default async function createUser(req: Request, res: Response) {
             throw new Error("Senha incorreta!")
         }
 
-        const token = generateToken(user.id)
+        const token = generateToken({
+            id: user.id,
+            role:user.role
+         })
 
 
         res
