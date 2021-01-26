@@ -5,7 +5,8 @@ import cors from 'cors'
 import { AddressInfo } from 'net'
 import createUser from './endpoints/createUser'
 import login from './endpoints/login'
-import getUserById from './endpoints/getUserById'
+import getUserById from './endpoints/getUserByLogin'
+import deleteUser from './endpoints/deleteUser'
 
 
 dotenv.config()
@@ -26,9 +27,13 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+
 app.post('/user/signup', createUser)
 app.post('/user/login', login)
 app.get('/user/profile', getUserById)
+app.get('/user/:id', getUserById)
+app.delete('/user/:id', deleteUser)
+
 
 
 
