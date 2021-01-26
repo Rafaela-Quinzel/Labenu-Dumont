@@ -5,7 +5,8 @@ import cors from 'cors'
 import { AddressInfo } from 'net'
 import createUser from './endpoints/createUser'
 import login from './endpoints/login'
-import getUserById from './endpoints/getUserByLogin'
+import getUserByLogin from './endpoints/getUserByLogin'
+import getUserById from './endpoints/getUserById'
 import deleteUser from './endpoints/deleteUser'
 
 
@@ -30,7 +31,7 @@ app.use(cors())
 
 app.post('/user/signup', createUser)
 app.post('/user/login', login)
-app.get('/user/profile', getUserById)
+app.get('/user/profile', getUserByLogin)
 app.get('/user/:id', getUserById)
 app.delete('/user/:id', deleteUser)
 

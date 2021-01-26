@@ -1,7 +1,7 @@
 import { connection } from '../index'
 
 
-export default async function selectUserByEmail (email: string): Promise<any>  {
+export default async function selectUserByLogin (email: string): Promise<any>  {
     
     const result = await connection
       .select("*")

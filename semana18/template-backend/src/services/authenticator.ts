@@ -1,15 +1,17 @@
 import * as jwt from 'jsonwebtoken'
 import { AuthenticationData } from '../types/authenticationData'
-import { USER_ROLES } from '../types/user'
+
 
 
 
 export function generateToken(input: AuthenticationData): string {
 
+    const expiresIn = "1y"
+
 
     const token: string = jwt.sign({ id: input, role: input.role },
         process.env.JWT_KEY as string,
-        { expiresIn: process.env.JWT_EXPIRE_TIME as string || "1d" })
+        { expiresIn })
 
 
     return token

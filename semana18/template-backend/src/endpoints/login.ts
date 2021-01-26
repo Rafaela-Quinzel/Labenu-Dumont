@@ -37,7 +37,7 @@ export default async function createUser(req: Request, res: Response) {
         }
 
 
-        const passwordIsCorrect = await compare(
+        const passwordIsCorrect: boolean = await compare(
             input.password,
             user.password
         )
