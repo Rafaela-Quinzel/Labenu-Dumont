@@ -4,6 +4,8 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import { AddressInfo } from 'net'
 import createUser from './endpoints/createUser'
+import login from './endpoints/login'
+import getUserById from './endpoints/getUserById'
 
 
 dotenv.config()
@@ -25,6 +27,8 @@ app.use(express.json())
 app.use(cors())
 
 app.post('/user/signup', createUser)
+app.post('/user/login', login)
+app.get('/user/profile', getUserById)
 
 
 

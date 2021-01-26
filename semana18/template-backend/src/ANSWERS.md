@@ -43,3 +43,6 @@ b) Resposta no arquivo authenticator.ts na pasta services.
 c) Resposta no arquivo createUser.ts na pasta enpoints.
 
 d) Resposta no arquivo login.ts na pasta enpoints.
+
+
+

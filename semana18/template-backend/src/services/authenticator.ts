@@ -1,4 +1,5 @@
 import * as jwt from 'jsonwebtoken'
+import { AuthenticationData } from '../types/authenticationData'
 import { USER_ROLES } from '../types/user'
 
 
@@ -25,7 +26,3 @@ export function getTokenData(token: string): AuthenticationData {
 }
 
 
-export type AuthenticationData = {
-    id: string,
-    role: USER_ROLES
-} 
