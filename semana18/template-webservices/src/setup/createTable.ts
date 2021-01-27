@@ -14,9 +14,10 @@ const createTable = async(): Promise<void> => {
             street VARCHAR(255) NOT NULL,
             number VARCHAR(64) NOT NULL,
             complement VARCHAR(255),
-            neighbourhood VARCHAR(255) NOT NULL,
-            city VARCHAR(255) NOT NULL,
-            state VARCHAR(255) NOT NULL,
+            neighborhood VARCHAR(255) NOT NULL,
+            city VARCHAR(255) ,
+            state VARCHAR(255),
+            cep VARCHAR(255) NOT NULL,
             user_id VARCHAR(64) UNIQUE NOT NULL,
             FOREIGN KEY (user_id) REFERENCES Users_aula50(id)
             );  

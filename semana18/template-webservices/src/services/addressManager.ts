@@ -11,9 +11,9 @@ export async function getAddressByCep(cep: string): Promise<address> {
       
         const myAddress: address = {
             street: result.data.street,
-            neighbourhood: result.data.bairro,
-            city: result.data.localidade,
-            state: result.data.uf
+            neighborhood: result.data.neighborhood,
+            city: result.data.city,
+            state: result.data.state
         }
 
         return myAddress
