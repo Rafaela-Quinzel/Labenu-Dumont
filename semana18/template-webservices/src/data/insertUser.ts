@@ -2,6 +2,7 @@ import { connection } from '../index'
 import { User } from '../types/user'
 
 
+
 export default async function insertUser(user: User) {
     
     await connection.insert({

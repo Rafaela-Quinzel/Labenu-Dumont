@@ -1,28 +1,30 @@
-import * as jwt from "jsonwebtoken"
-import { USER_ROLES } from "../data/insertUser"
+import * as jwt from 'jsonwebtoken'
+import { AuthenticationData } from '../types/authenticationData'
 
-export type AuthenticationData = {
-   id: string,
-   role: USER_ROLES
+
+
+
+export function generateToken(input: AuthenticationData): string {
+
+    const expiresIn = "1y"
+
+
+    const token: string = jwt.sign({ id: input, role: input.role },
+        process.env.JWT_KEY as string,
+        { expiresIn })
+
+
+    return token
+
 }
 
-export function generateToken(
-   payload: AuthenticationData
-): string {
-   return jwt.sign(
-      payload,
-      process.env.JWT_KEY as string,
-      {
-         expiresIn: "24min"
-      }
-   )
+export function getTokenData(token: string): AuthenticationData {
+    const payload = jwt.verify(token, process.env.JWT_KEY as string) as AuthenticationData
+
+    return {
+        id: payload.id,
+        role: payload.role
+     }
 }
 
-export function getTokenData(
-   token: string
-): AuthenticationData {
-   return jwt.verify(
-      token,
-      process.env.JWT_KEY as string
-   ) as AuthenticationData
-}
+

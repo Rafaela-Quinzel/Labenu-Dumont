@@ -4,12 +4,13 @@ import { address } from "../types/address"
 const URL = "https://viacep.com.br/ws"
 
 export async function getAddressByCep(cep: string): Promise<address> {
+    
     try {
 
         const result = await axios.get(`${URL}/${cep}/json`)
       
         const myAddress: address = {
-            name: result.data.logradouro,
+            street: result.data.street,
             neighbourhood: result.data.bairro,
             city: result.data.localidade,
             state: result.data.uf
