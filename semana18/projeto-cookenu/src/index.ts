@@ -3,7 +3,7 @@ import knex from 'knex'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import { AddressInfo } from 'net'
-import createUser from './endpoints/createUser'
+import signup from './endpoints/signup'
 import login from './endpoints/login'
 
 
@@ -27,7 +27,7 @@ app.use(express.json())
 app.use(cors())
 
 
-app.post('/user/signup', createUser)
+app.post('/user/signup', signup)
 app.post('/user/login', login)
 
 

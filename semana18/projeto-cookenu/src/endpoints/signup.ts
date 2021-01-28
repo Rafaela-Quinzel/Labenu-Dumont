@@ -7,7 +7,7 @@ import { USER_ROLES } from '../types/user'
 import  insertUser  from '../data/insertUser'
 
 
-export default async function createUser(req: Request, res: Response) {
+export default async function signup(req: Request, res: Response) {
 
     try {
 
