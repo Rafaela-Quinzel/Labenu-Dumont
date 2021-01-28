@@ -3,8 +3,9 @@ CREATE TABLE `Users_Cookenu` (
   `name` varchar(64) NOT NULL UNIQUE,
   `email` varchar(64) NOT NULL UNIQUE ,
   `password` varchar(255) NOT NULL,
+  `role` enum('NORMAL','ADMIN') DEFAULT 'NORMAL',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+); 
 
 
 CREATE TABLE `Recipes_Cookenu` (
@@ -13,4 +14,4 @@ CREATE TABLE `Recipes_Cookenu` (
   `description` varchar(255) NOT NULL,
   `cratedAt` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+); 
