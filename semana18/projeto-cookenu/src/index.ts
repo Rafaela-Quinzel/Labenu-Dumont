@@ -6,6 +6,7 @@ import { AddressInfo } from 'net'
 import signup from './endpoints/signup'
 import login from './endpoints/login'
 import getProfileUser from './endpoints/getProfileUser'
+import getAnotherProfile from './endpoints/getAnotherProfile'
 
 
 
@@ -31,6 +32,7 @@ app.use(cors())
 app.post('/user/signup', signup)
 app.post('/user/login', login)
 app.get('/user/profile', getProfileUser)
+app.get('/users/profile/:id', getAnotherProfile)
 
 
 

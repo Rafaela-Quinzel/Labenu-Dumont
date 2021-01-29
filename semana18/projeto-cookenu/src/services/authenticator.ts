@@ -7,8 +7,6 @@ import { AuthenticationData } from '../types/authenticationData'
 dotenv.config()
 
 
-
-
 export function generateToken(input: AuthenticationData): string {
 
     const expiresIn = "1y"
@@ -24,7 +22,7 @@ export function generateToken(input: AuthenticationData): string {
 }
 
 export function getTokenData(token: string): AuthenticationData {
-    const payload = jwt.verify(token, process.env.JWT_KEY as string) as AuthenticationData
+    const payload = jwt.verify(token, process.env.JWT_KEY as string) as any
 
     return {
         id: payload.id,
