@@ -7,6 +7,7 @@ import signup from './endpoints/signup'
 import login from './endpoints/login'
 import getProfileUser from './endpoints/getProfileUser'
 import getAnotherProfile from './endpoints/getAnotherProfile'
+import createRecipes from './endpoints/createRecipes'
 
 
 
@@ -33,6 +34,7 @@ app.post('/user/signup', signup)
 app.post('/user/login', login)
 app.get('/user/profile', getProfileUser)
 app.get('/users/profile/:id', getAnotherProfile)
+app.post('/recipes', createRecipes)
 
 
 
