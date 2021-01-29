@@ -1,5 +1,10 @@
 import * as jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
 import { AuthenticationData } from '../types/authenticationData'
+
+
+
+dotenv.config()
 
 
 

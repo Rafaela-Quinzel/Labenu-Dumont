@@ -46,7 +46,7 @@ export default async function login(req: Request, res: Response) {
 
             res.statusCode = 401
 
-            throw new Error("Senha incorreta!")
+            throw new Error("Incorrect password!")
         }
 
         const token = generateToken({
