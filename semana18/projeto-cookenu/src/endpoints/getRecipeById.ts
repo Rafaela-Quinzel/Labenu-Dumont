@@ -1,8 +1,5 @@
 import { Request, Response } from 'express'
 import selectRecipeById  from '../data/selectRecipeById'
-import { AuthenticationData } from '../types/authenticationData'
-import { getTokenData } from '../services/authenticator'
-
 
 
 export default async function getRecipeById(req: Request, res: Response): Promise<any> {
@@ -26,8 +23,6 @@ export default async function getRecipeById(req: Request, res: Response): Promis
 
 
         const recipe = await selectRecipeById(req.params.id)
-
-        console.log(recipe)
 
         res
             .status(200)
