@@ -9,6 +9,7 @@ import { getTokenData } from '../services/authenticator'
 import { Recipes } from '../types/recipes'
 import insertRecipe from '../data/insertRecipe'
 import selectUserById from '../data/selectUserById'
+import { AuthenticationData} from '../types/authenticationData'
 
 
 export default async function createRecipes(req: Request, res: Response) {
@@ -17,12 +18,12 @@ export default async function createRecipes(req: Request, res: Response) {
 
         const { title, description, cratedAt } = req.body
 
-        if (!title) {
+        if (!req.body.title) {
 
             throw new Error("Please fill in a title.")
         }
  
-        if (!description) {
+        if (!req.body.description) {
 
             throw new Error("Please fill in a description.")
         }
@@ -31,22 +32,32 @@ export default async function createRecipes(req: Request, res: Response) {
         const id: string = generate()
 
         const token = req.headers.authorization as string
+        
+        const tokenData: AuthenticationData = getTokenData(token)
 
-        const authenticationData = getTokenData(token)
+        const user_id = tokenData.id
 
-        const user_id = await selectUserById(authenticationData.id)
+        console.log(tokenData)
+       
 
-    
+        let today = Date.now()
+        let dayjs = require('dayjs')
+        today = dayjs(today, 'x').format('DD/MM/YYYY')
+
+
+
         const newRecipe: Recipes = {
             id,
             title,
             description,
-            cratedAt,
+            cratedAt: today,
             user_id
         }
 
         await insertRecipe(newRecipe)
- 
+
+
+        console.log(user_id)
  
         res
           .status(200)

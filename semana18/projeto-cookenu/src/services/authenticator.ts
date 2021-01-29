@@ -10,7 +10,7 @@ export function generateToken(input: AuthenticationData): string {
     const expiresIn = "1y"
 
 
-    const token: string = jwt.sign({ id: input, role: input.role },
+    const token: string = jwt.sign(input,
         process.env.JWT_KEY as string,
         { expiresIn })
 

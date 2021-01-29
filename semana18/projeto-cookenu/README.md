@@ -98,7 +98,7 @@ Body
 ***createRecipe***
 
 - Método: POST
-- Path: `/recipe`
+- Path: `/recipe/create`
 - Entradas:
 
 ````
