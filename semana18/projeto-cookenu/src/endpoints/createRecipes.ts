@@ -1,14 +1,8 @@
 import { Request, Response } from 'express'
 import { generate } from '../services/idGenerator'
-import { generateToken } from '../services/authenticator'
-import { User } from '../types/user'
-import { hash } from '../services/hashManager'
-import { USER_ROLES } from '../types/user'
-import  insertUser  from '../data/insertUser'
 import { getTokenData } from '../services/authenticator'
 import { Recipes } from '../types/recipes'
 import insertRecipe from '../data/insertRecipe'
-import selectUserById from '../data/selectUserById'
 import { AuthenticationData} from '../types/authenticationData'
 
 
@@ -16,7 +10,7 @@ export default async function createRecipes(req: Request, res: Response) {
 
     try {
 
-        const { title, description, cratedAt } = req.body
+        const { title, description } = req.body
 
         if (!req.body.title) {
 
@@ -37,8 +31,6 @@ export default async function createRecipes(req: Request, res: Response) {
 
         const user_id = tokenData.id
 
-        console.log(tokenData)
-       
 
         let today = Date.now()
         let dayjs = require('dayjs')
@@ -56,12 +48,10 @@ export default async function createRecipes(req: Request, res: Response) {
 
         await insertRecipe(newRecipe)
 
-
-        console.log(user_id)
  
         res
           .status(200)
-          .send({message: "User created successfully!", token })
+          .send({message: "Recipe created successfully!", token })
  
     } catch (error) {
 
