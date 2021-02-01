@@ -47,3 +47,8 @@ export const selectAllUsers = async (): Promise<any> => {
      }
 
 }
+
+
+export const deleteUser = async () => {
+    
+}

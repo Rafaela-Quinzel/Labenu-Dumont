@@ -1,8 +1,8 @@
 import { hash } from '../business/services/hashManager'
 import { generate } from '../business/services/idGenerator'
 import { generateToken } from '../business/services/authenticator'
-import { User, USER_ROLES } from '../business/entities/user'
-import  { insertUser, selectUserByLogin, selectAllUsers }  from '../data/userDatabase'
+import { authenticationData, User, USER_ROLES } from '../business/entities/user'
+import  { insertUser, selectUserByLogin, selectAllUsers, deleteUser }  from '../data/userDatabase'
 import { compare } from '../business/services/hashManager'
 import { getTokenData } from '../business/services/authenticator'
  
@@ -107,6 +107,20 @@ export const businessGetAllUsers = async (token: string) => {
 
    return users
 
+}
+
+
+export const businessDeleteUser = async (input: {token: string, id: string}) => {
+
+    const tokenData: authenticationData = getTokenData(input.token)
+
+    if(tokenData.role !== USER_ROLES.ADMIN) {
+
+        throw new Error("Only 'ADMIN' users can delete profiles.")
+    } else {
+
+        await deleteUser(input.id)
+    }
 }
     
 
