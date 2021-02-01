@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
-import  { businessSignup, businessLogin }  from '../business/userBusiness'
+import  { businessSignup, businessLogin, businessGetAllUsers }  from '../business/userBusiness'
 import { loginInput } from '../business/entities/user'
+
 
 
 
@@ -58,3 +59,27 @@ export const login = async (req: Request, res: Response) => {
         })
     }
 } 
+
+
+export const getAllUsers = async (req: Request, res: Response) => {
+
+    try {
+
+        const token: string = req.headers.authorization as string
+
+        const users = await businessGetAllUsers(token)
+        
+        res.status(200).send({
+            message: "Success", 
+            users: users
+        })
+
+    } catch (error) {
+
+        res.status(400).send({
+
+            message: error.message || error.sqlMessage
+        })
+    }
+
+}

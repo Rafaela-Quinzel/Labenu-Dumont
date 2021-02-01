@@ -29,4 +29,21 @@ export const selectUserByLogin = async (email: string) => {
 
        throw new Error(error.slqMessage || error.message)
     }
-} 
+}
+
+export const selectAllUsers = async (): Promise<any> => {
+
+    try {
+
+        const result = await connection
+        .select("id", "name", "email", "role")
+        .from("Users_Cookenu")
+
+        return result
+
+    }  catch (error) {
+
+        throw new Error(error.slqMessage || error.message)
+     }
+
+}

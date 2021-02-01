@@ -16,6 +16,12 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-   "email": "zelda@email.com",
+   "email": "adriano@email.com",
     "password": "123456"
 }
+
+
+
+### getAllUsers
+GET http://localhost:3003/users/all
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYzMjNjZWU0LWY4N2MtNDc2NS04NmJkLWQ2MzEyNGVjMzA3MSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYxMjIwNjU1MCwiZXhwIjoxNjQzNzY0MTUwfQ.EbaufbZWJOEqLfzZouddXKzwkjalWVJ65tiWg9a6SBQ

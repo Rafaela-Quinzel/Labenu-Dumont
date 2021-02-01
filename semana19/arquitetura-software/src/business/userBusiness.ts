@@ -2,9 +2,10 @@ import { hash } from '../business/services/hashManager'
 import { generate } from '../business/services/idGenerator'
 import { generateToken } from '../business/services/authenticator'
 import { User, USER_ROLES } from '../business/entities/user'
-import  { insertUser, selectUserByLogin }  from '../data/userDatabase'
+import  { insertUser, selectUserByLogin, selectAllUsers }  from '../data/userDatabase'
 import { compare } from '../business/services/hashManager'
-
+import { getTokenData } from '../business/services/authenticator'
+ 
 
 
 export const businessSignup = async (input: any) => {
@@ -96,5 +97,16 @@ export const businessLogin = async (input: any) => {
     return token
    
 } 
+
+
+export const businessGetAllUsers = async (token: string) => {
+
+   getTokenData(token)
+
+    const users: User[] = await selectAllUsers()
+
+   return users
+
+}
     
 
