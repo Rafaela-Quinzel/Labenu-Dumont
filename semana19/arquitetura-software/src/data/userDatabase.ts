@@ -49,6 +49,10 @@ export const selectAllUsers = async (): Promise<any> => {
 }
 
 
-export const deleteUser = async () => {
-    
+export const deleteUser = async (id: string) => {
+
+    await connection("Users_Cookenu")
+         .where({ id })
+         .del()
+
 }

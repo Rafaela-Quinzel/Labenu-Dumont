@@ -117,6 +117,7 @@ export const businessDeleteUser = async (input: {token: string, id: string}) => 
     if(tokenData.role !== USER_ROLES.ADMIN) {
 
         throw new Error("Only 'ADMIN' users can delete profiles.")
+
     } else {
 
         await deleteUser(input.id)
