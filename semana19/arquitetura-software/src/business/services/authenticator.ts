@@ -23,6 +23,7 @@ export function generateToken(input: authenticationData): string {
         const payload = jwt.verify(token, process.env.JWT_KEY as string) as authenticationData
     
         return {
-            id: payload.id
+            id: payload.id,
+            role: payload.role
         }
     }
