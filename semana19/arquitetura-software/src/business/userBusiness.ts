@@ -2,10 +2,10 @@ import { hash } from '../business/services/hashManager'
 import { generate } from '../business/services/idGenerator'
 import { generateToken } from '../business/services/authenticator'
 import { User, USER_ROLES } from '../business/entities/user'
-import  insertUser  from '../data/userDatabase'
+import  { insertUser }  from '../data/userDatabase'
 
 
-export default async function businessSignup(input: any) {
+export const businessSignup = async (input: any) => {
 
 
     if (!input.name) {

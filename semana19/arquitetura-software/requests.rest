@@ -2,10 +2,20 @@
 POST http://localhost:3003/user/signup
 Content-Type: application/json
 
-
 {
     "name": "Zelda",
     "email": "zelda@email.com",
     "password": "123456",
     "role": "NORMAL"
+}
+
+
+
+### login
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "zelda@email.com",
+    "password": "123456"
 }

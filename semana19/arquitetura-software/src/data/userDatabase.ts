@@ -2,7 +2,7 @@ import { connection } from './connection'
 import { User } from '../business/entities/user'
 
 
-export default async function insertUser(user: User) {
+export const insertUser = async (user: User) => {
 
     await connection.insert({
         id: user.id,
@@ -11,4 +11,6 @@ export default async function insertUser(user: User) {
         password: user.password,
         role: user.role
     }).into('Users_Cookenu')
-} 
+}
+
+

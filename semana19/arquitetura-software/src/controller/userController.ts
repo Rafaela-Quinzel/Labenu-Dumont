@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import  businessSignup  from '../business/userBusiness'
+import  { businessSignup }  from '../business/userBusiness'
 
 
 export const signup = async (req: Request, res: Response) => {
