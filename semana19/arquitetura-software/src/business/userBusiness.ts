@@ -2,7 +2,9 @@ import { hash } from '../business/services/hashManager'
 import { generate } from '../business/services/idGenerator'
 import { generateToken } from '../business/services/authenticator'
 import { User, USER_ROLES } from '../business/entities/user'
-import  { insertUser }  from '../data/userDatabase'
+import  { insertUser, selectUserByLogin }  from '../data/userDatabase'
+import { compare } from '../business/services/hashManager'
+
 
 
 export const businessSignup = async (input: any) => {
@@ -52,3 +54,47 @@ export const businessSignup = async (input: any) => {
 
     return token
 }
+
+export const businessLogin = async (input: any) => {
+
+
+    if (!input.email || input.email.indexOf("@") === -1) {
+    
+        throw new Error("Invalid email format!")
+    }
+    
+    const user = await selectUserByLogin(input.email)
+    
+    if(!user) {
+    
+        throw new Error("User not found!")
+    }
+    
+    
+    if (!input.password || input.password.length < 6) {
+    
+        throw new Error("The password must contain more than six digits.")
+    }
+    
+    
+    const passwordIsCorrect: boolean = await compare(
+        input.password,
+        user.password
+    )
+    
+    if (!passwordIsCorrect) {
+    
+        throw new Error("Senha incorreta!")
+    }
+    
+    const token = generateToken({
+        id: user.id,
+        role:user.role
+    })
+
+
+    return token
+   
+} 
+    
+

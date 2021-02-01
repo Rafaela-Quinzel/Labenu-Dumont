@@ -1,14 +1,16 @@
 import express from 'express'
 import cors from 'cors'
 import { AddressInfo } from 'net'
-import { signup } from './controller/userController'
+import { signup, login } from './controller/userController'
 
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 
+
 app.post('/user/signup', signup)
+app.post('/user/login', login)
 
 
 
