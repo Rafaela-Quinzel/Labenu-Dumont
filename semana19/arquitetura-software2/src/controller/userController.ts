@@ -1,20 +1,20 @@
 import { Request, Response } from 'express'
+import { signupInputDTO } from '../business/entities/user'
 import { getTokenData } from '../business/services/authenticator'
-import { businessCreateUser, businessGetUserById } from '../business/userBusiness'
+import { businessCreateUser, businessEditUser, businessGetUserById } from '../business/userBusiness'
 
 export const createUser = async (req: Request, res: Response) => {
 
     try {
     
-        const {name, nickname, email} = req.body
+        const input: signupInputDTO = 
+         {
+            name: req.body.name,
+            nickname: req.body.nickname,
+            email: req.body.email
+         }
 
-        const newUser = {
-            name: name, 
-            nickname: nickname, 
-            email: email
-        }
-
-        const token = await businessCreateUser(newUser)
+      const token = await businessCreateUser(input)
     
         res.status(201)
            .send({
@@ -41,7 +41,7 @@ export const editUser = async (req: Request, res: Response) => {
             nickname: nickname
         }
     
-        const token = await businessCreateUser(newUser)
+        const token = await businessEditUser(newUser)
 
         res.status(201)
            .send({

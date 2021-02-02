@@ -1,11 +1,12 @@
 import { insertUser, selectUserById, updateUser } from "../data/userDatabase"
+import { signupInputDTO } from "./entities/user"
 import { generateToken } from "./services/authenticator"
 import { generateId } from "./services/idGenerator"
 
 
 
 
-export const businessCreateUser = async (input: any) => {
+export const businessCreateUser = async (input: signupInputDTO) => {
 
     if (!input.name || !input.nickname || !input.email) {
     
@@ -24,7 +25,7 @@ export const businessCreateUser = async (input: any) => {
     
     await insertUser(newUser)
 
-    const token: string = generateToken(input.id)
+    const token: string = generateToken({ id })
 
 
     return token
