@@ -11,3 +11,10 @@ export type User = {
     nickname: string,
     email: string
 }
+
+
+export type signupInputDTO = {
+    name: string,
+    nickname: string,
+    email: string
+ }
