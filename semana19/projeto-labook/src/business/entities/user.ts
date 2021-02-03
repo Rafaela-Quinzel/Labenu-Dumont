@@ -1,8 +1,8 @@
-type AuthenticationData = {
+export type AuthenticationData = {
     id: string
 }
  
-type User = {
+export type User = {
     id: string,
     name: string,
     email: string,
