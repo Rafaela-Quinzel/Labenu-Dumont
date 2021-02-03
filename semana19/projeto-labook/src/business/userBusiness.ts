@@ -6,7 +6,7 @@ import { generateId } from "./services/idGenerator"
 
 
 
-export default async function businessSignup(input: any) {
+export const businessSignup = async (input: any) => {
 
 
     if (!input.name) {

@@ -1,7 +1,8 @@
 import * as bcrypt from "bcryptjs"
+import dotenv from "dotenv"
 
 
-
+dotenv.config()
 
 export const hash = async (
     plainText: string
