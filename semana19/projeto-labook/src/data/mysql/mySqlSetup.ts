@@ -1,4 +1,4 @@
-import {connection} from "./index"
+import {connection} from "../../index"
 
 async function createTables() {
    
