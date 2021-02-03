@@ -8,54 +8,54 @@ import { selectPostById } from '../data/postDatabase'
 
 export const createPost = async (req: Request, res: Response) => {
 
-    try {
+  try {
   
-      const { photo, description, type } = req.body
+    const { photo, description, type } = req.body
 
-      const token: string = req.headers.authorization as string
+    const token: string = req.headers.authorization as string
 
-      const tokenData: AuthenticationData = getTokenData(token)
+    const tokenData: AuthenticationData = getTokenData(token)
   
-      let today = Date.now()
-      let dayjs = require("dayjs")
-      today = dayjs(today, "x").format("YYYY/MM/DD")
+    let today = Date.now()
+    let dayjs = require("dayjs")
+    today = dayjs(today, "x").format("YYYY/MM/DD")
 
       
-      const newPost = {
-        photo,
-        description,
-        type,
-        createdAt: today,
-        authorId: tokenData.id
-      }
-  
-      await businessCreatePost(newPost)
-  
-      res.status(200).send("Post successfully created!")
-  
-    } catch (error) {
-  
-      res.status(400).send(error.message)
+    const newPost = {
+      photo,
+      description,
+      type,
+      createdAt: today,
+      authorId: tokenData.id
     }
+  
+    await businessCreatePost(newPost)
+  
+    res.status(200).send("Post successfully created!")
+  
+  } catch (error) {
+  
+    res.status(400).send(error.message)
+  }
 }
 
 
 export const getPostById = async (req: Request, res: Response) => {
 
-    try {
+  try {
 
-        const id = req.params.id 
+    const id = req.params.id 
     
-        const result = await selectPostById(id)
+    const result = await selectPostById(id)
     
-        await businessGetPostById(result)
+    await businessGetPostById(result)
     
-        res.status(200).send(result)
+    res.status(200).send(result)
     
-    } catch (error) {
+  } catch (error) {
     
-        res.status(400).send(error.message)
+    res.status(400).send(error.message)
     
-    }
+  }
 }
   

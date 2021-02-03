@@ -1,32 +1,17 @@
-/**************************** IMPORTS ******************************/
-
-import express, { Express, Request, Response } from "express"
+import express, { Express } from "express"
 import cors from "cors"
-import knex from "knex"
-import dotenv from "dotenv"
-import * as jwt from "jsonwebtoken"
-import * as bcrypt from "bcryptjs"
+import { userRouter } from "./controller/routes/userRouter"
+import { postRouter } from "./controller/routes/postRouter"
+import { connectToServer } from "./data/connectionServer"
 
-import Knex from "knex"
-
-/**************************** CONFIG ******************************/
 
 
 const app: Express = express()
 app.use(express.json())
 app.use(cors())
 
+app.use('/users', userRouter)
+app.use('/posts', postRouter) 
 
 
-/**************************** ENDPOINTS ******************************/
-
-// app.post('/users/signup', )
-// app.post('/users/login', ) 
-//app.post('/posts/create',) 
-//app.get('/posts/:id', ) 
-
-/**************************** SERVER INIT ******************************/
-
-app.listen(3003, () => {
-   console.log("Server running on port 3003")
-})
+connectToServer()
