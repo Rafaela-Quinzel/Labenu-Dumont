@@ -46,7 +46,7 @@ export const login = async (req: Request, res: Response) => {
 
 
         res.status(200).send({
-            message: "Success", 
+            message: "User logged in!", 
             token
         })
 
