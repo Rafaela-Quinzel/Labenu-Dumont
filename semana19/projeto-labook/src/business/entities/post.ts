@@ -1,10 +1,10 @@
 
-enum POST_TYPES {
+export enum POST_TYPES {
     NORMAL = "normal",
     EVENT = "event"
 }
  
-type Post = {
+export type Post = {
     id: string,
     photo: string,
     description: string,
