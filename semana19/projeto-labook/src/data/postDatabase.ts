@@ -1,6 +1,6 @@
 import { connection } from "./mysql/connection"
 import { Post } from "../business/entities/post"
-import { tablePosts } from "./mysql/tables"
+import { tablePosts } from "./mysql/tablesNames"
 
 
 export const insertPost = async(post: Post) => {

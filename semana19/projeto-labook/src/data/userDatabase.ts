@@ -1,6 +1,6 @@
 import { connection } from "./mysql/connection"
 import { User } from "../business/entities/user"
-import { tableUsers } from "./mysql/tables"
+import { tableUsers } from "./mysql/tablesNames"
 
 
 export const insertUser = async(user: User) => {
