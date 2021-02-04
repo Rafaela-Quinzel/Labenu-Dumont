@@ -1,27 +1,30 @@
-import { connection } from "./mysql/connection"
+import { BaseDatabase } from "./mysql/BaseDataBase"
 import { Post } from "../business/entities/post"
 import { tablePosts } from "./mysql/tablesNames"
 
+export class PostDatabase extends BaseDatabase{
 
-export const insertPost = async(post: Post) => {
+    insertPost = async(post: Post) => {
 
-    await connection.insert({
-        id: post.id,
-        photo: post.photo,
-        description: post.description,
-        type: post.type,
-        createdAt: post.createdAt,
-        authorId: post.authorId
-    }).into(tablePosts)
-}
+        await BaseDatabase.connection.insert({
+            id: post.id,
+            photo: post.photo,
+            description: post.description,
+            type: post.type,
+            createdAt: post.createdAt,
+            authorId: post.authorId
+        }).into(tablePosts)
+    }
 
 
-export const selectPostById = async(id: string) => {
+    selectPostById = async(id: string) => {
 
-    const result = await connection.raw(`
-        SELECT * FROM ${tablePosts}
-        WHERE id = "${id}";
-    `)
+        const result = await BaseDatabase.connection.raw(`
+            SELECT * FROM ${tablePosts}
+            WHERE id = "${id}";
+        `)
 
-    return result[0]
+        return result[0]
+    }
+
 }

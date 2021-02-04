@@ -1,8 +1,12 @@
-import { hash } from "bcryptjs"
-import { insertUser, selectUserByLogin } from "../data/userDatabase"
+import { UserDatabase } from "../data/userDatabase"
 import { User } from "./entities/user"
 import { generateToken } from "./services/authenticator"
+import { HashManager } from "./services/hashManager"
 import { generateId } from "./services/idGenerator"
+
+
+const hashManager: HashManager = new HashManager()
+const userDatabase: UserDatabase = new UserDatabase()
 
 
 
@@ -28,7 +32,7 @@ export const businessSignup = async (input: any) => {
 
     const id: string = generateId()
 
-    const cypherPassword = await hash(password)
+    const cypherPassword = await hashManager.hash(input.password)
 
     const newUser: User = {
         id,
@@ -37,7 +41,7 @@ export const businessSignup = async (input: any) => {
         password: cypherPassword
     }
 
-    await insertUser(newUser)
+    await userDatabase.insertUser(newUser)
 
     const token = generateToken({ id })
 
@@ -53,7 +57,7 @@ export const businessLogin = async (input: any) => {
         throw new Error("Invalid email format!")
     }
 
-    const user = await selectUserByLogin(input.email)
+    const user = await userDatabase.selectUserByLogin(input.email)
 
     if(!user) {
 
@@ -67,7 +71,7 @@ export const businessLogin = async (input: any) => {
     }
 
 
-    const passwordIsCorrect: boolean = await compare(
+    const passwordIsCorrect: boolean = await hashManager.compare(
         input.password,
         user.password
     )

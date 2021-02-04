@@ -1,27 +1,43 @@
-import { connection } from "./mysql/connection"
+import { BaseDatabase } from "./mysql/BaseDataBase"
 import { User } from "../business/entities/user"
 import { tableUsers } from "./mysql/tablesNames"
 
+export class UserDatabase extends BaseDatabase{
+    insertUser = async(user: User) => {
 
-export const insertUser = async(user: User) => {
-
-    await connection.insert({
-       id: user.id,
-       name: user.name,
-       email: user.email,
-       password: user.password
-    }).into(tableUsers)
-}
+        await BaseDatabase.connection.insert({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        password: user.password
+        }).into(tableUsers)
+    }
 
 
-export const selectUserByLogin = async(email: string) => {
+    selectUserByLogin = async(email: string) => {
+        
+        const result = await BaseDatabase.connection
+            .select("*")
+            .from(tableUsers)
+            .where({ email })
+
+            return result[0]
+    }
+
+
+
+    selectUserById = async (id: string) => {
+
+        const result = await BaseDatabase.connection.raw(`
+            SELECT * 
+            FROM ${tableUsers}
+            WHERE id = "${id}";
+        `)
     
-    const result = await connection
-        .select("*")
-        .from(tableUsers)
-        .where({ email })
+        return result[0][0]
+    
+    }  
 
-        return result[0]
 }
 
 

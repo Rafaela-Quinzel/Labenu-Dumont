@@ -12,3 +12,11 @@ export type Post = {
     createdAt: number,
     authorId: string
 }
+
+
+export type postInputDTO = {
+    token: string
+    photo: string,
+    description: string,
+    type: string
+} 

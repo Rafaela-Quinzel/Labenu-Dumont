@@ -1,10 +1,14 @@
 import { Request, Response } from 'express'
+import { Post, POST_TYPES } from '../business/entities/post'
 import { AuthenticationData } from '../business/entities/user'
 import { businessCreatePost, businessGetPostById } from '../business/postBusiness'
 import { getTokenData } from '../business/services/authenticator'
-import { selectPostById } from '../data/postDatabase'
+import { PostDatabase } from '../data/postDatabase'
+import { UserDatabase } from '../data/userDatabase'
 
 
+const postDatabase: PostDatabase = new PostDatabase()
+const userDatabase: UserDatabase = new UserDatabase()
 
 export const createPost = async (req: Request, res: Response) => {
 
@@ -12,26 +16,30 @@ export const createPost = async (req: Request, res: Response) => {
   
     const { photo, description, type } = req.body
 
-    const token: string = req.headers.authorization as string
+    const token = req.headers.authorization as string
 
-    const tokenData: AuthenticationData = getTokenData(token)
-  
+    const authenticationData = getTokenData(token)
+
+    const authorId = await userDatabase.selectUserById(authenticationData.id)
+          
+ 
+    
     let today = Date.now()
     let dayjs = require("dayjs")
     today = dayjs(today, "x").format("YYYY/MM/DD")
 
       
-    const newPost = {
-      photo,
-      description,
-      type,
+    const postData = {
+      photo: photo,
+      description: description,
+      type: type,
       createdAt: today,
-      authorId: tokenData.id
+      authorId: authorId
     }
   
-    await businessCreatePost(newPost)
+    const tokenPost = await businessCreatePost(postData)
   
-    res.status(200).send("Post successfully created!")
+    res.status(200).send({message: "Post successfully created!", tokenPost})
   
   } catch (error) {
   
@@ -46,7 +54,7 @@ export const getPostById = async (req: Request, res: Response) => {
 
     const id = req.params.id 
     
-    const result = await selectPostById(id)
+    const result = await postDatabase.selectPostById(id)
     
     await businessGetPostById(result)
     

@@ -14,3 +14,12 @@ export type loginInput = {
     email: string,
     password: string
 } 
+
+
+export type signupInputDTO = {
+    id: string,
+    name: string,
+    email: string,
+    password: string
+}
+
