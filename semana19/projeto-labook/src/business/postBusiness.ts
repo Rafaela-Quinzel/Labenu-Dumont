@@ -1,6 +1,7 @@
 import { PostDatabase } from "../data/postDatabase"
 import { POST_TYPES } from "./entities/post"
 import { AuthenticationData } from "./entities/user"
+import { CustomError } from "./errors/CustomError"
 import { getTokenData } from "./services/authenticator"
 import { generateId } from "./services/idGenerator"
 
@@ -14,18 +15,18 @@ export class PostBusiness {
 
         if (!input.photo) {
 
-            throw new Error("Photo not informed!")
+            throw new CustomError(400, "Photo not informed!")
         }
 
         if (!input.description) {
 
-            throw new Error("Description not informed!")
+            throw new CustomError(400, "Description not informed!")
         }
     
     
         if (input.type !== POST_TYPES.NORMAL && input.type !== POST_TYPES.EVENT) {
     
-            throw new Error(`Please fill in a type valid:"normal" or "event"`)
+            throw new CustomError(400, `Please fill in a type valid:"normal" or "event"`)
         }
     
 
@@ -53,11 +54,11 @@ export class PostBusiness {
 
     businessGetPostById = async (id: string) => {
 
-        const result = await postDatabase.selectPostById(id)
+        const result: any = await postDatabase.selectPostById(id)
 
         if (!result) {
 
-            throw new Error("Post not found!")
+            throw new CustomError(404, "Post not found!")
 
         } else {
 

@@ -1,5 +1,7 @@
 import { UserDatabase } from "../data/userDatabase"
 import { signupInputDTO, User } from "./entities/user"
+import { CustomError } from "./errors/CustomError"
+import { NotFoundError } from "./errors/NotFoundError"
 import { generateToken } from "./services/authenticator"
 import { HashManager } from "./services/hashManager"
 import { generateId } from "./services/idGenerator"
@@ -16,18 +18,18 @@ export class UserBusiness {
 
         if (!input.name) {
 
-            throw new Error("Please fill in a name.")
+            throw new CustomError(400, "Please fill in a name.")
         }
 
         if (!input.email || input.email.indexOf("@") === -1) {
 
-            throw new Error("Invalid email format!")
+            throw new CustomError(400, "Invalid email format!")
         }
 
 
         if (!input.password || input.password.length < 6) {
 
-            throw new Error("The password must contain more than six digits.")
+            throw new CustomError(400, "The password must contain more than six digits.")
 
         }
 
@@ -55,20 +57,20 @@ export class UserBusiness {
 
         if (!input.email || input.email.indexOf("@") === -1) {
 
-            throw new Error("Invalid email format!")
+            throw new CustomError(400, "Invalid email format!")
         }
 
         const user = await userDatabase.selectUserByLogin(input.email)
 
         if(!user) {
 
-            throw new Error("User not found!")
+            throw new NotFoundError("User not found!")
         }
 
 
         if (!input.password || input.password.length < 6) {
 
-            throw new Error("The password must contain more than six digits.")
+            throw new CustomError(400, "The password must contain more than six digits.")
         }
 
 
@@ -79,7 +81,7 @@ export class UserBusiness {
 
         if (!passwordIsCorrect) {
 
-            throw new Error("Incorrect password!")
+            throw new CustomError(400, "Incorrect password!")
         }
 
         const token = generateToken({

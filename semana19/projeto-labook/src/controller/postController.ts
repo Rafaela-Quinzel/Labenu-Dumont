@@ -35,7 +35,7 @@ export class PostController {
     
     } catch (error) {
     
-      res.status(400).send(error.message)
+      res.status(error.statusCode).send(error.sqlMessage || error.message)
 
     }
 
@@ -56,7 +56,7 @@ export class PostController {
       
     } catch (error) {
       
-      res.status(400).send(error.message)
+      res.status(error.statusCode).send(error.sqlMessage || error.message)
       
     }
   }
