@@ -1,5 +1,7 @@
 import { PostDatabase } from "../data/postDatabase"
-import { Post, POST_TYPES } from "./entities/post"
+import { POST_TYPES } from "./entities/post"
+import { AuthenticationData } from "./entities/user"
+import { getTokenData } from "./services/authenticator"
 import { generateId } from "./services/idGenerator"
 
 
@@ -9,28 +11,40 @@ const postDatabase: PostDatabase = new PostDatabase()
 export const businessCreatePost = async (input: any) => {
 
 
-    if (!input.photo || !input.description) {
+    if (!input.photo) {
 
-        throw new Error("Photo or description not informed!")
+        throw new Error("Photo not informed!")
+    }
+
+    if (!input.description) {
+
+        throw new Error("Description not informed!")
     }
  
  
     if (input.type !== POST_TYPES.NORMAL && input.type !== POST_TYPES.EVENT) {
  
-        throw new Error(`Please fill in a type valid:"NORMAL" or "EVENT"`)
+        throw new Error(`Please fill in a type valid:"normal" or "event"`)
     }
  
+
+    const tokenData: AuthenticationData = getTokenData(input.token)
+
     const id: string = generateId()
- 
+
+    let today = Date.now()
+    let dayjs = require('dayjs')
+    today = dayjs(today, 'x').format('DD/MM/YYYY')
+
     const newPost = {
-        id: id, 
-        photo: input.photo, 
+        id: id,
+        photo: input.photo,
         description: input.description,
-        type: input.type, 
-        createdAt: input.createdAt, 
-        authorId: input.authorId
-    }  
- 
+        type: input.type,
+        created_at: input.today,
+        author_id: tokenData.id
+    }
+
     await postDatabase.insertPost(newPost)
  
 }

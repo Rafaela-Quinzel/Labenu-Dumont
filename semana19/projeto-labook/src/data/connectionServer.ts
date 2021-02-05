@@ -2,7 +2,7 @@ import express, { Express } from "express"
 import { AddressInfo } from "net"
 
 
-export const connectToServer = async () => {
+export async function connectToServer() {
 
     const app: Express = express()
     
@@ -14,4 +14,7 @@ export const connectToServer = async () => {
         console.error(`Failure upon starting server.`)
         }
     })
+
+    
 }
+

@@ -11,8 +11,8 @@ export class PostDatabase extends BaseDatabase{
             photo: post.photo,
             description: post.description,
             type: post.type,
-            createdAt: post.createdAt,
-            authorId: post.authorId
+            created_at: post.created_at,
+            author_id: post.author_id
         }).into(tablePosts)
     }
 

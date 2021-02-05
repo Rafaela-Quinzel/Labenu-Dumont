@@ -24,20 +24,6 @@ export class UserDatabase extends BaseDatabase{
             return result[0]
     }
 
-
-
-    selectUserById = async (id: string) => {
-
-        const result = await BaseDatabase.connection.raw(`
-            SELECT * 
-            FROM ${tableUsers}
-            WHERE id = "${id}";
-        `)
-    
-        return result[0][0]
-    
-    }  
-
 }
 
 

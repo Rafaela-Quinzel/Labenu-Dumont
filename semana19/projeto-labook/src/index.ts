@@ -14,4 +14,8 @@ app.use('/users', userRouter)
 app.use('/posts', postRouter) 
 
 
-connectToServer()
+// connectToServer()
+
+app.listen(3003, () => {
+    console.log('Servidor rodando na porta 3003')
+ })

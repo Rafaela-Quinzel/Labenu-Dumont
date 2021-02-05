@@ -1,18 +1,16 @@
 import * as jwt from "jsonwebtoken"
 import { AuthenticationData } from "../entities/user"
 
-
+const expiresIn = "1y"
 
 export function generateToken(
-   payload: AuthenticationData
+   input: AuthenticationData
 ): string {
-   return jwt.sign(
-      payload,
+   const token: string = jwt.sign(input,
       process.env.JWT_KEY as string,
-       {
-         expiresIn: process.env.JWT_EXPIRES_IN
-       }
-   )
+      { expiresIn })
+
+  return token
 }
  
 export function getTokenData(
@@ -23,5 +21,5 @@ export function getTokenData(
       process.env.JWT_KEY as string
    )
  
-   return { id: result.id, }
+   return { id: result.id }
 }
