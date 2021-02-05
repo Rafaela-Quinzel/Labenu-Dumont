@@ -1,5 +1,5 @@
 import { UserDatabase } from "../data/userDatabase"
-import { User } from "./entities/user"
+import { signupInputDTO, User } from "./entities/user"
 import { generateToken } from "./services/authenticator"
 import { HashManager } from "./services/hashManager"
 import { generateId } from "./services/idGenerator"
@@ -9,84 +9,87 @@ const hashManager: HashManager = new HashManager()
 const userDatabase: UserDatabase = new UserDatabase()
 
 
-
-export const businessSignup = async (input: any) => {
-
-
-    if (!input.name) {
-
-        throw new Error("Please fill in a name.")
-    }
-
-    if (!input.email || input.email.indexOf("@") === -1) {
-
-        throw new Error("Invalid email format!")
-    }
+export class UserBusiness {
+    
+    businessSignup = async (input: signupInputDTO) => {
 
 
-    if (!input.password || input.password.length < 6) {
+        if (!input.name) {
 
-        throw new Error("The password must contain more than six digits.")
+            throw new Error("Please fill in a name.")
+        }
 
-    }
+        if (!input.email || input.email.indexOf("@") === -1) {
 
-    const id: string = generateId()
-
-    const cypherPassword = await hashManager.hash(input.password)
-
-    const newUser: User = {
-        id,
-        name: input.name,
-        email: input.email,
-        password: cypherPassword
-    }
-
-    await userDatabase.insertUser(newUser)
-
-    const token = generateToken({ id })
-
-    return token
-} 
+            throw new Error("Invalid email format!")
+        }
 
 
-export const businessLogin = async (input: any) => {
+        if (!input.password || input.password.length < 6) {
+
+            throw new Error("The password must contain more than six digits.")
+
+        }
+
+        const id: string = generateId()
+
+        const cypherPassword = await hashManager.hash(input.password)
+
+        const newUser: User = {
+            id,
+            name: input.name,
+            email: input.email,
+            password: cypherPassword
+        }
+
+        await userDatabase.insertUser(newUser)
+
+        const token = generateToken({ id })
+
+        return token
+    } 
 
 
-    if (!input.email || input.email.indexOf("@") === -1) {
-
-        throw new Error("Invalid email format!")
-    }
-
-    const user = await userDatabase.selectUserByLogin(input.email)
-
-    if(!user) {
-
-        throw new Error("User not found!")
-    }
+    businessLogin = async (input: any) => {
 
 
-    if (!input.password || input.password.length < 6) {
+        if (!input.email || input.email.indexOf("@") === -1) {
 
-        throw new Error("The password must contain more than six digits.")
-    }
+            throw new Error("Invalid email format!")
+        }
 
+        const user = await userDatabase.selectUserByLogin(input.email)
 
-    const passwordIsCorrect: boolean = await hashManager.compare(
-        input.password,
-        user.password
-    )
+        if(!user) {
 
-    if (!passwordIsCorrect) {
-
-        throw new Error("Incorrect password!")
-    }
-
-    const token = generateToken({
-        id: user.id
-    })
+            throw new Error("User not found!")
+        }
 
 
-    return token
+        if (!input.password || input.password.length < 6) {
 
-} 
+            throw new Error("The password must contain more than six digits.")
+        }
+
+
+        const passwordIsCorrect: boolean = await hashManager.compare(
+            input.password,
+            user.password
+        )
+
+        if (!passwordIsCorrect) {
+
+            throw new Error("Incorrect password!")
+        }
+
+        const token = generateToken({
+            id: user.id
+        })
+
+
+        return token
+
+    } 
+
+}
 
