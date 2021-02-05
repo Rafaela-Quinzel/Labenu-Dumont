@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { loginInput } from '../business/entities/user'
+import { loginInputDTO } from '../business/entities/user'
 import  { UserBusiness }  from '../business/userBusiness'
 
 
@@ -40,7 +40,7 @@ export class UserController {
         
         try {
 
-            const input: loginInput = {
+            const input: loginInputDTO = {
                 email: req.body.email,
                 password: req.body.password
             }

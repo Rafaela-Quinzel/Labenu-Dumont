@@ -1,36 +1,38 @@
-// import {connection} from '../mysql/connection'
+import { BaseDatabase } from "../mysql/BaseDataBase"
 
 
-// async function createTables() {
-   
-//    try {
-//       await connection.raw(`
-//          CREATE TABLE labook_users(
-//             id VARCHAR(255) PRIMARY KEY,
-//             name VARCHAR(255) NOT NULL,
-//             email VARCHAR(255) UNIQUE NOT NULL,
-//             password VARCHAR(255) NOT NULL
-//          )
-//       `)
+class Setup extends BaseDatabase {
 
-//       await connection.raw(`
-//          CREATE TABLE labook_posts(
-//             id VARCHAR(255) PRIMARY KEY,
-//             photo VARCHAR(255) NOT NULL,
-//             description VARCHAR(255) NOT NULL,
-//             type ENUM("normal","event") DEFAULT "normal",
-//             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-//             author_id VARCHAR(255),
-//             FOREIGN KEY (author_id) REFERENCES labook_users (id)
-//          )
-//       `)
+    public async createTables() {
+    
+        try {
+            await BaseDatabase.connection.raw(`
+                CREATE TABLE labook_users(
+                    id VARCHAR(255) PRIMARY KEY,
+                    name VARCHAR(255) NOT NULL,
+                    email VARCHAR(255) UNIQUE NOT NULL,
+                    password VARCHAR(255) NOT NULL
+                )
+            `)
 
-//       console.log("MySql setup completed!")
+            await BaseDatabase.connection.raw(`
+                CREATE TABLE labook_posts(
+                    id VARCHAR(255) PRIMARY KEY,
+                    photo VARCHAR(255) NOT NULL,
+                    description VARCHAR(255) NOT NULL,
+                    type ENUM("normal","event") DEFAULT "normal",
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    author_id VARCHAR(255),
+                    FOREIGN KEY (author_id) REFERENCES labook_users (id)
+                )
+            `)
 
-//    } catch (error) {
+            console.log("MySql setup completed!")
 
-//       console.log(error)
-//    }
-// }
+        } catch (error) {
 
-// createTables()
+            console.log(error)
+        }
+    }
+}
+new Setup().createTables()

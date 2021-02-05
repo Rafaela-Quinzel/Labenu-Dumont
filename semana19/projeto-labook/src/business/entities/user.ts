@@ -10,7 +10,7 @@ export type User = {
 }
 
 
-export type loginInput = {
+export type loginInputDTO = {
     email: string,
     password: string
 } 
