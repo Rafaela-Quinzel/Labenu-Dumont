@@ -12,7 +12,7 @@ export enum NACIONALITY {
 export interface User {
   name: string;
   age: number;
-  nacionality: NACIONALITY;
+  nacionality: NACIONALITY
 }
 
 export interface Casino {
