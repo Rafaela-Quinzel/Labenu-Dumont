@@ -74,3 +74,10 @@ test("Testing balance greater than value", () => {
 	expect(result).toEqual(undefined)
 })
 ````
+
+
+# EXERCÍCIO 03
+
+
+c) Resposta:
+- Pensar em todos os casos posíveis para analisar.
