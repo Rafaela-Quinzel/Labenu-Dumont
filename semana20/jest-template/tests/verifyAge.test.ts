@@ -2,113 +2,217 @@ import { Casino, LOCATION, NACIONALITY, User, verifyAge } from "../src/verifyAge
 
 describe('Verify age', () => {
 
-    test("1 brazilian allowed", () => {
-        
-        const brazilian: User = {
-          name: "Astrodev",
-          age: 19,
-          nacionality: NACIONALITY.BRAZILIAN
-        }
-    
-        const casino: Casino = {
-          name: "Balada Estelar",
-          location: LOCATION.BRAZIL,
-        }
-    
-        const result = verifyAge(casino, [brazilian])
-        expect(result.brazilians.allowed).toEqual(["Astrodev"])
-    })
+  test("1 brazilian allowed", () => {
+
+    const brazilian: User = {
+      name: "Astrodev",
+      age: 19,
+      nacionality: NACIONALITY.BRAZILIAN
+    }
+
+    const casino: Casino = {
+      name: "Balada Estelar",
+      location: LOCATION.BRAZIL,
+    }
+
+    const result = verifyAge(casino, [brazilian])
+    expect(result.brazilians.allowed).toEqual(["Astrodev"])
+  })
 
 
-    test("1 american allowed", () => {
-        const brazilian: User = {
-          name: "Astrodev",
-          age: 19,
-          nacionality: NACIONALITY.AMERICAN,
-        }
-    
-        const casino: Casino = {
-          name: "Balada Estelar",
-          location: LOCATION.BRAZIL,
-        }
-    
-        const result = verifyAge(casino, [brazilian])
-        expect(result.americans.allowed).toEqual(["Astrodev"])
-    })
+  test("1 american allowed", () => {
+    const brazilian: User = {
+      name: "Astrodev",
+      age: 19,
+      nacionality: NACIONALITY.AMERICAN,
+    }
+
+    const casino: Casino = {
+      name: "Balada Estelar",
+      location: LOCATION.BRAZIL,
+    }
+
+    const result = verifyAge(casino, [brazilian])
+    expect(result.americans.allowed).toEqual(["Astrodev"])
+  })
 
 
-    test("No one allowed", () => {
-        const brazilian: User = {
-          name: "Astrodev BR",
-          age: 19,
-          nacionality: NACIONALITY.BRAZILIAN,
-        }
-    
-        const american: User = {
-          name: "Astrodev EUA",
-          age: 19,
-          nacionality: NACIONALITY.AMERICAN,
-        }
-    
-        const casino: Casino = {
-          name: "Balada Estelar",
-          location: LOCATION.EUA,
-        }
-    
-        const result = verifyAge(casino, [
-          brazilian,
-          brazilian,
-          american,
-          american,
-        ])
+  test("No one allowed", () => {
+    const brazilian: User = {
+      name: "Astrodev BR",
+      age: 19,
+      nacionality: NACIONALITY.BRAZILIAN,
+    }
 
-        expect(result.brazilians.unallowed).toEqual([
-            "Astrodev BR",
-            "Astrodev BR"
-        ])
+    const american: User = {
+      name: "Astrodev EUA",
+      age: 19,
+      nacionality: NACIONALITY.AMERICAN,
+    }
 
-        expect(result.americans.unallowed).toEqual([
-          "Astrodev EUA",
-          "Astrodev EUA",
-        ])
-    })
+    const casino: Casino = {
+      name: "Balada Estelar",
+      location: LOCATION.EUA,
+    }
+
+    const result = verifyAge(casino, [
+      brazilian,
+      brazilian,
+      american,
+      american,
+    ])
+
+    expect(result.brazilians.unallowed).toEqual([
+      "Astrodev BR",
+      "Astrodev BR"
+    ])
+
+    expect(result.americans.unallowed).toEqual([
+      "Astrodev EUA",
+      "Astrodev EUA",
+    ])
+  })
 
 
-    
-    test("2 american allowed and 2 brazilians unallowed", () => {
-        const brazilian: User = {
-        name: "Astrodev BR",
-        age: 19,
-        nacionality: NACIONALITY.BRAZILIAN,
-        }
 
-        const american: User = {
-        name: "Astrodev EUA",
-        age: 21,
-        nacionality: NACIONALITY.AMERICAN,
-        }
+  test("2 american allowed and 2 brazilians unallowed", () => {
+    const brazilian: User = {
+      name: "Astrodev BR",
+      age: 19,
+      nacionality: NACIONALITY.BRAZILIAN,
+    }
 
-        const casino: Casino = {
-        name: "Balada Estelar",
-        location: LOCATION.EUA,
-        }
+    const american: User = {
+      name: "Astrodev EUA",
+      age: 21,
+      nacionality: NACIONALITY.AMERICAN,
+    }
 
-        const result = verifyAge(casino, [
-        brazilian,
-        brazilian,
-        american,
-        american,
-        ])
+    const casino: Casino = {
+      name: "Balada Estelar",
+      location: LOCATION.EUA,
+    }
 
-        expect(result.brazilians.unallowed).toEqual([
-            "Astrodev BR",
-            "Astrodev BR"
-        ])
+    const result = verifyAge(casino, [
+      brazilian,
+      brazilian,
+      american,
+      american,
+    ])
 
-        expect(result.americans.allowed).toEqual([
-            "Astrodev EUA",
-            "Astrodev EUA"
-        ])
-    })
+    expect(result.brazilians.unallowed).toEqual([
+      "Astrodev BR",
+      "Astrodev BR"
+    ])
+
+    expect(result.americans.allowed).toEqual([
+      "Astrodev EUA",
+      "Astrodev EUA"
+    ])
+  })
+
+})
+
+
+// Exercício 05
+describe('Verify age', () => {
+
+  test("1 brazilian allowed", () => {
+
+    const brazilian: User = {
+      name: "Astrodev",
+      age: 19,
+      nacionality: NACIONALITY.BRAZILIAN,
+    }
+
+    const casino: Casino = {
+      name: "Balada Estelar",
+      location: LOCATION.BRAZIL,
+    }
+
+    const result = verifyAge(casino, [brazilian])
+    expect(result.brazilians.allowed.length).toBeGreaterThan(0)
+    expect(result.brazilians.allowed.length).toBeLessThan(2)
+  })
+
+
+  test("1 american allowed", () => {
+
+    const brazilian: User = {
+      name: "Astrodev",
+      age: 19,
+      nacionality: NACIONALITY.AMERICAN,
+    }
+
+    const casino: Casino = {
+      name: "Balada Estelar",
+      location: LOCATION.BRAZIL,
+    }
+
+    const result = verifyAge(casino, [brazilian])
+    expect(result.americans.unallowed.length).toBe(0)
+  })
+
+
+  test("No one allowed", () => {
+    const brazilian: User = {
+      name: "Astrodev BR",
+      age: 19,
+      nacionality: NACIONALITY.BRAZILIAN,
+    }
+
+    const american: User = {
+      name: "Astrodev EUA",
+      age: 19,
+      nacionality: NACIONALITY.AMERICAN,
+    }
+
+    const casino: Casino = {
+      name: "Balada Estelar",
+      location: LOCATION.EUA,
+    }
+
+    const result = verifyAge(casino, [
+      brazilian,
+      brazilian,
+      american,
+      american,
+    ])
+
+    expect(result.brazilians.unallowed).toContain("Astrodev BR");
+    expect(result.americans.unallowed).toContain("Astrodev EUA");
+  })
+
+
+
+  test("2 american allowed and 2 brazilians unallowed", () => {
+    const brazilian: User = {
+      name: "Astrodev BR",
+      age: 19,
+      nacionality: NACIONALITY.BRAZILIAN,
+    }
+
+    const american: User = {
+      name: "Astrodev EUA",
+      age: 21,
+      nacionality: NACIONALITY.AMERICAN,
+    }
+
+    const casino: Casino = {
+      name: "Balada Estelar",
+      location: LOCATION.EUA,
+    }
+
+    const result = verifyAge(casino, [
+      brazilian,
+      brazilian,
+      american,
+      american,
+    ])
+
+    expect(result.brazilians.unallowed.length).toBeGreaterThan(1)
+    expect(result.americans.unallowed.length).toBeLessThan(1)
+    expect(result.americans.allowed.length).toBe(2)
+  })
 
 })
