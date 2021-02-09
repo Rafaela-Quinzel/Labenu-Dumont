@@ -28,4 +28,31 @@ c) Resposta:
 - Na inversão de dependência a função 
  de validação está sendo criada/chamada dentro dos 
  parâmetros e retringindo um tipo de retorno boolean.
+
+
+
+# EXERCÍCIO 04
  
+a) Resposta:
+- Acredito que seja a função validateCharacter devido a validação de dados, pois senão não seria possível rodar a próxima função.
+
+
+b) Resposta:
+````
+test("Creating Mocks", () => {
+
+    const validatorMock = jest.fn(() => {
+		return true
+	})
+})
+````
+
+c) Resposta:
+````
+test("Creating Mocks", () => {
+
+    const validatorMock = jest.fn(() => {
+		return false
+	})
+})
+````
