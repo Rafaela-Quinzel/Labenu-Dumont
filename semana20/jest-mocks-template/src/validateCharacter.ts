@@ -27,3 +27,5 @@ export const validateCharacter = (input: Character): boolean => {
 
     return true
 }
+
+
