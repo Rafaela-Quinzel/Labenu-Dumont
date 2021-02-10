@@ -5,4 +5,9 @@ const userController: UserController = new UserController()
 
 export const userRouter = express.Router()
 
-userRouter.get("/profile/:id", userController.getUserById)
+
+userRouter.post("/signup", userController.signup)
+userRouter.get("/login", userController.login)
+userRouter.get("/:id", userController.getUserById)
+userRouter.get("/all", userController.getAllUsers)
+userRouter.get("/profile/:id", userController.getUserProfile)
