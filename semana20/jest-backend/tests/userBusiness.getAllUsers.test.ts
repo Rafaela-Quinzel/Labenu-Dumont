@@ -75,7 +75,7 @@ describe("Testing getAllUsers Business", () => {
             { id: "mockId", role: USER_ROLES.ADMIN }
         )
         expect(userDatabase.getAllUsers).toHaveBeenCalled()
-        expect(output.length).toBe(1);
+        expect(output.length).toBe(1)
         expect(output).toEqual([{
             id: "mockId",
             name: "Mock User",
