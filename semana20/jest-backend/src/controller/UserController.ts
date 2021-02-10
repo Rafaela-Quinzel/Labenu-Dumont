@@ -36,7 +36,7 @@ export class UserController {
         }
     }
 
-    
+
     public async login(req: Request, res: Response) {
         try {
 
@@ -65,6 +65,23 @@ export class UserController {
 
         } catch (error) {
 
+            const { statusCode, message } = error
+
+            res.status(statusCode || 400).send({ message })
+        }
+    }
+
+    public async getAllUsers(req: Request, res: Response) {
+
+        try {
+
+            const token: string = req.headers.authorization!
+
+            const result = await userBusiness.getAllUsers(token)
+
+            res.status(200).send(result)
+
+        } catch (error) {
             const { statusCode, message } = error
 
             res.status(statusCode || 400).send({ message })

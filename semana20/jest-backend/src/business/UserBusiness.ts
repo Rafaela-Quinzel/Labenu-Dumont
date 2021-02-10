@@ -3,7 +3,7 @@ import { CustomError } from "../erros/CustomError"
 import { TokenGenerator } from "../services/tokenGenerator"
 import { HashGenerator } from "../services/hashGenerator"
 import { IdGenerator } from "../services/idGenerator"
-import { stringToUserRole, User } from "../model/User"
+import { stringToUserRole, User, USER_ROLES } from "../model/User"
 
 
 export class UserBusiness {
@@ -116,7 +116,28 @@ export class UserBusiness {
         } catch (error) {
 
             throw new CustomError(error.statusCode, error.message)
-            
+
         }
     }
+
+    public async getAllUsers(token: string) {
+
+        try {
+            const userData = this.tokenGenerator.verify(token)
+
+            if (stringToUserRole(userData.role) !== USER_ROLES.ADMIN) {
+                throw new CustomError(401, "Only ADMIN users have access to this information")
+            }
+
+            const users = await this.userDatabase.getAllUsers()
+
+            return users
+            
+        } catch (error) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
+
+
+
 }
