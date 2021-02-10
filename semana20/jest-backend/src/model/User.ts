@@ -1,3 +1,4 @@
+import { CustomError } from "../erros/CustomError"
 
 export enum USER_ROLES{
     NORMAL = "NORMAL",
@@ -34,9 +35,14 @@ export class User {
   }
 }
 
-export interface signupInputDTO {
-    name: string,
-    email: string,
-    password: string,
-    role: USER_ROLES
-}
+export const stringToUserRole = (input: string): USER_ROLES => {
+  switch (input) {
+    case "NORMAL":
+      return USER_ROLES.NORMAL
+    case "ADMIN":
+      return USER_ROLES.ADMIN
+    default:
+      throw new CustomError(422, "Invalid user role")
+  }
+};
+
