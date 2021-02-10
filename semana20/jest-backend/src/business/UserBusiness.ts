@@ -51,7 +51,7 @@ export class UserBusiness {
             })
 
             return { accessToken }
-            
+
         } catch (error) {
             if (error.message.includes("email")) {
                 throw new CustomError(409, "Email already in use")
@@ -97,12 +97,13 @@ export class UserBusiness {
 
 
     public async getUserById(id: string) {
+
         try {
 
             const user = await this.userDatabase.getUserById(id)
 
             if (!user) {
-                throw new Error("User not found")
+                throw new CustomError(404, "User not found")
             }
 
             return {
@@ -114,7 +115,8 @@ export class UserBusiness {
 
         } catch (error) {
 
-            throw new CustomError(404, "User not found")
+            throw new CustomError(error.statusCode, error.message)
+            
         }
     }
 }
