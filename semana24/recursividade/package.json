@@ -1,0 +1,9 @@
+{
+   "name": "recursividade",
+   "version": "1.0.0",
+   "main": "index.js",
+   "scripts": {
+      "Exercicio01": "tsc && node ./build/recursive/Exercicio01.js"
+   },
+   "license": "ISC"
+}
