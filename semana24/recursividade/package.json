@@ -4,7 +4,8 @@
    "main": "index.js",
    "scripts": {
       "Exercicio01": "tsc && node ./build/recursive/Exercicio01.js",
-      "Exercicio02": "tsc && node ./build/recursive/Exercicio02.js"
+      "Exercicio02": "tsc && node ./build/recursive/Exercicio02.js",
+      "Exercicio03": "tsc && node ./build/iteractive/Exercicio03.js"
    },
    "license": "ISC"
 }
