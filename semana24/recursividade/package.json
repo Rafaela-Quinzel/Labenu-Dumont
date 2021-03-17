@@ -5,7 +5,8 @@
    "scripts": {
       "Exercicio01": "tsc && node ./build/recursive/Exercicio01.js",
       "Exercicio02": "tsc && node ./build/recursive/Exercicio02.js",
-      "Exercicio03": "tsc && node ./build/iteractive/Exercicio03.js"
+      "Exercicio03": "tsc && node ./build/iteractive/Exercicio03.js",
+      "Exercicio04": "tsc && node ./build/recursive/Exercicio04.js"
    },
    "license": "ISC"
 }
