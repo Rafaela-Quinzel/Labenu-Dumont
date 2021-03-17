@@ -3,7 +3,8 @@
    "version": "1.0.0",
    "main": "index.js",
    "scripts": {
-      "Exercicio01": "tsc && node ./build/recursive/Exercicio01.js"
+      "Exercicio01": "tsc && node ./build/recursive/Exercicio01.js",
+      "Exercicio02": "tsc && node ./build/recursive/Exercicio02.js"
    },
    "license": "ISC"
 }
