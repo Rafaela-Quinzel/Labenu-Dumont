@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "ex01": "tsc && node ./build/exercicio01.js",
-    "ex02": "tsc && node ./build/exercicio02.js"
+    "ex02": "tsc && node ./build/exercicio02.js",
+    "ex03": "tsc && node ./build/exercicio03.js"
   },
   "keywords": [],
   "author": "",
