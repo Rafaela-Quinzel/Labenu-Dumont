@@ -23,3 +23,5 @@ export class Stack {
         }
     }
 }
+const oldStack = new Stack()
+console.log(oldStack.isEmpty())

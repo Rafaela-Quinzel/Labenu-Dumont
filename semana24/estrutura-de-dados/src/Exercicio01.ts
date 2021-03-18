@@ -37,4 +37,10 @@ export class LinkedList {
         return currentNode
     }
 }
+const names: LinkedList = new LinkedList(new LinkedListNode("Rafaela"))
+names.addToTail("Amanda")
+
+console.log(JSON.stringify(names, null, 2))
+names.print(names)
+
 
