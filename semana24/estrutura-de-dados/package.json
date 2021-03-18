@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ex01": "tsc && node ./build/exercicio01.js"
+    "ex01": "tsc && node ./build/exercicio01.js",
+    "ex02": "tsc && node ./build/exercicio02.js"
   },
   "keywords": [],
   "author": "",
