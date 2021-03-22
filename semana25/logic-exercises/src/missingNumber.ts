@@ -13,4 +13,4 @@ export const findMissingNumber = (array: number[]): number | void => {
         return 100
     } 
 }
-console.log(findMissingNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+console.log(findMissingNumber([1, 2, 3, 5, 6, 7, 8, 9, 10]))
