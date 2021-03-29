@@ -1,4 +1,4 @@
-function lonelyNumber(input: number[]) {
+export function lonelyNumber(input: number[]) {
     let result = input.filter(function (value: any) {
         return input.indexOf(value) === input.lastIndexOf(value)
     })

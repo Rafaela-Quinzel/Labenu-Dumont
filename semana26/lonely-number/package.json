@@ -5,9 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node ./build/lonelyNumber.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "clear && echo \"Running tests...\" && jest"
   },
   "keywords": [],
   "author": "Rafaela-Quinzel",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.22"
+  },
+  "dependencies": {
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.3"
+  }
 }
