@@ -1,0 +1,13 @@
+{
+  "name": "anagram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/isAnagram.js",
+    "test": "clear && echo \"Running tests...\" && jest"
+  },
+  "keywords": [],
+  "author": "Rafaela-Quinzel",
+  "license": "ISC"
+}
