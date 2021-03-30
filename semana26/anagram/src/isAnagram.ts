@@ -1,4 +1,4 @@
-function isAnagram(word1: string, word2: string) {
+export function isAnagram(word1: string, word2: string) {
     return word1.split("").sort().join("") === word2.split("").sort().join("")
 }
 console.log(isAnagram("gato", "toga")) //true
