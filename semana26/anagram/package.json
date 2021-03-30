@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./build/isAnagram.js",
+    "start": "tsc && node ./build/src/isAnagram.js",
     "test": "clear && echo \"Running tests...\" && jest"
   },
   "keywords": [],
